@@ -12,7 +12,7 @@ class VehicleTestModules:
     ErrorCount = 0
 
     def __init__(self):
-        self.driver = webdriver.Chrome(r"C:\Users\NickMarine\PycharmProjects\test\drivers\chromedriver.exe")
+        self.driver = webdriver.Chrome(r"C:\drivers\chromedriver.exe")
         self.CurrentModule = "Initialization"
         self.ErrorCount = 0
 
