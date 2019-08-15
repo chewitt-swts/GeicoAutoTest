@@ -41,21 +41,6 @@ def preconditionD(anObject):
     anObject.next_button_4()
     return
 
-#TC_E01
-try:
-    Test_E01 = Auto_Geico_Test()
-    preconditionD(Test_E01)
-
-    Test_E01.vehicle_not_listed_class_0()
-    Test_E01.next_button_x()
-    print("test E01 ran successfully")
-except Exception as err:
-    print('Test E01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
-    print(err.args)
-    print("An error occured while running automation test for Geico Test E01:")
-    print(err.__module__)
-    print(str(err))
-
 
 #GEICO HELP TEST CASES
 #TC_A01
@@ -197,7 +182,20 @@ except Exception as err:
     print("An error occured while running automation test for Geico Test D01:")
     print(err.__module__)
 
+#TC_E01
+try:
+    Test_E01 = Auto_Geico_Test()
+    preconditionD(Test_E01)
 
+    Test_E01.vehicle_not_listed_class_0()
+    Test_E01.next_button_x()
+    print("test E01 ran successfully")
+except Exception as err:
+    print('Test E01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test E01:")
+    print(err.__module__)
+    print(str(err))
 
 
 
