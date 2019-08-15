@@ -134,35 +134,6 @@ except Exception as err:
     print(err.__module__)
 
 
-#TC_C01 - WHEN WERE YOU BORN
-try:
-    Test_C01 = Auto_Geico_Test()
-    preconditionB(Test_C01)
-
-    Test_C01.month_dob_0()
-    Test_C01.day_dob_0()
-    Test_C01.year_dob_0()
-    Test_C01.next_button_2()
-except Exception as err:
-    print('Test C01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
-    print(err.args)
-    print("An error occured while running automation test for Geico Test C01:")
-    print(err.__module__)
-
-#TC_D01 - WHAT'S YOUR ADDRESS,APARTMENT, ZIP CODE
-try:
-    Test_D01 = Auto_Geico_Test()
-    preconditionC(Test_D01)
-
-
-except Exception as err:
-    print('Test D01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
-    print(err.args)
-    print("An error occured while running automation test for Geico Test D01:")
-    print(err.__module__)
-
-
-
 
 
 
