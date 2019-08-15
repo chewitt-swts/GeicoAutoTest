@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 
 
-driver = webdriver.Chrome(r"C:\Users\GaryTsokatos\PycharmProjects\Trial Run\Drivers\chromedriver.exe")
+driver = webdriver.Chrome(r"C:\drivers\chromedriver.exe", options=chrome_options)
 wait = WebDriverWait(driver, 10)
 
 class Auto_Geico_Test:
@@ -252,6 +252,7 @@ def select_primary_use(self, index):
             print("Exception thrown:\t" + str(err))
 
 #skipped ahead to Driver Info, missing a couple Nexts and other options; am labeling Next Buttons below according to the Excel spreadsheet, beginning on cell Q3
+
 
     def gender_select_0(self):
         GenderSelect0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'gender')))
