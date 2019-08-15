@@ -10,7 +10,7 @@ while True:
 
         # this goes through  the flow of adding a vehicle
         gvt.get_to_vehicle_page()
-        gvt.select_specific_vehicle(3, 2, 3)
+        gvt.select_specific_vehicle(2, 5, 4)
         gvt.select_specific_body_style(1)           # doesnt always run
         gvt.select_specific_new_costs(2)            # doesnt always run
         gvt.select_antilock_brakes(0)               # doesnt always run
