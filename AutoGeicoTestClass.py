@@ -14,6 +14,9 @@ chrome_options.add_argument('-incognito')
 driver = webdriver.Chrome(r"C:\drivers\chromedriver.exe", options=chrome_options)
 wait = WebDriverWait(driver, 10)
 
+
+
+
 class Auto_Geico_Test:
 
     def __init__(self):
@@ -23,7 +26,7 @@ class Auto_Geico_Test:
     def zip_input_0(self):
         self.driver.get('http://geico.com')
         zipInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'zip')))
-        action(self.driver).move_to_element(zipInput0).click().send_keys('60640').send_keys(u'\ue007').perform()
+        action(self.driver).move_to_element(zipInput0).click().send_keys('60629').send_keys(u'\ue007').perform()
         return
 
     #Testing the 1st of 5 options -- "I need insurance right away"
@@ -134,19 +137,20 @@ class Auto_Geico_Test:
         NextButton2.click()
         return
 
+#what is your address funtions
     def street_input_0(self):
         StreetInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'street')))
-        action(self.driver).move_to_element(StreetInput0).click().send_keys('164561 Random').perform()
+        action(self.driver).move_to_element(StreetInput0).click().send_keys('6609 S Karlov').perform()
         return
 
     def apt_input_0(self):
         AptInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'apt')))
-        action(self.driver).move_to_element(AptInput0).click().send_keys('3 Random').perform()
+        action(self.driver).move_to_element(AptInput0).click().send_keys('3').perform()
         return
 
     def zip_input_1(self):
         ZipInput1 = self.wait.until(ec.element_to_be_clickable((By.ID, 'zip')))
-        action(self.driver).move_to_element(ZipInput1).click().send_keys('12345').perform()
+        action(self.driver).move_to_element(ZipInput1).click().send_keys('60629').perform()
         return
 
     def next_button_3(self):
@@ -168,6 +172,24 @@ class Auto_Geico_Test:
     def have_you_moved(self):
         HasMovedInLast2MonthsLabel1 = self.driver.find_element_by_xpath("//label[@for='hasMovedInLast2Months1']")
         action(self.driver).move_to_element(HasMovedInLast2MonthsLabel1).click().send_keys(Keys.TAB).send_keys(Keys.ENTER).perform()
+        return
+
+    def next_button_3(self):
+        time.sleep(2)
+        NextButton3 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
+        NextButton3.click()
+        return
+
+    def vehicle_not_listed_class_0(self):
+        time.sleep(2)
+        VehicleNotListed = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[1]/div/div/div[1]/div[1]/div/div/div/div[1]/div[3]/div/fieldset/div/div/label')
+        VehicleNotListed.click()
+        return
+
+    def next_button_x(self):
+        time.sleep(2)
+        NextButtonx = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
+        NextButtonx.click()
         return
 
     def anti_theft_device(self):
