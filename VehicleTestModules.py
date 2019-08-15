@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 
-class GeicoVehicleTest:
+class VehicleTestModules:
 
     driver = webdriver
     CurrentModule = ""
