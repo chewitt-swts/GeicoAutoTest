@@ -1,11 +1,4 @@
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select as select
-from selenium.webdriver.common.action_chains import ActionChains as action
-import time
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
+
 from AutoGeicoTestClass import Auto_Geico_Test
 import sys
 
@@ -30,10 +23,39 @@ def preconditionB(anObject):
 def preconditionC(anObject):
     preconditionA(anObject)
     preconditionB(anObject)
-    anObject.apt_input_0()
+    anObject.month_dob_0()
+    anObject.day_dob_0()
+    anObject.year_dob_0()
+    anObject.next_button_2()
+    return
+
+    #these are the steps from test cases A, B, C and D in order to do test case E01
+def preconditionD(anObject):
+    preconditionA(anObject)
+    preconditionB(anObject)
+    preconditionC(anObject)
+    anObject.street_input_0()
     anObject.zip_input_1()
     anObject.next_button_3()
+    anObject.verify_address_0()
+    anObject.next_button_4()
     return
+
+#TC_E01
+try:
+    Test_E01 = Auto_Geico_Test()
+    preconditionD(Test_E01)
+
+    Test_E01.vehicle_not_listed_class_0()
+    Test_E01.next_button_x()
+    print("test E01 ran successfully")
+except Exception as err:
+    print('Test E01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test E01:")
+    print(err.__module__)
+    print(str(err))
+
 
 #GEICO HELP TEST CASES
 #TC_A01
@@ -43,6 +65,7 @@ try:
     Test_A01.zip_input_0()
     Test_A01.customer_intent_0()
     Test_A01.next_button_0()
+    print("test case A01 ran successfully")
 except Exception as err:
     print('Test A01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -57,6 +80,7 @@ try:
     Test_A02.zip_input_0()
     Test_A02.customer_intent_1()
     Test_A02.next_button_0()
+    print("test case A02 ran successfully")
 except Exception as err:
     print('Test A02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -71,6 +95,7 @@ try:
     Test_A03.zip_input_0()
     Test_A03.customer_intent_2()
     Test_A03.next_button_0()
+    print("test case A03 ran successfully")
 except Exception as err:
     print('Test A03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -84,6 +109,7 @@ try:
     Test_A04.zip_input_0()
     Test_A04.customer_intent_3()
     Test_A04.next_button_0()
+    print("test case A04 ran successfully")
 except Exception as err:
     print('Test A04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -98,6 +124,7 @@ try:
     Test_A05.zip_input_0()
     Test_A05.customer_intent_4()
     Test_A05.next_button_0()
+    print("test case A05 ran successfully")
 except Exception as err:
     print('Test A05' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -112,6 +139,7 @@ try:
     Test_A06.zip_input_0()
     Test_A06.customer_intent_5()
     Test_A06.next_button_0()
+    print("test case A06 ran successfully")
 except Exception as err:
     print('Test A06' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -127,6 +155,7 @@ try:
     Test_B01.first_name_input_0()
     Test_B01.last_name_input_0()
     Test_B01.next_button_1()
+    print("test case B01 ran successfully")
 except Exception as err:
     print('Test B01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -142,6 +171,7 @@ try:
     Test_C01.day_dob_0()
     Test_C01.year_dob_0()
     Test_C01.next_button_2()
+    print("test case C01 ran successfully")
 except Exception as err:
     print('Test C01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -153,7 +183,14 @@ try:
     Test_D01 = Auto_Geico_Test()
     preconditionC(Test_D01)
 
-
+    Test_D01.street_input_0()
+    #Test_D01.apt_input_0()
+    Test_D01.zip_input_1()
+    Test_D01.next_button_3()
+    Test_D01.verify_address_0()
+    Test_D01.next_button_4()
+    #Test_D01.have_you_moved()
+    print("test D01 ran successfully")
 except Exception as err:
     print('Test D01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
