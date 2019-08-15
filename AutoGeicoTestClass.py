@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 
 
-driver = webdriver.Chrome(r"C:\Users\CheyanneHewitt\PycharmProjects\test\Drivers\chromedriver.exe")
+driver = webdriver.Chrome(r"C:\Users\GaryTsokatos\PycharmProjects\Trial Run\Drivers\chromedriver.exe")
 wait = WebDriverWait(driver, 10)
 
 class Auto_Geico_Test:
@@ -62,6 +62,18 @@ class Auto_Geico_Test:
         CustomerIntent4.click()
         BeginQuoteButton0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Begin Quote')]")))
         BeginQuoteButton0.click()
+        return
+
+    def customer_intent_5(self):
+        time.sleep(3)
+        self.driver.find_element_by_xpath("//div[@class='button-bar']")
+        #CustomerIntent5 = self.wait.until(ec.element_to_be_clickable((By.__class__, "button-bar")))
+        CustomerIntent5 = self.driver.find_element_by_xpath("//*[@id='auto-customer-collect-intent-modal']/div/div/div/div[1]/div/div[2]/a")
+        CustomerIntent5.click()
+        #BeginQuoteButton0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Begin Quote')]")))
+        #BeginQuoteButton0.click()
+       # NextButton0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[@class='btn.btn--primary']")))
+        #NextButton0.click()
         return
 
       # skipping the Customer Intent/help page
