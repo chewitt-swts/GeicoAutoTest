@@ -8,6 +8,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('-incognito')
 
 driver = webdriver.Chrome(r"C:\drivers\chromedriver.exe", options=chrome_options)
 wait = WebDriverWait(driver, 10)
