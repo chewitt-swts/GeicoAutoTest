@@ -207,78 +207,78 @@ class Auto_Geico_Test:
     # 0 = owned, 1 = financed, 2 = leased
 
 
-def select_ownership(self, index):
-    try:
-        time.sleep(3)
+    def select_ownership(self, index):
+        try:
+            time.sleep(3)
 
-        if index == 0:
-            VehicleOwned0 = self.driver.find_element_by_xpath("//label[@for='vehicleOwned0']")
-            action(self.driver).move_to_element(VehicleOwned0).click().perform()
-        if index == 1:
-            VehicleOwned1 = self.driver.find_element_by_xpath("//label[@for='vehicleOwned1']")
-            action(self.driver).move_to_element(VehicleOwned1).click().perform()
-        if index == 2:
-            VehicleOwned2 = self.driver.find_element_by_xpath("//label[@for='vehicleOwned2']")
-            action(self.driver).move_to_element(VehicleOwned2).click().perform()
-    except Exception as err:
-        print("Exception thrown:\t" + str(err))
+            if index == 0:
+                VehicleOwned0 = self.driver.find_element_by_xpath("//label[@for='vehicleOwned0']")
+                action(self.driver).move_to_element(VehicleOwned0).click().perform()
+            if index == 1:
+                VehicleOwned1 = self.driver.find_element_by_xpath("//label[@for='vehicleOwned1']")
+                action(self.driver).move_to_element(VehicleOwned1).click().perform()
+            if index == 2:
+                VehicleOwned2 = self.driver.find_element_by_xpath("//label[@for='vehicleOwned2']")
+                action(self.driver).move_to_element(VehicleOwned2).click().perform()
+        except Exception as err:
+            print("Exception thrown:\t" + str(err))
 
     # index guide
     # 0 = commute, 1 = pleasure, 2 = business
 
 
-def select_primary_use(self, index):
-    try:
-        time.sleep(3)
+    def select_primary_use(self, index):
+        try:
+            time.sleep(3)
 
-        if index == 0:
-            PrimaryUse0 = self.driver.find_element_by_xpath("//label[@for='primaryUse0']")
-            action(self.driver).move_to_element(PrimaryUse0).click().perform()
-            self.primary_use_commute(1, 200)
-        if index == 1:
-            PrimaryUse1 = self.driver.find_element_by_xpath("//label[@for='primaryUse1']")
-            action(self.driver).move_to_element(PrimaryUse1).click().perform()
-        if index == 2:
-            PrimaryUse2 = self.driver.find_element_by_xpath("//label[@for='primaryUse2']")
-            action(self.driver).move_to_element(PrimaryUse2).click().perform()
-            self.primary_use_business(1)
-    except Exception as err:
-        print("Exception thrown:\t" + str(err))
+            if index == 0:
+                PrimaryUse0 = self.driver.find_element_by_xpath("//label[@for='primaryUse0']")
+                action(self.driver).move_to_element(PrimaryUse0).click().perform()
+                self.primary_use_commute(1, 200)
+            if index == 1:
+                PrimaryUse1 = self.driver.find_element_by_xpath("//label[@for='primaryUse1']")
+                action(self.driver).move_to_element(PrimaryUse1).click().perform()
+            if index == 2:
+                PrimaryUse2 = self.driver.find_element_by_xpath("//label[@for='primaryUse2']")
+                action(self.driver).move_to_element(PrimaryUse2).click().perform()
+                self.primary_use_business(1)
+        except Exception as err:
+            print("Exception thrown:\t" + str(err))
 
     # menu options for commuting
-def primary_use_commute(self, index, miles):
-    try:
-        time.sleep(1)
-        DaysDrivenSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='daysDriven']"))
-        DaysDrivenSelect0.select_by_index(index)
+    def primary_use_commute(self, index, miles):
+        try:
+            time.sleep(1)
+            DaysDrivenSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='daysDriven']"))
+            DaysDrivenSelect0.select_by_index(index)
 
-        MilesDrivenInput0 = self.driver.find_element_by_xpath("//input[@id='milesDriven']")
-        action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(miles)).perform()
-    except Exception as err:
-        print("Exception thrown:\t" + str(err))
-
-
-def select_annual_mileage(self, index):
-    try:
-        time.sleep(1)
-        AnnualMileageSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='annualMileage']"))
-        AnnualMileageSelect0.select_by_index(index)
-    except Exception as err:
-        print("Exception thrown:\t" + str(err))
+            MilesDrivenInput0 = self.driver.find_element_by_xpath("//input[@id='milesDriven']")
+            action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(miles)).perform()
+        except Exception as err:
+            print("Exception thrown:\t" + str(err))
 
 
-def primary_use_business(self, index):
-    try:
-        time.sleep(1)
-        TypeOfBusinessUseSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfBusinessUse']"))
-        TypeOfBusinessUseSelect0.select_by_index(index)
-    except Exception as err:
-        print("Exception thrown:\t" + str(err))
+    def select_annual_mileage(self, index):
+        try:
+            time.sleep(1)
+            AnnualMileageSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='annualMileage']"))
+            AnnualMileageSelect0.select_by_index(index)
+        except Exception as err:
+            print("Exception thrown:\t" + str(err))
+
+
+    def primary_use_business(self, index):
+        try:
+            time.sleep(1)
+            TypeOfBusinessUseSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfBusinessUse']"))
+            TypeOfBusinessUseSelect0.select_by_index(index)
+        except Exception as err:
+            print("Exception thrown:\t" + str(err))
 
 #skipped ahead to Driver Info, missing a couple Nexts and other options; am labeling Next Buttons below according to the Excel spreadsheet, beginning on cell Q3
 
 
-def gender_select_0(self):
-    GenderSelect0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'gender')))
+    def gender_select_0(self):
+        GenderSelect0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'gender')))
 
-    return
+        return
