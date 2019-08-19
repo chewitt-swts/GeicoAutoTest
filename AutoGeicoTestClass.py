@@ -8,20 +8,33 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('-incognito')
-
-driver = webdriver.Chrome(r"C:\drivers\chromedriver.exe", options=chrome_options)
-wait = WebDriverWait(driver, 10)
-
-
-
-
 class Auto_Geico_Test:
 
+    chrome_options = webdriver.ChromeOptions
+
+    driver = webdriver
+    wait = WebDriverWait
+    ErrorCount = 0
+    CurrentModule = ""
+
     def __init__(self):
-        self.driver = driver
-        self.wait = wait
+        self.chrome_options = webdriver.ChromeOptions()
+        self.chrome_options.add_argument('-icognito')
+        self.driver = webdriver.Chrome(r"C:\drivers\chromedriver.exe", options=self.chrome_options)
+        self.CurrentModule = "Initialization"
+        self.ErrorCount = 0
+        self.wait = WebDriverWait(self.driver, 10)
+        self.driver.implicitly_wait(5)
+
+    # function for generic buttons
+    def go_next(self):
+        try:
+            self.CurrentModule = "go_next"
+            time.sleep(1)
+            NextButton0 = self.driver.find_element_by_xpath("//button[contains(text(), 'Next')]")
+            action(self.driver).move_to_element(NextButton0).click().click().perform()
+        except Exception as err:
+            self.error_message(err)
 
     def zip_input_0(self):
         self.driver.get('http://geico.com')
@@ -181,8 +194,8 @@ class Auto_Geico_Test:
         return
 
     def vehicle_not_listed_class_0(self):
-        time.sleep(2)
-        VehicleNotListed = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[1]/div/div/div[1]/div[1]/div/div/div/div[1]/div[3]/div/fieldset/div/div/label')
+        time.sleep(4)
+        VehicleNotListed = self.driver.find_element_by_xpath("//label[@for='chkVehicle2']")
         VehicleNotListed.click()
         return
 
@@ -192,16 +205,33 @@ class Auto_Geico_Test:
         NextButtonx.click()
         return
 
-    def anti_theft_device(self):
-        # index guide
-        # 0 = no anti theft, 1 = alarm only/active disabling device, 2 = passive disabling device
-        def select_specific_antitheft_device(self, index):
-            try:
-                time.sleep(3)
-                AntiTheftDeviceSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='antiTheftDevice']"))
-                AntiTheftDeviceSelect0.select_by_index(index)
-            except:
-                print("no anti-theft device")
+    def select_antitheft_devices(self):
+        try:
+            self.CurrentModule = "select_antitheft_devices"
+
+            AntiTheftDeviceSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='antiTheftDevice']"))))
+
+            ATDOption = 0
+
+            while ATDOption < len(AntiTheftDeviceSelect0.options):
+                AntiTheftDeviceSelect0.select_by_index(ATDOption)
+                ATDOption = ATDOption + 1
+        except Exception as err:
+            self.error_message(err)
+
+    # index guide
+    # 0 = no anti theft, 1 = alarm only/active disabling device, 2 = passive disabling device
+    def select_specific_antitheft_device(self, index):
+        try:
+            self.CurrentModule = "select_specific_antitheft_device"
+            AntiTheftDeviceSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='antiTheftDevice']"))))
+            AntiTheftDeviceSelect0.select_by_index(index)
+
+            self.go_next()
+        except Exception as err:
+            self.error_message(err)
 
     # index guide
     # 0 = owned, 1 = financed, 2 = leased
@@ -275,10 +305,272 @@ class Auto_Geico_Test:
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
-#skipped ahead to Driver Info, missing a couple Nexts and other options; am labeling Next Buttons below according to the Excel spreadsheet, beginning on cell Q3
+    # only use this to pass through this stage, not good for testing functionality
+    # indices available is reliant on the previous elements
+    def select_specific_vehicle(self, year_index, make_index, model_index):
+        try:
+            self.CurrentModule = "select_specific_vehicle"
+            VehicleYearSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYear']"))))
+            VehicleYearSelect0.select_by_index(year_index)
+            VehicleMakeSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleMake']"))))
+            VehicleMakeSelect0.select_by_index(make_index)
+            VehicleModelSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModel']"))))
+            VehicleModelSelect0.select_by_index(model_index)
 
+            self.go_next()
 
-    def gender_select_0(self):
-        GenderSelect0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'gender')))
+        except Exception as err:
+            self.error_message_vehicle(err, year_index, make_index, model_index)
+
+    # only use this to pass through this stage, not good for testing functionality
+    # indices available is reliant on the previous elements
+    def select_specific_vehicle_unlisted(self, year_index, make_index, model_index):
+        try:
+            self.CurrentModule = "select_specific_vehicle"
+            VehicleYearSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYearunlisted']"))))
+            VehicleYearSelect0.select_by_index(year_index)
+            VehicleMakeSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleMakeunlisted']"))))
+            VehicleMakeSelect0.select_by_index(make_index)
+            VehicleModelSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModelunlisted']"))))
+            VehicleModelSelect0.select_by_index(model_index)
+
+            self.go_next()
+
+        except Exception as err:
+            self.error_message_vehicle(err, year_index, make_index, model_index)
+
+    def select_vehicles(self):
+
+        self.CurrentModule = "select_vehicles"
+
+        ### NOW WE CAN TEST FOR THE ADDING OF VEHCILES ###
+
+        VehicleYearSelect0 = Select(
+            self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYear']"))))
+
+        YearOption = 0
+
+        while YearOption < len(VehicleYearSelect0.options) - 1:
+            try:
+                VehicleYearSelect0.select_by_index(YearOption)
+            except:
+                VehicleYearSelect0 = Select(
+                    self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYear']"))))
+                VehicleYearSelect0.select_by_index(YearOption)
+
+            VehicleMakeSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleMake']"))))
+
+            MakeOption = 1
+            while MakeOption < len(VehicleMakeSelect0.options):
+                try:
+                    VehicleMakeSelect0.select_by_index(MakeOption)
+                except:
+                    VehicleMakeSelect0 = Select(
+                        self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleMake']"))))
+                    VehicleMakeSelect0.select_by_index(MakeOption)
+
+                VehicleModelSelect0 = Select(
+                    self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModel']"))))
+
+                ModelOption = 1
+                while ModelOption < len(VehicleModelSelect0.options):  # it really starts to slow down over here
+                    try:
+                        VehicleModelSelect0.select_by_index(ModelOption)
+                    except:
+                        VehicleModelSelect0 = Select(
+                            self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModel']"))))
+                        VehicleModelSelect0.select_by_index(ModelOption)
+
+                    # time.sleep(1)
+                    ModelOption = ModelOption + 1
+                MakeOption = MakeOption + 1
+            YearOption = YearOption + 1
+
+    def add_vehicle_pre1981(self, year, make, model):
+        try:
+            self.CurrentModule = "add_vehicle_pre1981"
+
+            VehicleYearSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYear']"))))
+            VehicleYearSelect0.select_by_index(len(VehicleYearSelect0.options) - 1)
+
+            ActualVehicleYearInput0 = self.wait.until(
+                ec.element_to_be_clickable((By.XPATH, "//input[@id='actualVehicleYear']")))
+            action(self.driver).move_to_element(ActualVehicleYearInput0).click().send_keys(
+                str(year)).perform()
+
+            OtherMakeInput0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//input[@id='otherMake']")))
+            action(self.driver).move_to_element(OtherMakeInput0).click().send_keys(str(make)).perform()
+
+            OtherModelInput0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//input[@id='otherModel']")))
+            action(self.driver).move_to_element(OtherModelInput0).click().send_keys(str(model)).perform()
+
+            self.go_next()
+        except Exception as err:
+            self.error_message_vehicle(err, year, make, model)
+
+    def select_body_styles(self):
+        try:
+            self.CurrentModule = "select_body_styles"
+
+            BodyStylesSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='bodyStyles']"))))
+
+            BSSOption = 0
+            while BSSOption < len(BodyStylesSelect0.options):
+                BodyStylesSelect0.select_by_index(BSSOption)
+                BSSOption = BSSOption + 1
+
+        except Exception as err:
+            self.error_message(err)
+
+    def select_specific_body_style(self, index):
+        try:
+            self.CurrentModule = "select_specific_body_styles"
+
+            BodyStylesSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='bodyStyles']"))))
+
+            BodyStylesSelect0.select_by_index(index)
+
+            self.go_next()
+        except Exception as err:
+            self.error_message(err)
+
+    def select_specific_body_style_unlisted(self, index):
+        try:
+            self.CurrentModule = "select_specific_body_styles"
+
+            BodyStylesSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='bodyStylesunlisted']"))))
+
+            BodyStylesSelect0.select_by_index(index)
+
+            self.go_next()
+        except Exception as err:
+            self.error_message(err)
+
+    def select_new_costs(self):
+
+        try:
+            self.CurrentModule = "select_new_costs"
+
+            CostNewValueSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='costNewValue']"))))
+
+            CNVSOption = 0
+            while CNVSOption < len(CostNewValueSelect0.options):
+                CostNewValueSelect0.select_by_index(CNVSOption)
+                CNVSOption = CNVSOption + 1
+
+        except Exception as err:
+            self.error_message(err)
+
+    def select_specific_new_costs(self, index):
+
+        try:
+            self.CurrentModule = "select_specific_new_costs"
+
+            CostNewValueSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='costNewValue']"))))
+            CostNewValueSelect0.select_by_index(index)
+
+            self.go_next()
+        except Exception as err:
+            self.error_message(err)
+
+    def select_antilock_brakes(self, index):
+        try:
+
+            self.CurrentModule = "select_antilock_brakes"
+
+            if index == 0:
+                AntilockBrakesLabel0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//label[@for='hasAntilockBrakes0']")))
+                action(self.driver).move_to_element(AntilockBrakesLabel0).click().perform()
+                self.go_next()
+            if index == 1:
+                AntilockBrakesLabel1 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//label[@for='hasAntilockBrakes1']")))
+                action(self.driver).move_to_element(AntilockBrakesLabel1).click().perform()
+                self.go_next()
+
+        except Exception as err:
+            self.error_message(err)
+
+    #skipped ahead to Driver Info, missing a couple Nexts and other options; am labeling Next Buttons below according to the Excel spreadsheet, beginning on cell Q3
+
+    def name_change_0(self):
+        NameChange0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'changeName')))
+        NameChange0.click()
+
+        FirstNameInput1 = self.wait.until(ec.element_to_be_clickable((By.ID, 'firstName')))
+        action(self.driver).move_to_element(FirstNameInput1).click().send_keys('Abcdefghij').perform()
+
+        LastNameInput1 = self.wait.until(ec.element_to_be_clickable((By.ID, 'lastName')))
+        action(self.driver).move_to_element(LastNameInput1).click().send_keys('Ioewmaowenglweirb').perform()
 
         return
+
+    def gender_select_0(self):
+        #index values: value "F" = female; value "M" = Male
+
+        GenderSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='gender']"))
+        GenderSelect0.select_by_value('M')
+
+        NextButton4 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
+        NextButton4.click()
+        return
+
+    def marital_status_0(self):
+        #Index values for dropdown: "S" = Single; "D" = Divorced; "M" = Married; "B" = Civil Union; "E" = Separated; "W" = Widowed
+
+        MaritalStatusSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='maritalStatus']"))
+        MaritalStatusSelect0.select_by_value('S')
+        return
+
+    def social_security_number_0(self):
+        #negative test case to determine whether element will accept alphabet characters
+        SocialSecurityNumber0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'ssn')))
+        action(self.driver).move_to_element(SocialSecurityNumber0).click().send_keys('Ioewmaowenglweirb').perform()
+        return
+
+    def social_security_number_1(self):
+        #test case to determine whether element will accept 8 numeric characters (the full length of a SSN)
+        SocialSecurityNumber0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'ssn')))
+        action(self.driver).move_to_element(SocialSecurityNumber0).click().send_keys('12345678').perform()
+        return
+
+    def social_security_number_2(self):
+        #test case to determine whether element will accept fewer than 8 numeric characters (a partial SSN)
+        SocialSecurityNumber0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'ssn')))
+        action(self.driver).move_to_element(SocialSecurityNumber0).click().send_keys('123456').perform()
+        return
+
+    # these functions get you to the page to add vehicles
+    def get_to_vehicle_page(self):
+        self.driver.get("https://www.geico.com/")
+        self.zip_input_0()
+        self.skip_help_page()
+        self.go_next()
+        self.first_name_input_0()
+        self.last_name_input_0()
+        self.go_next()
+        self.month_dob_0()
+        self.day_dob_0()
+        self.year_dob_0()
+        self.go_next()
+        self.street_input_0()
+        self.apt_input_0()
+        self.zip_input_1()
+        self.go_next()
+        self.vehicle_not_listed_class_0()
+        self.go_next()
+
+
+    def error_message(self, err):
+        self.ErrorCount = self.ErrorCount + 1
+        print("Exception thrown on module:\t" + str(self.CurrentModule))
+        print(str(err))
+        print("Error Count:\t" + str(self.ErrorCount))
+
+    def error_message_vehicle(self, err, year, make, model):
+        self.error_message(err)
+        print("Year:\t" + str(year) + " Make:\t" + str(make) + " Model:\t" + str(model))
