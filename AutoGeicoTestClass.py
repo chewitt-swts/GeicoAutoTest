@@ -95,7 +95,7 @@ class Auto_Geico_Test:
         return
 
       # skipping the Customer Intent/help page
-    def skip_help_page(self):
+    def skip_help_page_0(self):
         time.sleep(2)
         butbar = self.driver.find_element_by_class_name("button-bar")
         SkipA0 = butbar.find_element_by_class_name("skip-collect-intent.link--primary")
