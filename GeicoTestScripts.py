@@ -185,11 +185,12 @@ except Exception as err:
 #TC_E01
 try:
     Test_E01 = Auto_Geico_Test()
-    preconditionD(Test_E01)
+    # preconditionD(Test_E01)
 
     Test_E01.vehicle_not_listed_class_0()
     Test_E01.next_button_x()
     print("test E01 ran successfully")
+
 except Exception as err:
     print('Test E01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
