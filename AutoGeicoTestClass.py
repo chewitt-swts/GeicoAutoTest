@@ -195,13 +195,9 @@ class Auto_Geico_Test:
     def anti_theft_device(self):
         # index guide
         # 0 = no anti theft, 1 = alarm only/active disabling device, 2 = passive disabling device
-        def select_specific_antitheft_device(self, index):
-            try:
-                time.sleep(3)
-                AntiTheftDeviceSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='antiTheftDevice']"))
-                AntiTheftDeviceSelect0.select_by_index(index)
-            except:
-                print("no anti-theft device")
+        time.sleep(3)
+        AntiTheftDeviceSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='antiTheftDevice']"))
+        AntiTheftDeviceSelect0.select_by_index(1)
 
     # index guide
     # 0 = owned, 1 = financed, 2 = leased
@@ -277,8 +273,49 @@ class Auto_Geico_Test:
 
 #skipped ahead to Driver Info, missing a couple Nexts and other options; am labeling Next Buttons below according to the Excel spreadsheet, beginning on cell Q3
 
+    def name_change_0(self):
+        NameChange0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'changeName')))
+        NameChange0.click()
+
+        FirstNameInput1 = self.wait.until(ec.element_to_be_clickable((By.ID, 'firstName')))
+        action(self.driver).move_to_element(FirstNameInput1).click().send_keys('Abcdefghij').perform()
+
+        LastNameInput1 = self.wait.until(ec.element_to_be_clickable((By.ID, 'lastName')))
+        action(self.driver).move_to_element(LastNameInput1).click().send_keys('Ioewmaowenglweirb').perform()
+
+        return
 
     def gender_select_0(self):
-        GenderSelect0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'gender')))
+        #index values: value "F" = female; value "M" = Male
 
+        GenderSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='gender']"))
+        GenderSelect0.select_by_value('M')
+
+        NextButton4 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
+        NextButton4.click()
+        return
+
+    def marital_status_0(self):
+        #Index values for dropdown: "S" = Single; "D" = Divorced; "M" = Married; "B" = Civil Union; "E" = Separated; "W" = Widowed
+
+        MaritalStatusSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='maritalStatus']"))
+        MaritalStatusSelect0.select_by_value('S')
+        return
+
+    def social_security_number_0(self):
+        #negative test case to determine whether element will accept alphabet characters
+        SocialSecurityNumber0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'ssn')))
+        action(self.driver).move_to_element(SocialSecurityNumber0).click().send_keys('Ioewmaowenglweirb').perform()
+        return
+
+    def social_security_number_1(self):
+        #test case to determine whether element will accept 8 numeric characters (the full length of a SSN)
+        SocialSecurityNumber0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'ssn')))
+        action(self.driver).move_to_element(SocialSecurityNumber0).click().send_keys('12345678').perform()
+        return
+
+    def social_security_number_2(self):
+        #test case to determine whether element will accept fewer than 8 numeric characters (a partial SSN)
+        SocialSecurityNumber0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'ssn')))
+        action(self.driver).move_to_element(SocialSecurityNumber0).click().send_keys('123456').perform()
         return
