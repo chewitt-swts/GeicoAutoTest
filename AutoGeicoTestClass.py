@@ -574,3 +574,78 @@ class Auto_Geico_Test:
     def error_message_vehicle(self, err, year, make, model):
         self.error_message(err)
         print("Year:\t" + str(year) + " Make:\t" + str(make) + " Model:\t" + str(model))
+
+
+    #Testing "Own" radio button on Do You Own Or Rent Your Home? page
+    def home_ownership_0(self):
+        OwnLabel0 = self.driver.find_element_by_xpath("//label[@for='ownOrRentHome0']")
+        action(self.driver).move_to_element(OwnLabel0).click().perform()
+        return
+
+    #Testing "Rent" radio button on Do You Own Or Rent Your Home? page
+    def home_ownership_0(self):
+        RentLabel0 = self.driver.find_element_by_xpath("//label[@for='ownOrRentHome1']")
+        action(self.driver).move_to_element(RentLabel0).click().perform()
+        return
+
+    #testing each option in the Do You Currently Have Auto Insurance? dropdown menu
+    def current_insured_status_0(self):
+        #dropdown values: blank value is index 0; "O" = Yes, index 1; "N" = No, I haven't needed insurance, index 2; "R" = No, my insurance ran out, index 3; "D" = No, I was deployed, index 4
+        HasAutoInsurance0 = Select(self.driver.find_element_by_xpath("//select[@id='hasAutoInsurance']"))
+        HasAutoInsurance0.select_by_index(0)
+        return
+
+    def current_insured_status_1(self):
+        #dropdown values: blank value is index 0; "O" = Yes, index 1; "N" = No, I haven't needed insurance, index 2; "R" = No, my insurance ran out, index 3; "D" = No, I was deployed, index 4
+        HasAutoInsurance0 = Select(self.driver.find_element_by_xpath("//select[@id='hasAutoInsurance']"))
+        HasAutoInsurance0.select_by_index(1)
+        return
+
+    def current_insured_status_2(self):
+        #dropdown values: blank value is index 0; "O" = Yes, index 1; "N" = No, I haven't needed insurance, index 2; "R" = No, my insurance ran out, index 3; "D" = No, I was deployed, index 4
+        HasAutoInsurance0 = Select(self.driver.find_element_by_xpath("//select[@id='hasAutoInsurance']"))
+        HasAutoInsurance0.select_by_index(2)
+        return
+
+    def current_insured_status_3(self):
+        #dropdown values: blank value is index 0; "O" = Yes, index 1; "N" = No, I haven't needed insurance, index 2; "R" = No, my insurance ran out, index 3; "D" = No, I was deployed, index 4
+        HasAutoInsurance0 = Select(self.driver.find_element_by_xpath("//select[@id='hasAutoInsurance']"))
+        HasAutoInsurance0.select_by_index(3)
+        return
+
+    def current_insured_status_4(self):
+        #dropdown values: blank value is index 0; "O" = Yes, index 1; "N" = No, I haven't needed insurance, index 2; "R" = No, my insurance ran out, index 3; "D" = No, I was deployed, index 4
+        HasAutoInsurance0 = Select(self.driver.find_element_by_xpath("//select[@id='hasAutoInsurance']"))
+        HasAutoInsurance0.select_by_index(4)
+        return
+
+    #Testing each element on the Previous Insurance disclosure page (title: "Tell us more about your previous insurance").
+    # 3 major element groups on this page: a dropdown menu where you can select how many years you had been continuously covered by previous insurer when your insurance ran out; 2 radio buttons for the question "Have you had insurance within the last 30 days?"; and another dropdown menu labelled "Previous Bodily Injury Limits"
+    def previous_insurance_disclosure_0(self):
+        #Testing 1st dropdown menu.
+        #Dropdown index/values: index 0/value is blank; index 1/value "0" = Less than 1; index 2/value "1" = 1; index 3/value "2" = 2; index 4/value "3" = 3; index 5/value "4" = 4; index 6/value "5" = 5; index 7/value "6" = 6; index 8/value "7" = 7; index 9/value "8" = 8; index 10/value "9" = 9; index 11/value "10" = 10; index 12/value "11" = 11 or more
+        PreviousInsuranceSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='yearsInsured']"))
+        PreviousInsuranceSelect0.select_by_index(3)
+        return
+
+    def previous_insurance_disclosure_1(self):
+        #Testing radio button elements
+        Last30DaysYes = self.driver.find_element_by_xpath("//label[@for='lastInsurance0']")
+        action(self.driver).move_to_element(Last30DaysYes).click().perform()
+        return
+
+    def previous_insurance_disclosure_2(self):
+        #Testing radio button elements
+        Last30DaysNo = self.driver.find_element_by_xpath("//label[@for='lastInsurance1']")
+        action(self.driver).move_to_element(Last30DaysNo).click().perform()
+        return
+
+    def previous_insurance_disclosure_3(self):
+        #Testing Previous Bodily Injury Limits dropdown menu.
+        #Dropdown index/values: index 0/value is blank; index 1/value "025" = "$25,000/$50,000"; index 2/value "051" = "$50,000/$100,000" ; index 3/value "120" = "$100,000/$200,000"; index 4/value "130" = "$100,000/$300,000"; index 5/value "330" = "$300,000/$300,000"; index 6/value "250" = "$250,000/$500,000 or higher"; index 7/value "997" = "Not Sure"
+        PreviousBILimits0 = Select(self.driver.find_element_by_xpath("//select[@id='currentBILimits']"))
+        PreviousBILimits0.select_by_index(3)
+        return
+
+    def current_insurance_disclosure_0(self):
+        #
