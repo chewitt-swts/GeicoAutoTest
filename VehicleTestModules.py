@@ -124,14 +124,17 @@ class VehicleTestModules:
     # indices available is reliant on the previous elements
     def select_specific_vehicle(self, year_index, make_index, model_index):
         try:
-            self.CurrentModule = "select_specific_vehicle"
-            VehicleYearSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYear']"))))
-            VehicleYearSelect0.select_by_index(year_index)
-            VehicleMakeSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleMake']"))))
-            VehicleMakeSelect0.select_by_index(make_index)
-            VehicleModelSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModel']"))))
-            VehicleModelSelect0.select_by_index(model_index)
 
+            self.CurrentModule = "select_specific_vehicle"
+            VehicleYearSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYear']"))))
+            VehicleYearSelect0.select_by_index(year_index)
+            VehicleMakeSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleMake']"))))
+            VehicleMakeSelect0.select_by_index(make_index)
+            VehicleModelSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModel']"))))
+            VehicleModelSelect0.select_by_index(model_index)
             self.go_next()
 
         except Exception as err:
