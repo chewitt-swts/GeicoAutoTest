@@ -1,9 +1,20 @@
 
 from AutoGeicoTestClass import Auto_Geico_Test
 from VehicleTestModules import VehicleTestModules
+from PageLoadTimeClass import PageLoadTimer
 import sys
 
-
+def loadtime():
+    timer = PageLoadTimer()
+    navigationStart = timer.execute_script("return window.performance.timing.navigationStart")
+    responseStart = timer.execute_script("return window.performance.timing.responseStart")
+    domComplete = timer.execute_script("return window.performance.timing.domComplete")
+    # Calculate the performance
+    backendPerformance_calc = responseStart - navigationStart
+    frontendPerformance_calc = domComplete - responseStart
+    print("Back End: %s" % backendPerformance_calc)
+    print("Front End: %s" % frontendPerformance_calc)
+    return
 #Precondition methods used to get initial conditions for a test case.
 def preconditionA(anObject):
     #these are the steps from test case(s) A in order in order to do test case B01
@@ -70,8 +81,11 @@ try:
     Test_A01 = Auto_Geico_Test() #creating an object to use the class that has the functionality that is needed for test cases
 
     Test_A01.zip_input_0()
+    loadtime()
     Test_A01.customer_intent_0()
+    loadtime()
     Test_A01.next_button_0()
+    loadtime()
     print("test case A01 ran successfully")
     Test_A01.close_browser()
 except Exception as err:
