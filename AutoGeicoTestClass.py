@@ -17,6 +17,11 @@ class Auto_Geico_Test:
     ErrorCount = 0
     CurrentModule = ""
 
+    # used to display the maximum index for the current select list
+    MaxYearIndex = 5
+    MaxMakeIndex = 5
+    MaxModelIndex = 5
+
     def __init__(self):
         self.chrome_options = webdriver.ChromeOptions()
         self.chrome_options.add_argument('-icognito')
@@ -234,6 +239,19 @@ class Auto_Geico_Test:
             self.error_message(err)
 
     # index guide
+    # 0 = no anti theft, 1 = alarm only/active disabling device, 2 = passive disabling device
+    def select_specific_antitheft_device_unlisted(self, index):
+        try:
+            self.CurrentModule = "select_specific_antitheft_device"
+            AntiTheftDeviceSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='antiTheftDeviceunlisted']"))))
+            AntiTheftDeviceSelect0.select_by_index(index)
+
+            self.go_next()
+        except Exception as err:
+            self.error_message(err)
+
+    # index guide
     # 0 = owned, 1 = financed, 2 = leased
 
 
@@ -249,6 +267,25 @@ class Auto_Geico_Test:
                 action(self.driver).move_to_element(VehicleOwned1).click().perform()
             if index == 2:
                 VehicleOwned2 = self.driver.find_element_by_xpath("//label[@for='vehicleOwned2']")
+                action(self.driver).move_to_element(VehicleOwned2).click().perform()
+        except Exception as err:
+            print("Exception thrown:\t" + str(err))
+
+    # index guide
+    # 0 = owned, 1 = financed, 2 = leased
+
+    def select_ownership_unlisted(self, index):
+        try:
+            time.sleep(3)
+
+            if index == 0:
+                VehicleOwned0 = self.driver.find_element_by_xpath("//label[@for='vehicleOwnedunlisted0']")
+                action(self.driver).move_to_element(VehicleOwned0).click().perform()
+            if index == 1:
+                VehicleOwned1 = self.driver.find_element_by_xpath("//label[@for='vehicleOwnedunlisted1']")
+                action(self.driver).move_to_element(VehicleOwned1).click().perform()
+            if index == 2:
+                VehicleOwned2 = self.driver.find_element_by_xpath("//label[@for='vehicleOwnedunlisted2']")
                 action(self.driver).move_to_element(VehicleOwned2).click().perform()
         except Exception as err:
             print("Exception thrown:\t" + str(err))
@@ -275,6 +312,24 @@ class Auto_Geico_Test:
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
+    def select_primary_use_unlisted(self, index):
+        try:
+            time.sleep(3)
+
+            if index == 0:
+                PrimaryUse0 = self.driver.find_element_by_xpath("//label[@for='primaryUseunlisted0']")
+                action(self.driver).move_to_element(PrimaryUse0).click().perform()
+                self.primary_use_commute_unlisted(1, 200)
+            if index == 1:
+                PrimaryUse1 = self.driver.find_element_by_xpath("//label[@for='primaryUseunlisted1']")
+                action(self.driver).move_to_element(PrimaryUse1).click().perform()
+            if index == 2:
+                PrimaryUse2 = self.driver.find_element_by_xpath("//label[@for='primaryUseunlisted2']")
+                action(self.driver).move_to_element(PrimaryUse2).click().perform()
+                self.primary_use_business_unlisted(1)
+        except Exception as err:
+            print("Exception thrown:\t" + str(err))
+
     # menu options for commuting
     def primary_use_commute(self, index, miles):
         try:
@@ -287,6 +342,17 @@ class Auto_Geico_Test:
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
+    # menu options for commuting
+    def primary_use_commute_unlisted(self, index, miles):
+        try:
+            time.sleep(1)
+            DaysDrivenSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='daysDrivenunlisted']"))
+            DaysDrivenSelect0.select_by_index(index)
+
+            MilesDrivenInput0 = self.driver.find_element_by_xpath("//input[@id='milesDrivenunlisted']")
+            action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(miles)).perform()
+        except Exception as err:
+            print("Exception thrown:\t" + str(err))
 
     def select_annual_mileage(self, index):
         try:
@@ -296,11 +362,26 @@ class Auto_Geico_Test:
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
+    def select_annual_mileage_unlisted(self, index):
+        try:
+            time.sleep(1)
+            AnnualMileageSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='annualMileageunlisted']"))
+            AnnualMileageSelect0.select_by_index(index)
+        except Exception as err:
+            print("Exception thrown:\t" + str(err))
 
     def primary_use_business(self, index):
         try:
             time.sleep(1)
             TypeOfBusinessUseSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfBusinessUse']"))
+            TypeOfBusinessUseSelect0.select_by_index(index)
+        except Exception as err:
+            print("Exception thrown:\t" + str(err))
+
+    def primary_use_business_unlisted(self, index):
+        try:
+            time.sleep(1)
+            TypeOfBusinessUseSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfBusinessUseunlisted']"))
             TypeOfBusinessUseSelect0.select_by_index(index)
         except Exception as err:
             print("Exception thrown:\t" + str(err))
@@ -311,10 +392,13 @@ class Auto_Geico_Test:
         try:
             self.CurrentModule = "select_specific_vehicle"
             VehicleYearSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYear']"))))
+            self.MaxYearIndex = len(VehicleYearSelect0.options)
             VehicleYearSelect0.select_by_index(year_index)
             VehicleMakeSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleMake']"))))
+            self.MaxMakeIndex = len(VehicleMakeSelect0.options)
             VehicleMakeSelect0.select_by_index(make_index)
             VehicleModelSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModel']"))))
+            self.MaxModelIndex = len(VehicleModelSelect0.options)
             VehicleModelSelect0.select_by_index(model_index)
 
             self.go_next()
@@ -329,12 +413,15 @@ class Auto_Geico_Test:
             self.CurrentModule = "select_specific_vehicle"
             VehicleYearSelect0 = Select(
                 self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYearunlisted']"))))
+            self.MaxYearIndex = len(VehicleYearSelect0.options)
             VehicleYearSelect0.select_by_index(year_index)
             VehicleMakeSelect0 = Select(
                 self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleMakeunlisted']"))))
+            self.MaxMakeIndex = len(VehicleMakeSelect0.options)
             VehicleMakeSelect0.select_by_index(make_index)
             VehicleModelSelect0 = Select(
                 self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModelunlisted']"))))
+            self.MaxModelIndex = len(VehicleModelSelect0.options)
             VehicleModelSelect0.select_by_index(model_index)
 
             self.go_next()
@@ -383,6 +470,54 @@ class Auto_Geico_Test:
                     except:
                         VehicleModelSelect0 = Select(
                             self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModel']"))))
+                        VehicleModelSelect0.select_by_index(ModelOption)
+
+                    # time.sleep(1)
+                    ModelOption = ModelOption + 1
+                MakeOption = MakeOption + 1
+            YearOption = YearOption + 1
+
+    def select_vehicles_unlisted(self):
+
+        self.CurrentModule = "select_vehicles"
+
+        ### NOW WE CAN TEST FOR THE ADDING OF VEHCILES ###
+
+        VehicleYearSelect0 = Select(
+            self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYearunlisted']"))))
+
+        YearOption = 1
+
+        while YearOption < len(VehicleYearSelect0.options) - 1:
+            try:
+                VehicleYearSelect0.select_by_index(YearOption)
+            except:
+                VehicleYearSelect0 = Select(
+                    self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleYearunlisted']"))))
+                VehicleYearSelect0.select_by_index(YearOption)
+
+            VehicleMakeSelect0 = Select(
+                self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleMakeunlisted']"))))
+
+            MakeOption = 1
+            while MakeOption < len(VehicleMakeSelect0.options):
+                try:
+                    VehicleMakeSelect0.select_by_index(MakeOption)
+                except:
+                    VehicleMakeSelect0 = Select(
+                        self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleMakeunlisted']"))))
+                    VehicleMakeSelect0.select_by_index(MakeOption)
+
+                VehicleModelSelect0 = Select(
+                    self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModelunlisted']"))))
+
+                ModelOption = 1
+                while ModelOption < len(VehicleModelSelect0.options):  # it really starts to slow down over here
+                    try:
+                        VehicleModelSelect0.select_by_index(ModelOption)
+                    except:
+                        VehicleModelSelect0 = Select(
+                            self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='vehicleModelunlisted']"))))
                         VehicleModelSelect0.select_by_index(ModelOption)
 
                     # time.sleep(1)
@@ -478,6 +613,18 @@ class Auto_Geico_Test:
         except Exception as err:
             self.error_message(err)
 
+    def select_specific_new_costs_unlisted(self, index):
+
+        try:
+            self.CurrentModule = "select_specific_new_costs"
+
+            CostNewValueSelect0 = Select(self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='costNewValueunlisted']"))))
+            CostNewValueSelect0.select_by_index(index)
+
+            self.go_next()
+        except Exception as err:
+            self.error_message(err)
+
     def select_antilock_brakes(self, index):
         try:
 
@@ -489,6 +636,23 @@ class Auto_Geico_Test:
                 self.go_next()
             if index == 1:
                 AntilockBrakesLabel1 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//label[@for='hasAntilockBrakes1']")))
+                action(self.driver).move_to_element(AntilockBrakesLabel1).click().perform()
+                self.go_next()
+
+        except Exception as err:
+            self.error_message(err)
+
+    def select_antilock_brakes(self, index):
+        try:
+
+            self.CurrentModule = "select_antilock_brakes"
+
+            if index == 0:
+                AntilockBrakesLabel0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//label[@for='hasAntilockBrakesunlisted0']")))
+                action(self.driver).move_to_element(AntilockBrakesLabel0).click().perform()
+                self.go_next()
+            if index == 1:
+                AntilockBrakesLabel1 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//label[@for='hasAntilockBrakesunlisted1']")))
                 action(self.driver).move_to_element(AntilockBrakesLabel1).click().perform()
                 self.go_next()
 
@@ -548,7 +712,7 @@ class Auto_Geico_Test:
     def get_to_vehicle_page(self):
         self.driver.get("https://www.geico.com/")
         self.zip_input_0()
-        self.skip_help_page()
+        self.skip_help_page_0()
         self.go_next()
         self.first_name_input_0()
         self.last_name_input_0()
@@ -646,6 +810,3 @@ class Auto_Geico_Test:
         PreviousBILimits0 = Select(self.driver.find_element_by_xpath("//select[@id='currentBILimits']"))
         PreviousBILimits0.select_by_index(3)
         return
-
-    def current_insurance_disclosure_0(self):
-        #
