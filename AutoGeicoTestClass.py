@@ -37,6 +37,9 @@ class Auto_Geico_Test:
         self.wait = WebDriverWait(self.driver, 10)
         self.driver.implicitly_wait(5)
 
+    def close_browser(self):
+        closeBrowser = self.driver.quit()
+
     # function for generic buttons
     def go_next(self):
         try:
@@ -854,3 +857,57 @@ class Auto_Geico_Test:
         PreviousBILimits0 = Select(self.driver.find_element_by_xpath("//select[@id='currentBILimits']"))
         PreviousBILimits0.select_by_index(3)
         return
+
+    # Testing each element on the Current Insurance disclosure page (title: "Tell us more about your current insurance").
+    # 3 major element groups on this page: a dropdown menu where you can select how many years you have been covered by your current insurance company; 2 radio buttons for the question "Have you had continuous insurance for the past 12 months?"; and another dropdown menu labelled "Current Bodily Injury Limits"
+    def current_insurance_disclosure_0(self):
+        # Testing 1st dropdown menu.
+        # Dropdown index/values: index 0/value is blank; index 1/value "0" = Less than 1; index 2/value "1" = 1; index 3/value "2" = 2; index 4/value "3" = 3; index 5/value "4" = 4; index 6/value "5" = 5; index 7/value "6" = 6; index 8/value "7" = 7; index 9/value "8" = 8; index 10/value "9" = 9; index 11/value "10" = 10; index 12/value "11" = 11 or more
+        CurrentInsuranceSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='yearsInsured']"))
+        CurrentInsuranceSelect0.select_by_index(3)
+        return
+
+    def current_insurance_disclosure_1(self):
+        # Testing radio button elements for "Yes" option
+        Last12MonthsYes = self.driver.find_element_by_xpath("//label[@for='insuranceLapse12months0']")
+        action(self.driver).move_to_element(Last12MonthsYes).click().perform()
+        return
+
+    def current_insurance_disclosure_3(self):
+        # Testing radio button elements for "Yes" option
+        Last12MonthsNo = self.driver.find_element_by_xpath("//label[@for='insuranceLapse12months1']")
+        action(self.driver).move_to_element(Last12MonthsNo).click().perform()
+        return
+
+    def current_insurance_disclosure_4(self):
+        # Testing Current Bodily Injury Limits dropdown menu.
+        # Dropdown index/values: index 0/value is blank; index 1/value "025" = "$25,000/$50,000"; index 2/value "051" = "$50,000/$100,000" ; index 3/value "120" = "$100,000/$200,000"; index 4/value "130" = "$100,000/$300,000"; index 5/value "330" = "$300,000/$300,000"; index 6/value "250" = "$250,000/$500,000 or higher"; index 7/value "997" = "Not Sure"
+        CurrentBILimits0 = Select(self.driver.find_element_by_xpath("//select[@id='currentBILimits']"))
+        CurrentBILimits0.select_by_index(3)
+        return
+
+    # Testing "Tell us more about your driving history" page. Contains 2 radio buttons: Yes and No. Selecting Yes will advance you to a new screen. Selecting No will add a new dialogue box to the current screen, prompting you to input your age when you became licensed.
+    def driving_history_0(self):
+        LicensedBefore22Yes = self.driver.find_element_by_xpath("//label[@for='licensedBeforeCertainAge0']")
+        action(self.driver).move_to_element(LicensedBefore22Yes).click().perform()
+        return
+
+    def driving_history_1(self):
+        LicensedBefore22No = self.driver.find_element_by_xpath("//label[@for='licensedBeforeCertainAge1']")
+        action(self.driver).move_to_element(LicensedBefore22No).click().perform()
+        AgeFirstLicensesInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'ageFirstLicensed')))
+        action(self.driver).move_to_element(AgeFirstLicensesInput0).click().send_keys('21').perform()
+        return
+
+    # Testing Driver Information - What is the highest level of education you have completed?
+    def education_level_0(self):
+        # Dropdown index: index 0 = blank space; index 1 = "Less than High School; index 2 = Vocational; index 3 = High School; index 4 = High school, pursuing Bachelor's degree; index 5 = Associate; index 6 = Associate, pursuing Bachelor's degree; index 7 = Bachelor's; index 8 = Bachelor's, pursuing Graduate Degree; index 9 = Master's; index 10 = Doctors; index 11 = Lawyer; index 12 = PhD
+        HighestEducation0 = Select(self.driver.find_element_by_xpath("//select[@id='highestEducation']"))
+        HighestEducation0.select_by_index(3)
+        return
+
+    # Testing Driver Information - Employment status. Single element on page is a dropdown menu
+    def employment_status_0(self):
+        # Dropdown index: index 0 = blank space; index 1 = A Private Company/Self Employed; index 2 = Active Duty Military; index 3 = Federal Gov or Postal Service; index 4 = State/Local/Municipal Gov; index 5 = I am a Full Time Student; index 6 = I am currently a Homemaker; index 7 = Not Currently Employed; index 8 = Retired Private Company/Self Employed; index 9 = Retired Military; index 10 = Retired Federal Gov; index 11= Retired State/Local/Municipal Gov
+        EmploymentStatus0 = Select(self.driver.find_element_by_xpath("//select[@id='employmentStatus']"))
+        EmploymentStatus0.select_by_index(3)
