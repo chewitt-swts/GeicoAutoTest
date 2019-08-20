@@ -1,9 +1,20 @@
 
 from AutoGeicoTestClass import Auto_Geico_Test
 from VehicleTestModules import VehicleTestModules
+from PageLoadTimeClass import PageLoadTimer
 import sys
 
-
+def loadtime():
+    timer = PageLoadTimer()
+    navigationStart = timer.execute_script("return window.performance.timing.navigationStart")
+    responseStart = timer.execute_script("return window.performance.timing.responseStart")
+    domComplete = timer.execute_script("return window.performance.timing.domComplete")
+    # Calculate the performance
+    backendPerformance_calc = responseStart - navigationStart
+    frontendPerformance_calc = domComplete - responseStart
+    print("Back End: %s" % backendPerformance_calc)
+    print("Front End: %s" % frontendPerformance_calc)
+    return
 #Precondition methods used to get initial conditions for a test case.
 def preconditionA(testCaseObject):
     #these are the steps from test case(s) A in order in order to do test case B01
@@ -55,7 +66,7 @@ try:
 
     Test_G01.select_specific_vehicle(1, 2, 3)
     print("test G01 ran successfully")
-
+    Test_A01.close_browser()
 except Exception as err:
     print('Test G01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -70,9 +81,13 @@ try:
     Test_A01 = Auto_Geico_Test() #creating an object to use the class that has the functionality that is needed for test cases
 
     Test_A01.zip_input_0()
+    loadtime()
     Test_A01.customer_intent_0()
+    loadtime()
     Test_A01.next_button_0()
+    loadtime()
     print("test case A01 ran successfully")
+    Test_A01.close_browser()
 except Exception as err:
     print('Test A01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -88,6 +103,7 @@ try:
     Test_A02.customer_intent_1()
     Test_A02.next_button_0()
     print("test case A02 ran successfully")
+    Test_A01.close_browser()
 except Exception as err:
     print('Test A02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -103,6 +119,7 @@ try:
     Test_A03.customer_intent_2()
     Test_A03.next_button_0()
     print("test case A03 ran successfully")
+    Test_A01.close_browser()
 except Exception as err:
     print('Test A03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -117,6 +134,7 @@ try:
     Test_A04.customer_intent_3()
     Test_A04.next_button_0()
     print("test case A04 ran successfully")
+    Test_A01.close_browser()
 except Exception as err:
     print('Test A04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -132,6 +150,7 @@ try:
     Test_A05.customer_intent_4()
     Test_A05.next_button_0()
     print("test case A05 ran successfully")
+    Test_A01.close_browser()
 except Exception as err:
     print('Test A05' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -147,6 +166,7 @@ try:
     Test_A06.customer_intent_5()
     Test_A06.next_button_0()
     print("test case A06 ran successfully")
+    Test_A01.close_browser()
 except Exception as err:
     print('Test A06' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -163,6 +183,7 @@ try:
     Test_B01.last_name_input_0()
     Test_B01.next_button_1()
     print("test case B01 ran successfully")
+    Test_A01.close_browser()
 except Exception as err:
     print('Test B01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -179,6 +200,7 @@ try:
     Test_C01.year_dob_0()
     Test_C01.next_button_2()
     print("test case C01 ran successfully")
+    Test_A01.close_browser()
 except Exception as err:
     print('Test C01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -198,6 +220,7 @@ try:
     Test_D01.next_button_4()
     #Test_D01.have_you_moved()
     print("test D01 ran successfully")
+    Test_A01.close_browser()
 except Exception as err:
     print('Test D01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -213,7 +236,7 @@ try:
 
     Test_G01.select_specific_vehicle(1, 2, 3)
     print("test G01 ran successfully")
-
+    Test_A01.close_browser()
 except Exception as err:
     print('Test G01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -228,7 +251,7 @@ try:
 
     Test_G02.select_specific_vehicle(1, 2, 3)
     print("test G02 ran successfully")
-
+    Test_A01.close_browser()
 except Exception as err:
     print('Test G02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -258,7 +281,7 @@ try:
 
     Test_H01.select_body_styles()
     print("test H01 ran successfully")
-
+    Test_A01.close_browser()
 except Exception as err:
     print('Test H01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -273,6 +296,7 @@ try:
 
     Test_H02.select_antitheft_devices()
     print("test H02 ran successfully")
+    Test_A01.close_browser()
 
 except Exception as err:
     print('Test H02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -288,6 +312,7 @@ try:
 
     Test_H03.select_antilock_brakes()
     print("test H03 ran successfully")
+    Test_A01.close_browser()
 
 except Exception as err:
     print('Test H03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -303,6 +328,7 @@ try:
 
     Test_H04.select_new_costs()
     print("test H01 ran successfully")
+    Test_A01.close_browser()
 
 except Exception as err:
     print('Test H04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -318,6 +344,7 @@ try:
 
     Test_I01.select_ownership(0, 1, 2)
     print("test I01 ran successfully")
+    Test_A01.close_browser()
 
 except Exception as err:
     print('Test I01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -333,6 +360,7 @@ try:
 
     Test_I02.select_ownership(0, 1, 2)
     print("test I02 ran successfully")
+    Test_A01.close_browser()
 
 except Exception as err:
     print('Test I02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -348,6 +376,7 @@ try:
 
     Test_I03.select_ownership(0, 1, 2)
     print("test I03 ran successfully")
+    Test_A01.close_browser()
 
 except Exception as err:
     print('Test I03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -363,6 +392,7 @@ try:
 
     Test_J01.select_ownership(0, 1, 2)
     print("test J01 ran successfully")
+    Test_A01.close_browser()
 
 except Exception as err:
     print('Test J01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -378,6 +408,7 @@ try:
 
     Test_J02.select_ownership(0, 1, 2)
     print("test J02 ran successfully")
+    Test_A01.close_browser()
 
 except Exception as err:
     print('Test J02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -393,7 +424,7 @@ try:
 
     Test_J03.select_ownership(0, 1, 2)
     print("test J03 ran successfully")
-
+    Test_A01.close_browser()
 except Exception as err:
     print('Test J03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
@@ -525,6 +556,16 @@ except Exception as err:
     print("An error occured while running automation test for Geico Test E04o4:")
     print(err.__module__)
     print(str(err))
+
+
+
+
+
+
+
+
+
+
 
 
 
