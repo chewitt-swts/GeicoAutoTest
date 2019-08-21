@@ -495,4 +495,4 @@ def Test_K01_Unlisted():
         gvt.error_message(err)
 
 ### execute scripts here ###
-print(gvt.random_string(5))
+Test_K01_Unlisted()
