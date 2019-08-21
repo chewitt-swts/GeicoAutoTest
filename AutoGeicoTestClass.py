@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select as select
 from selenium.webdriver.common.action_chains import ActionChains as action
 import time
+import random
+import string
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
@@ -47,6 +49,15 @@ class Auto_Geico_Test:
         print("Back End: %s" % backendPerformance_calc)
         print("Front End: %s" % frontendPerformance_calc)
         return
+
+    # generates an integer of the specified length
+    def random_int(self, len):
+        return random.randint(pow(10, len-1), pow(10, len))
+
+    def random_string(self, len):
+        str = ''.join([random.choice(string.ascii_letters)
+                       for n in range(len)])
+        return str
 
     def close_browser(self):
         self.driver.quit()
@@ -826,10 +837,10 @@ class Auto_Geico_Test:
     # these functions get you to the page to add vehicles
     def get_to_vehicle_page_unlisted(self):
         self.driver.get("https://www.geico.com/")
-        self.zip_input_0_NOTLISTED()
+        self.zip_input_0()
         self.skip_help_page_0()
         self.go_next()
-        self.first_name_input()
+        self.first_name_input_0()
         self.last_name_input_0()
         self.go_next()
         self.month_dob_0()

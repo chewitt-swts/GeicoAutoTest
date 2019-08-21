@@ -48,21 +48,6 @@ def preconditionE(testCaseObject):
     testCaseObject.next_button_x()
     return
 
-#TC_G01
-try:
-    Test_G01 = VehicleTestModules()
-    #preconditionE(Test_G01)
-
-    Test_G01.select_specific_vehicle(1, 2, 3)
-    print("test G01 ran successfully")
-    Test_A01.close_browser()
-except Exception as err:
-    print('Test G01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
-    print(err.args)
-    print("An error occured while running automation test for Geico Test G01:")
-    print(err.__module__)
-    print(str(err))
-
 
 #GEICO HELP TEST CASES
 #TC_A01 - I NEED INSURANCE RIGHT AWAY
