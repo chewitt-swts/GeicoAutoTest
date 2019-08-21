@@ -48,22 +48,6 @@ def preconditionE(testCaseObject):
     testCaseObject.next_button_x()
     return
 
-#TC_G01
-try:
-    Test_G01 = VehicleTestModules()
-    #preconditionE(Test_G01)
-
-    Test_G01.select_specific_vehicle(1, 2, 3)
-    print("test G01 ran successfully")
-
-except Exception as err:
-    print('Test G01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
-    print(err.args)
-    print("An error occured while running automation test for Geico Test G01:")
-    print(err.__module__)
-    print(str(err))
-
-
 #GEICO HELP TEST CASES
 #TC_A01 - I NEED INSURANCE RIGHT AWAY
 try:
@@ -201,6 +185,7 @@ except Exception as err:
     print(err.__module__)
 
 #TC_D01 - WHAT'S YOUR ADDRESS,APARTMENT, ZIP CODE
+#TODO look back at this and make sure it is accurate, we haven't fleshed this out entirely
 try:
     Test_D01 = Auto_Geico_Test()
     preconditionC(Test_D01)
@@ -220,7 +205,7 @@ except Exception as err:
     print("An error occured while running automation test for Geico Test D01:")
     print(err.__module__)
 
-
+#TODO need to add preconditions to E01 - E5.11 lots of work to do here
 #TC_E01 - DRIVER INFORMATION - SELECT GENDER
 try:
     Test_E01 = Auto_Geico_Test()
@@ -358,6 +343,7 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
+#TODO these need to be added to our list of test cases in the master spreadsheet, and assigned a test case id
 #TC_XX01 - DRIVER INFORMATION - EDUCATION
 try:
     Test_XX01 = Auto_Geico_Test()
@@ -563,6 +549,8 @@ except Exception as err:
     print("An error occured while running automation test for Geico Test E05o10:")
     print(err.__module__)
     print(str(err))
+
+
 
 
 

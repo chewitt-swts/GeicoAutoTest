@@ -920,10 +920,6 @@ class Auto_Geico_Test:
         return
 
     # Testing Driver Information - Employment status. Single element on page is a dropdown menu
-    def employment_status_0(self):
-        # Dropdown index: index 0 = blank space; index 1 = A Private Company/Self Employed; index 2 = Active Duty Military; index 3 = Federal Gov or Postal Service; index 4 = State/Local/Municipal Gov; index 5 = I am a Full Time Student; index 6 = I am currently a Homemaker; index 7 = Not Currently Employed; index 8 = Retired Private Company/Self Employed; index 9 = Retired Military; index 10 = Retired Federal Gov; index 11= Retired State/Local/Municipal Gov
-        EmploymentStatus0 = Select(self.driver.find_element_by_xpath("//select[@id='employmentStatus']"))
-        EmploymentStatus0.select_by_index(3)
 
                # Testing Driver Information - Employment status. Single element on page is a dropdown menu; selecting any Military or Federal Gov options will create new dropdown menus to select from.
     def employment_status_0(self):
@@ -1008,3 +1004,23 @@ class Auto_Geico_Test:
         GovernmentAffiliation0 = Select(self.driver.find_element_by_xpath("//select[@id='governmentAffiliation']"))
         GovernmentAffiliation0.select_by_index(3)
         return
+
+    # these functions get you to the page to add vehicles
+    def get_to_vehicle_page_unlisted(self):
+        self.driver.get("https://www.geico.com/")
+        self.zip_input_0()
+        self.skip_help_page_0()
+        self.go_next()
+        self.first_name_input_0()
+        self.last_name_input_0()
+        self.go_next()
+        self.month_dob_0()
+        self.day_dob_0()
+        self.year_dob_0()
+        self.go_next()
+        self.street_input_0()
+        self.apt_input_0()
+        self.zip_input_1()
+        self.go_next()
+        self.vehicle_not_listed_class_0()
+        self.go_next()
