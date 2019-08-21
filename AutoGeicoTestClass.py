@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select as select
 from selenium.webdriver.common.action_chains import ActionChains as action
 import time
+import random
+import string
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
@@ -48,8 +50,17 @@ class Auto_Geico_Test:
         print("Front End: %s" % frontendPerformance_calc)
         return
 
+    # generates an integer of the specified length
+    def random_int(self, len):
+        return random.randint(pow(10, len-1), pow(10, len))
+
+    def random_string(self, len):
+        str = ''.join([random.choice(string.ascii_letters)
+                       for n in range(len)])
+        return str
+
     def close_browser(self):
-        closeBrowser = self.driver.quit()
+        self.driver.quit()
 
     # function for generic buttons
     def go_next(self):
@@ -67,6 +78,13 @@ class Auto_Geico_Test:
         zipInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'zip')))
         action(self.driver).move_to_element(zipInput0).click().send_keys('60629').send_keys(u'\ue007').perform()
         self.loadtime()
+        return
+
+    # THIS WILL AVOID THE LISTED VEHICLE PAGE
+    def zip_input_0_NOTLISTED(self):
+        self.driver.get('http://geico.com')
+        zipInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'zip')))
+        action(self.driver).move_to_element(zipInput0).click().send_keys('60103').send_keys(u'\ue007').perform()
         return
 
     #Testing the 1st of 5 options -- "I need insurance right away"
@@ -150,6 +168,18 @@ class Auto_Geico_Test:
         action(self.driver).move_to_element(LastNameInput0).click().send_keys('Ioewmaowenglweirb').perform()
         return
 
+    # Entering first name into dialogue box - AVOIDS LISTED VEHICLE PAGE
+    def first_name_input_0_NOTLISTED(self):
+        FirstNameInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'firstName')))
+        action(self.driver).move_to_element(FirstNameInput0).click().send_keys('Hello').perform()
+        return
+
+    # Entering last name into dialogue box
+    def last_name_input_0_NOTLISTED(self):
+        LastNameInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'lastName')))
+        action(self.driver).move_to_element(LastNameInput0).click().send_keys('World').perform()
+        return
+
     #Testing the Next Button after entering First and Last Name
     def next_button_1(self):
         time.sleep(2)
@@ -175,6 +205,24 @@ class Auto_Geico_Test:
         YearDOB0.send_keys('1990')
         return
 
+    def month_dob_0_NOTLISTED(self):
+        MonthDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-monthdob')))
+        MonthDOB0.click()
+        MonthDOB0.send_keys('06')
+        return
+
+    def day_dob_0_NOTLISTED(self):
+        time.sleep(2)
+        DayDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-daydob')))
+        DayDOB0.click()
+        DayDOB0.send_keys('06')
+
+    def year_dob_0_NOTLISTED(self):
+        YearDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-yeardob')))
+        YearDOB0.click()
+        YearDOB0.send_keys('1986')
+        return
+
     def next_button_2(self):
         time.sleep(2)
         NextButton2 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
@@ -197,6 +245,22 @@ class Auto_Geico_Test:
         action(self.driver).move_to_element(ZipInput1).click().send_keys('60629').perform()
         return
 
+    # what is your address funtions
+    def street_input_0_NOTLISTED(self):
+        StreetInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'street')))
+        action(self.driver).move_to_element(StreetInput0).click().send_keys('123 Whatever St.').perform()
+        return
+
+    def apt_input_0_NOTLISTED(self):
+        AptInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'apt')))
+        action(self.driver).move_to_element(AptInput0).click().send_keys('666').perform()
+        return
+
+    def zip_input_1_NOTLISTED(self):
+        ZipInput1 = self.wait.until(ec.element_to_be_clickable((By.ID, 'zip')))
+        action(self.driver).move_to_element(ZipInput1).click().send_keys('60103').perform()
+        return
+
     def next_button_3(self):
         time.sleep(2)
         NextButton3 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
@@ -204,6 +268,7 @@ class Auto_Geico_Test:
         return
 
     def verify_address_0(self):
+        time.sleep(3)
         OriginalAddressLabel0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//label[@for='originalAddress']")))
         OriginalAddressLabel0.click()
         return
@@ -214,6 +279,7 @@ class Auto_Geico_Test:
         return
 
     def have_you_moved(self):
+        time.sleep(3)
         HasMovedInLast2MonthsLabel1 = self.driver.find_element_by_xpath("//label[@for='hasMovedInLast2Months1']")
         action(self.driver).move_to_element(HasMovedInLast2MonthsLabel1).click().send_keys(Keys.TAB).send_keys(Keys.ENTER).perform()
         return
@@ -769,7 +835,7 @@ class Auto_Geico_Test:
         return
 
     # these functions get you to the page to add vehicles
-    def get_to_vehicle_page(self):
+    def get_to_vehicle_page_unlisted(self):
         self.driver.get("https://www.geico.com/")
         self.zip_input_0()
         self.skip_help_page_0()
@@ -788,6 +854,28 @@ class Auto_Geico_Test:
         self.vehicle_not_listed_class_0()
         self.go_next()
 
+        # these functions get you to the page to add vehicles
+
+    def get_to_vehicle_page(self):
+        self.driver.get("https://www.geico.com/")
+        self.zip_input_0_NOTLISTED()
+        self.skip_help_page_0()
+        self.go_next()
+        self.first_name_input_0_NOTLISTED()
+        self.last_name_input_0_NOTLISTED()
+        self.go_next()
+        self.month_dob_0_NOTLISTED()
+        self.day_dob_0_NOTLISTED()
+        self.year_dob_0_NOTLISTED()
+        self.go_next()
+        self.street_input_0_NOTLISTED()
+        self.apt_input_0_NOTLISTED()
+        self.zip_input_1_NOTLISTED()
+        self.go_next()
+        self.verify_address_0()
+        self.go_next()
+        self.have_you_moved()
+        self.go_next()
 
     def error_message(self, err):
         self.ErrorCount = self.ErrorCount + 1
