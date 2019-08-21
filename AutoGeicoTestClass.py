@@ -924,3 +924,74 @@ class Auto_Geico_Test:
         # Dropdown index: index 0 = blank space; index 1 = A Private Company/Self Employed; index 2 = Active Duty Military; index 3 = Federal Gov or Postal Service; index 4 = State/Local/Municipal Gov; index 5 = I am a Full Time Student; index 6 = I am currently a Homemaker; index 7 = Not Currently Employed; index 8 = Retired Private Company/Self Employed; index 9 = Retired Military; index 10 = Retired Federal Gov; index 11= Retired State/Local/Municipal Gov
         EmploymentStatus0 = Select(self.driver.find_element_by_xpath("//select[@id='employmentStatus']"))
         EmploymentStatus0.select_by_index(3)
+
+               # Testing Driver Information - Employment status. Single element on page is a dropdown menu; selecting any Military or Federal Gov options will create new dropdown menus to select from.
+    def employment_status_0(self):
+        # Dropdown index: index 0 = blank space; index 1 = A Private Company/Self Employed; index 2 = Active Duty Military; index 3 = Federal Gov or Postal Service; index 4 = State/Local/Municipal Gov; index 5 = I am a Full Time Student; index 6 = I am currently a Homemaker; index 7 = Not Currently Employed; index 8 = Retired Private Company/Self Employed; index 9 = Retired Military; index 10 = Retired Federal Gov; index 11= Retired State/Local/Municipal Gov
+        EmploymentStatus0 = Select(self.driver.find_element_by_xpath("//select[@id='employmentStatus']"))
+        EmploymentStatus0.select_by_index(3)
+        return
+
+    #Secondary dropdown menu triggered by selecting Active Duty Military; you must now select which branch of the military you belong to.
+    def employment_status_1(self):
+        #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
+        MilitaryBranchSelect0 =  Select(self.driver.find_element_by_xpath("//select[@id='branchOfMilitary']"))
+        MilitaryBranchSelect0.select_by_index(3)
+        return
+
+    #Tertiary dropdown menu triggered by selecting which branch of the military you belong to; you must now select your paygrade within the military.
+    def employment_status_2(self):
+        #dropdown index for Military Grade is too numerous to list out here; use index values 1 - 24
+        MilitaryGradeSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='militaryGrade']"))
+        MilitaryGradeSelect0.select_by_index(3)
+        return
+
+    #Secondary dropdown menu triggered by selecting Federal Goverment/Postal Service; you must now select your paygrade.
+    def employment_status_3(self):
+        #Dropdown index for this element is too numerous to list out here.
+        GovernmentGradeSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='governmentGrade']"))
+        GovernmentGradeSelect0.select_by_index(3)
+        return
+
+    #Secondary dropdown menu triggered by selecting Retired Military; you must now select which branch of the military you belong to.
+    def employment_status_4(self):
+        #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
+        MilitaryBranchSelect1 =  Select(self.driver.find_element_by_xpath("//select[@id='branchOfMilitary']"))
+        MilitaryBranchSelect1.select_by_index(3)
+        return
+
+    #Tertiary dropdown menu triggered by selecting which branch of the military you belonged to before retirement; you must now select your paygrade within the military.
+    def employment_status_5(self):
+        #dropdown index for Military Grade is too numerous to list out here; use index values 1 - 24
+        MilitaryGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='militaryGrade']"))
+        MilitaryGradeSelect1.select_by_index(3)
+        return
+
+    #Secondary dropdown menu triggered by selecting Retired Federal Goverment/Postal Service; you must now select your paygrade.
+    def employment_status_6(self):
+        #Dropdown index for this element is too numerous to list out here.
+        GovernmentGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='governmentGrade']"))
+        GovernmentGradeSelect1.select_by_index(3)
+        return
+
+#A dialogue box/search box which allows you to enter your what your occupation was before you retired; you must have previously selected Retired Private Company/Self Employed on the Employment Status page.
+    def retirement_occupation_0(self):
+        OccupationSearch0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'employmentDescription')))
+        action(self.driver).move_to_element(OccupationSearch0).click().send_keys('engineer').perform()
+        return
+#A second dropdown menu appears after you search for your occupation, directing you to select the closest match.
+    def retirement_occupation_1(self):
+        #Index values will be variable depending on how many options your search returns.
+        OccupationSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='foundOccupation']"))
+        OccupationSelect0.select_by_index(3)
+
+#A dialogue box/search box which allows you to enter your what your occupation is; you must have previously selected  Private Company/Self Employed on the Employment Status page.
+    def current_occupation_0(self):
+        OccupationSearch1 = self.wait.until(ec.element_to_be_clickable((By.ID, 'employmentDescription')))
+        action(self.driver).move_to_element(OccupationSearch1).click().send_keys('engineer').perform()
+        return
+#A second dropdown menu appears after you search for your occupation, directing you to select the closest match.
+    def current_occupation_1(self):
+        #Index values will be variable depending on how many options your search returns.
+        OccupationSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='foundOccupation']"))
+        OccupationSelect1.select_by_index(3)
