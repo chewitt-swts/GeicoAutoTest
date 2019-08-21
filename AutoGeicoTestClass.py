@@ -37,6 +37,17 @@ class Auto_Geico_Test:
         self.wait = WebDriverWait(self.driver, 10)
         self.driver.implicitly_wait(5)
 
+    def loadtime(self):
+        navigationStart = self.driver.execute_script("return window.performance.timing.navigationStart")
+        responseStart = self.driver.execute_script("return window.performance.timing.responseStart")
+        domComplete = self.driver.execute_script("return window.performance.timing.domComplete")
+        # Calculate the performance
+        backendPerformance_calc = responseStart - navigationStart
+        frontendPerformance_calc = domComplete - responseStart
+        print("Back End: %s" % backendPerformance_calc)
+        print("Front End: %s" % frontendPerformance_calc)
+        return
+
     def close_browser(self):
         closeBrowser = self.driver.quit()
 
@@ -47,6 +58,7 @@ class Auto_Geico_Test:
             time.sleep(1)
             NextButton0 = self.driver.find_element_by_xpath("//button[contains(text(), 'Next')]")
             action(self.driver).move_to_element(NextButton0).click().click().perform()
+            self.loadtime()
         except Exception as err:
             self.error_message(err)
 
@@ -54,6 +66,7 @@ class Auto_Geico_Test:
         self.driver.get('http://geico.com')
         zipInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'zip')))
         action(self.driver).move_to_element(zipInput0).click().send_keys('60629').send_keys(u'\ue007').perform()
+        self.loadtime()
         return
 
     #Testing the 1st of 5 options -- "I need insurance right away"
