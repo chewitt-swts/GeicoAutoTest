@@ -995,3 +995,16 @@ class Auto_Geico_Test:
         #Index values will be variable depending on how many options your search returns.
         OccupationSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='foundOccupation']"))
         OccupationSelect1.select_by_index(3)
+        return
+
+    def military_affiliation_0(self):
+        #index for dropdown menu: index 0 = Does Not Apply; index 1 = Military Retiree; index 2 = National Guard; index 3 = Military Reserves
+        MilitaryAffiliation0 = Select(self.driver.find_element_by_xpath("//select[@id='militaryAffiliation']"))
+        MilitaryAffiliation0.select_by_index(3)
+        return
+
+    def government_affiliation_0(self):
+        #index for dropdown menu: index 0 = Does Not Apply; index 1 = Federal Gov or Postal Service; index 2 = Retired Federal Gov or Postal Service; index 3 = State/Local/Municipal Gov; index 4 = Retired State/Local/Municipal Gov
+        GovernmentAffiliation0 = Select(self.driver.find_element_by_xpath("//select[@id='governmentAffiliation']"))
+        GovernmentAffiliation0.select_by_index(3)
+        return
