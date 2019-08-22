@@ -67,6 +67,7 @@ class Auto_Geico_Test:
         zipInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'zip')))
         action(self.driver).move_to_element(zipInput0).click().send_keys('60629').send_keys(u'\ue007').perform()
         self.loadtime()
+        print('Zip has been found and entered. ZIP: ' + '60629')
         return
 
     #Testing the 1st of 5 options -- "I need insurance right away"
@@ -75,6 +76,7 @@ class Auto_Geico_Test:
         CustomerIntent0.click()
         BeginQuoteButton0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Begin Quote')]")))
         BeginQuoteButton0.click()
+        print('CustomerIntent0 (I need insurance right away) has been selected.')
         return
 
     # Testing the 2nd of 5 options -- "I am buying or just bought a car"
@@ -83,6 +85,7 @@ class Auto_Geico_Test:
         CustomerIntent1.click()
         BeginQuoteButton0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Begin Quote')]")))
         BeginQuoteButton0.click()
+        print('CustomerIntent1 (I am buying or just bought a car) has been selected.')
         return
 
     #Testing the 3rd of 5 options -- "I'm looking for a better price"
@@ -91,6 +94,7 @@ class Auto_Geico_Test:
         CustomerIntent2.click()
         BeginQuoteButton0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Begin Quote')]")))
         BeginQuoteButton0.click()
+        print('CustomerIntent2 (Im looking for a better price) has been selected.')
         return
 
     #Testing the 4th of 5 options -- "I'm comparing rates for different cars"
@@ -99,6 +103,7 @@ class Auto_Geico_Test:
         CustomerIntent3.click()
         BeginQuoteButton0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Begin Quote')]")))
         BeginQuoteButton0.click()
+        print('CustomerIntent3 (Im comparing rates for different cars) has been selected.')
         return
 
     #Testing the 5th of 5 options -- "I'm just shopping today"
@@ -107,6 +112,7 @@ class Auto_Geico_Test:
         CustomerIntent4.click()
         BeginQuoteButton0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Begin Quote')]")))
         BeginQuoteButton0.click()
+        print('CustomerIntent4 (Im just shopping today) has been selected.')
         return
 
     def customer_intent_5(self):
@@ -119,6 +125,7 @@ class Auto_Geico_Test:
         #BeginQuoteButton0.click()
        # NextButton0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[@class='btn.btn--primary']")))
         #NextButton0.click()
+        print('CustomerIntent5 (Skip) has been selected.')
         return
 
       # skipping the Customer Intent/help page
@@ -1062,8 +1069,7 @@ class Auto_Geico_Test:
         action(self.driver).move_to_element(AccidentResponsibilitySelf).click().perform()
         return
 
-        # testing the accident flow -- must have selected Accident/index 1 from dropdown menu in incident_type. This will trigger a secondary set of radio buttons to appear beneath the Incident_type dropdown.
-
+# testing the accident flow -- must have selected Accident/index 1 from dropdown menu in incident_type. This will trigger a secondary set of radio buttons to appear beneath the Incident_type dropdown.
     def accident_flow_1(self):
         # These radio buttons ask you to select who was driving during the accident. The first radio button selects the applicant/your name as the driver. The second radio button selects "Other driver (not on policy at the time)".
         AccidentResponsibilityOther = self.driver.find_element_by_xpath("//label[@for='involvedDriveraccident1']")
@@ -1081,5 +1087,142 @@ class Auto_Geico_Test:
         ResponsibleForAccidentNo = self.driver.find_element_by_xpath("//label[@for='involvedDriveraccident1']")
         action(self.driver).move_to_element(ResponsibleForAccidentNo).click().perform()
         return
+#Each of the below radio options will take you back to the Incident landing page, without the ability to hit the back button.
+    def accident_flow_4(self):
+        HowLongAgoLessThan12 = self.driver.find_element_by_xpath("//label[@for='accidentDate0']")
+        action(self.driver).move_to_element(HowLongAgoLessThan12).click().perform()
+        return
+
+    def accident_flow_5(self):
+        HowLongAgo12to24 = self.driver.find_element_by_xpath("//label[@for='accidentDate1']")
+        action(self.driver).move_to_element(HowLongAgo12to24).click().perform()
+        return
+
+    def accident_flow_6(self):
+        HowLongAgo25to36 = self.driver.find_element_by_xpath("//label[@for='accidentDate2']")
+        action(self.driver).move_to_element(HowLongAgo25to36).click().perform()
+        return
+
+    def accident_flow_7(self):
+        HowLongAgo3to5 = self.driver.find_element_by_xpath("//label[@for='accidentDate3']")
+        action(self.driver).move_to_element(HowLongAgo3to5).click().perform()
+        return
+
+#Testing Conviction flow. Must have selected Add Incident from the Incident Landing page -- index 2 on incident_type
+    def conviction_flow_0(self):
+    #This page has a dropdown menu has 15 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-14 to select between the options
+        ConvictionDescription = Select(self.driver.find_element_by_xpath("//select[@id='violationDescription']"))
+        ConvictionDescription.select_by_index(3)
+        return
+
+    def conviction_flow_1(self):
+        #This element has 4 radio buttons to respond to the question "How long ago was this ticket?"
+        HowLongAgoLessThan12 = self.driver.find_element_by_xpath("//label[@for='violationDateControl0']")
+        action(self.driver).move_to_element(HowLongAgoLessThan12).click().perform()
+        return
+
+    def conviction_flow_2(self):
+        HowLongAgo12to24 = self.driver.find_element_by_xpath("//label[@for='violationDateControl1']")
+        action(self.driver).move_to_element(HowLongAgo12to24).click().perform()
+        return
+
+    def accident_flow_6(self):
+        HowLongAgo25to36 = self.driver.find_element_by_xpath("//label[@for='violationDateControl2']")
+        action(self.driver).move_to_element(HowLongAgo25to36).click().perform()
+        return
+
+    def accident_flow_7(self):
+        HowLongAgo3to5 = self.driver.find_element_by_xpath("//label[@for='violationDateControl3']")
+        action(self.driver).move_to_element(HowLongAgo3to5).click().perform()
+        return
+
+#Testing Suspension flow. Must have selected Add Incident from the Incident Landing page -- index 3 on incident_type
+    def suspension_flow_0(self):
+        # This page has a dropdown menu has 5 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-4 to select between the options
+        SuspensionDetails = Select(self.driver.find_element_by_xpath("//select[@id='suspensionReason']"))
+        SuspensionDetails.select_by_index(3)
+        return
+
+    def suspension_flow_1(self):
+        # This page has a dropdown menu has 5 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-4 to select between the options
+        SuspensionStartDate = Select(self.driver.find_element_by_xpath("//select[@id='suspensionStartDate']"))
+        SuspensionStartDate.select_by_index(3)
+        return
+
+    def suspension_flow_2(self):
+        # This page has a dropdown menu has 5 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-4 to select between the options
+        SuspensionStartDate = Select(self.driver.find_element_by_xpath("//select[@id='lengthOfSuspensionControl']"))
+        SuspensionStartDate.select_by_index(3)
+        return
+
+#Testing Discounts - "Is Person currently a full time student with a B average or better?"
+    def discounts_0(self):
+        #2 radio buttons -- "Yes" and "No"
+        RadioYes = self.driver.find_element_by_xpath("//label[@for='goodStudent10']")
+        action(self.driver).move_to_element(HowLongAgo3to5).click().perform()
+        return
+
+# Testing Discounts - "Do you belong to any of these types of groups?" There are 8 checkbox options, and you can select as many or as few as you want before proceeding.
+    def discounts_1(self):
+        #8 checkboxes
+       Alumni = self.driver.find_element_by_xpath("//label[@for='ALUM']")
+        action(self.driver).move_to_element(Alumni).click().perform()
+        return
+
+    def discounts_2(self):
+        #8 checkboxes
+        Berkshire = self.driver.find_element_by_xpath("//label[@for='BERK']")
+        action(self.driver).move_to_element(Berkshire).click().perform()
+        return
+
+    def discounts_3(self):
+        #8 checkboxes
+        BusinessOrg = self.driver.find_element_by_xpath("//label[@for='PROF']")
+        action(self.driver).move_to_element(BusinessOrg).click().perform()
+        return
+
+    def discounts_4(self):
+        #8 checkboxes
+        CreditUnion = self.driver.find_element_by_xpath("//label[@for='CU']")
+        action(self.driver).move_to_element(CreditUnion).click().perform()
+        return
+
+    def discounts_5(self):
+        #8 checkboxes
+        Fraternities = self.driver.find_element_by_xpath("//label[@for='FRAT']")
+        action(self.driver).move_to_element(Fraternities).click().perform()
+        return
+
+    def discounts_6(self):
+        #8 checkboxes
+        Military = self.driver.find_element_by_xpath("//label[@for='MIL']")
+        action(self.driver).move_to_element(Military).click().perform()
+        return
+
+    def discounts_7(self):
+        #8 checkboxes
+        EducationOrgs = self.driver.find_element_by_xpath("//label[@for='EDU']")
+        action(self.driver).move_to_element(EducationOrgs).click().perform()
+        return
+
+    def discounts_8(self):
+        #8 checkboxes
+        Other = self.driver.find_element_by_xpath("//label[@for='OTHER']")
+        action(self.driver).move_to_element(EducationOrgs).click().perform()
+        return
+
+#This page brings you to Discounts - Please Select Any Group YOu Belong To. The element here is a dropdown menu with options more numerous than I can count.
+    def discounts_9(self):
+        DiscountGroupsSelect = Select(self.driver.find_element_by_xpath("//select[@id='sponsoredMarketingSelect']"))
+        DiscountGroupsSelect.select_by_index(3)
+        return
+
+    def contact_information_0(self):
+        EmailAddress = self.wait.until(ec.element_to_be_clickable((By.ID, 'email')))
+        action(self.driver).move_to_element(EmailAddress).click().send_keys('test@testing.com').perform()
+        PhoneNumber = self.wait.until(ec.element_to_be_clickable((By.ID, 'telephoneNumber')))
+        action(self.driver).move_to_element(EmailAddress).click().send_keys('5558675309').perform()
+        return
+
 
 
