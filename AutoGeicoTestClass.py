@@ -1024,3 +1024,45 @@ class Auto_Geico_Test:
         self.go_next()
         self.vehicle_not_listed_class_0()
         self.go_next()
+
+#Testing the Add Incident button; we are through the Driver Details flow and are entering the accident/suspension/conviction flow
+    def add_incident(self):
+        AddIncident = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Add Incident')]")))
+        action(self.driver).move_to_element(AddIncident).click().perform()
+        return
+
+#A dropdown menu with 3 options for different types of incidents. Each option takes you through a slightly different flow.
+    def incident_type(self):
+        #Dropdown index: 0 = blank space; index 1 = Accident; index 2 = Conviction; index 3 = Suspension/Revocation
+        IncidentType0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfIncidents']"))
+        IncidentType0.select_by_index(2)
+        return
+
+#testing the accident flow -- must have selected Accident/index 1 from dropdown menu in incident_type. This will trigger a secondary set of radio buttons to appear beneath the Incident_type dropdown.
+    def accident_flow_0(self):
+        #These radio buttons ask you to select who was driving during the accident. The first radio button selects the applicant/your name as the driver. The second radio button selects "Other driver (not on policy at the time)".
+        AccidentResponsibilitySelf = self.driver.find_element_by_xpath("//label[@for='involvedDriveraccident0']")
+        action(self.driver).move_to_element(AccidentResponsibilitySelf).click().perform()
+        return
+
+        # testing the accident flow -- must have selected Accident/index 1 from dropdown menu in incident_type. This will trigger a secondary set of radio buttons to appear beneath the Incident_type dropdown.
+
+    def accident_flow_1(self):
+        # These radio buttons ask you to select who was driving during the accident. The first radio button selects the applicant/your name as the driver. The second radio button selects "Other driver (not on policy at the time)".
+        AccidentResponsibilityOther = self.driver.find_element_by_xpath("//label[@for='involvedDriveraccident1']")
+        action(self.driver).move_to_element(AccidentResponsibilityOther).click().perform()
+        return
+
+        # After selecting AccidentResponsibilitySelf in accident_flow_0, you should land on a page asking "Were you primarily responsible for the accident?" and "How long ago was this accident?" Both questions have radio buttons as options.
+
+    def accident_flow_2(self):
+        ResponsibleForAccidentYes = self.driver.find_element_by_xpath("//select[@id='atFault0']")
+        action(self.driver).move_to_element(ResponsibleForAccidentYes).click().perform()
+        return
+
+    def accident_flow_3(self):
+        ResponsibleForAccidentNo = self.driver.find_element_by_xpath("//label[@for='involvedDriveraccident1']")
+        action(self.driver).move_to_element(ResponsibleForAccidentNo).click().perform()
+        return
+
+
