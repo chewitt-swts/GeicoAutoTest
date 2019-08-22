@@ -1159,13 +1159,13 @@ class Auto_Geico_Test:
     def discounts_0(self):
         #2 radio buttons -- "Yes" and "No"
         RadioYes = self.driver.find_element_by_xpath("//label[@for='goodStudent10']")
-        action(self.driver).move_to_element(HowLongAgo3to5).click().perform()
+        action(self.driver).move_to_element(RadioYes).click().perform()
         return
 
 # Testing Discounts - "Do you belong to any of these types of groups?" There are 8 checkbox options, and you can select as many or as few as you want before proceeding.
     def discounts_1(self):
         #8 checkboxes
-       Alumni = self.driver.find_element_by_xpath("//label[@for='ALUM']")
+        Alumni = self.driver.find_element_by_xpath("//label[@for='ALUM']")
         action(self.driver).move_to_element(Alumni).click().perform()
         return
 
@@ -1208,7 +1208,7 @@ class Auto_Geico_Test:
     def discounts_8(self):
         #8 checkboxes
         Other = self.driver.find_element_by_xpath("//label[@for='OTHER']")
-        action(self.driver).move_to_element(EducationOrgs).click().perform()
+        action(self.driver).move_to_element(Other).click().perform()
         return
 
 #This page brings you to Discounts - Please Select Any Group YOu Belong To. The element here is a dropdown menu with options more numerous than I can count.
@@ -1223,6 +1223,3 @@ class Auto_Geico_Test:
         PhoneNumber = self.wait.until(ec.element_to_be_clickable((By.ID, 'telephoneNumber')))
         action(self.driver).move_to_element(EmailAddress).click().send_keys('5558675309').perform()
         return
-
-
-
