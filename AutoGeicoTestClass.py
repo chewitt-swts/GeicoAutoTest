@@ -766,7 +766,7 @@ class Auto_Geico_Test:
     def social_security_number_1(self):
         #test case to determine whether element will accept 8 numeric characters (the full length of a SSN)
         SocialSecurityNumber0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'ssn')))
-        action(self.driver).move_to_element(SocialSecurityNumber0).click().send_keys('12345678').perform()
+        action(self.driver).move_to_element(SocialSecurityNumber0).click().send_keys('543736234').perform()
         return
 
     def social_security_number_2(self):
