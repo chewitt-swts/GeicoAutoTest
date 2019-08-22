@@ -999,10 +999,27 @@ class Auto_Geico_Test:
         MilitaryAffiliation0.select_by_index(3)
         return
 
+    def military_affiliation_1(self):
+        #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
+        MilitaryAffiliationSelect1 =  Select(self.driver.find_element_by_xpath("//select[@id='militaryAffiliation']"))
+        MilitaryAffiliationSelect1.select_by_index(3)
+
+    def military_affiliation_2(self):
+        #dropdown index for Military Grade is too numerous to list out here; use index values 1 - 24
+        MilitaryGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='militaryGrade']"))
+        MilitaryGradeSelect1.select_by_index(3)
+        return
+
     def government_affiliation_0(self):
         #index for dropdown menu: index 0 = Does Not Apply; index 1 = Federal Gov or Postal Service; index 2 = Retired Federal Gov or Postal Service; index 3 = State/Local/Municipal Gov; index 4 = Retired State/Local/Municipal Gov
         GovernmentAffiliation0 = Select(self.driver.find_element_by_xpath("//select[@id='governmentAffiliation']"))
         GovernmentAffiliation0.select_by_index(3)
+        return
+
+    def government_affiliation_1(self):
+        #Dropdown index for this element is too numerous to list out here.
+        GovernmentGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='governmentGrade']"))
+        GovernmentGradeSelect1.select_by_index(3)
         return
 
     # these functions get you to the page to add vehicles
