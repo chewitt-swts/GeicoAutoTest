@@ -125,7 +125,7 @@ class Auto_Geico_Test:
         #BeginQuoteButton0.click()
        # NextButton0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//button[@class='btn.btn--primary']")))
         #NextButton0.click()
-        print('CustomerIntent5 (Skip) has been selected.')
+        print('CustomerIntent5 has been selected.')
         return
 
       # skipping the Customer Intent/help page
@@ -135,6 +135,7 @@ class Auto_Geico_Test:
             butbar = self.driver.find_element_by_class_name("button-bar")
             SkipA0 = butbar.find_element_by_class_name("skip-collect-intent.link--primary")
             action(self.driver).move_to_element(SkipA0).click().perform()
+            print('Skip_help_page_0 has been selected. to skip Customer Intent options.')
         except:
             self.customer_intent_0()
 
@@ -143,18 +144,21 @@ class Auto_Geico_Test:
         time.sleep(2)
         NextButton0 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
         NextButton0.click()
+        print('Next button has been selected to proceed from Customer Intent selection.')
         return
 
     #Entering first name into dialogue box
     def first_name_input_0(self):
         FirstNameInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'firstName')))
         action(self.driver).move_to_element(FirstNameInput0).click().send_keys('Abcdefghij').perform()
+        print('First Name has been found and entered. First Name: ' + 'Abcdefghij')
         return
 
     #Entering last name into dialogue box
     def last_name_input_0(self):
         LastNameInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'lastName')))
         action(self.driver).move_to_element(LastNameInput0).click().send_keys('Ioewmaowenglweirb').perform()
+        print('Last Name has been found and entered. Last Name: ' + 'Ioewmaowenglweirb')
         return
 
     #Testing the Next Button after entering First and Last Name
@@ -162,12 +166,14 @@ class Auto_Geico_Test:
         time.sleep(2)
         NextButton1 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
         NextButton1.click()
+        print('Next button has been selected to proceed from First and Last Name entry.')
         return
 
     def month_dob_0(self):
         MonthDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-monthdob')))
         MonthDOB0.click()
         MonthDOB0.send_keys('08')
+        print('Month of Birth has been found and entered. Month: ' + '08')
         return
 
     def day_dob_0(self):
@@ -175,60 +181,72 @@ class Auto_Geico_Test:
         DayDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-daydob')))
         DayDOB0.click()
         DayDOB0.send_keys('08')
+        print('Day of Birth has been found and entered. Day: ' + '08')
+        return
 
     def year_dob_0(self):
         YearDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-yeardob')))
         YearDOB0.click()
         YearDOB0.send_keys('1990')
+        print('Year of Birth has been found and entered. Year: ' + '1990')
         return
 
     def next_button_2(self):
         time.sleep(2)
         NextButton2 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
         NextButton2.click()
+        print('Next button has been selected to proceed from DOB entry.')
         return
 
 #what is your address funtions
     def street_input_0(self):
         StreetInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'street')))
         action(self.driver).move_to_element(StreetInput0).click().send_keys('6609 S Karlov').perform()
+        print('Street Address has been found and entered. Street: ' + '6609 S Karlov')
         return
 
     def apt_input_0(self):
         AptInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'apt')))
         action(self.driver).move_to_element(AptInput0).click().send_keys('3').perform()
+        print('Apartment Number has been found and entered. Apartment Number: ' + '3')
         return
 
     def zip_input_1(self):
         ZipInput1 = self.wait.until(ec.element_to_be_clickable((By.ID, 'zip')))
         action(self.driver).move_to_element(ZipInput1).click().send_keys('60629').perform()
+        print('Zip has been found and entered. ZIP: ' + '60629')
         return
 
     def next_button_3(self):
         time.sleep(2)
         NextButton3 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
         NextButton3.click()
+        print('Next button has been selected to proceed from Address entry.')
         return
 
     def verify_address_0(self):
         OriginalAddressLabel0 = self.wait.until(ec.element_to_be_clickable((By.XPATH, "//label[@for='originalAddress']")))
         OriginalAddressLabel0.click()
+        print('Address Verification has been found and selected.')
         return
 
     def next_button_4(self):
         NextButton4 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
         NextButton4.click()
+        print('Next button has been selected to proceed from Address Verification.')
         return
 
     def have_you_moved(self):
         HasMovedInLast2MonthsLabel1 = self.driver.find_element_by_xpath("//label[@for='hasMovedInLast2Months1']")
         action(self.driver).move_to_element(HasMovedInLast2MonthsLabel1).click().send_keys(Keys.TAB).send_keys(Keys.ENTER).perform()
+        print('HasMovedInLast2MonthsLabel1 has been selected.')
         return
 
     def next_button_3(self):
         time.sleep(2)
         NextButton3 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
         NextButton3.click()
+        print('Next button has been selected to proceed from Have you moved?.')
         return
 
     def vehicle_not_listed_class_0(self):
@@ -236,6 +254,7 @@ class Auto_Geico_Test:
             time.sleep(8)
             VehicleNotListed = self.driver.find_element_by_xpath("//label[@for='chkVehicle2']")
             VehicleNotListed.click()
+            print('Vehicle has been selected.')
         except:
             VehicleNotListed = self.driver.find_element_by_xpath("//label[@for='chkVehicle2']")
             VehicleNotListed.click()
@@ -245,6 +264,7 @@ class Auto_Geico_Test:
         time.sleep(2)
         NextButtonx = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
         NextButtonx.click()
+        print('Next button has been selected.')
         return
 
     def select_antitheft_devices(self):
@@ -260,6 +280,7 @@ class Auto_Geico_Test:
             while ATDOption < len(AntiTheftDeviceSelect0.options):
                 AntiTheftDeviceSelect0.select_by_index(ATDOption)
                 ATDOption = ATDOption + 1
+                print('Anti-theft device has been selected.')
         except Exception as err:
             self.error_message(err)
 
@@ -272,7 +293,9 @@ class Auto_Geico_Test:
                 self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='antiTheftDevice']"))))
             AntiTheftDeviceSelect0.select_by_index(index)
             self.MaxAntitheftDeviceIndex = len(AntiTheftDeviceSelect0.options)
+            print('Anti-theft device has been selected.')
             self.go_next()
+            print('Next button has been selected.')
         except Exception as err:
             self.error_message(err)
 
@@ -285,7 +308,9 @@ class Auto_Geico_Test:
                 self.wait.until(ec.element_to_be_clickable((By.XPATH, "//select[@id='antiTheftDeviceunlisted']"))))
             AntiTheftDeviceSelect0.select_by_index(index)
             self.MaxAntitheftDeviceIndex = len(AntiTheftDeviceSelect0.options)
+            print('Anti-theft device has been selected.')
             self.go_next()
+            print('Next button has been selected.')
         except Exception as err:
             self.error_message(err)
 
@@ -377,6 +402,7 @@ class Auto_Geico_Test:
             self.MaxDaysDrivenIndex = len(DaysDrivenSelect0.options)
             MilesDrivenInput0 = self.driver.find_element_by_xpath("//input[@id='milesDriven']")
             action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(miles)).perform()
+            print('Primary Use of Vehicle has been selected.')
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
@@ -1208,7 +1234,7 @@ class Auto_Geico_Test:
     def discounts_8(self):
         #8 checkboxes
         Other = self.driver.find_element_by_xpath("//label[@for='OTHER']")
-        action(self.driver).move_to_element(EducationOrgs).click().perform()
+        action(self.driver).move_to_element(Other).click().perform()
         return
 
 #This page brings you to Discounts - Please Select Any Group YOu Belong To. The element here is a dropdown menu with options more numerous than I can count.
