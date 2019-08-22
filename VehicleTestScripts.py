@@ -319,8 +319,8 @@ def Test_G03_Unlisted():
 
         gvt.get_to_vehicle_page_unlisted()
         gvt.add_vehicle_pre1981_unlisted("1981", "Ferrari", "Enzo")
-        gvt.select_specific_body_style_unlisted(1)  # replace with test case
-        gvt.select_specific_new_costs_unlisted(2)  # replace with test case
+        gvt.select_specific_body_style_unlisted(1)  # replace with test case?
+        gvt.select_specific_new_costs_unlisted(2)  # replace with test case?
         gvt.select_antilock_brakes_unlisted(0)
         gvt.select_specific_antitheft_device_unlisted(2)
         gvt.select_ownership_unlisted(1)                    # as far as i know this doesnt appear with pre-1981, leaving it here just in case so nothing breaks.
