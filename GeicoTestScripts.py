@@ -1,8 +1,8 @@
 
 from AutoGeicoTestClass import Auto_Geico_Test
-from VehicleTestModules import VehicleTestModules
 import sys
 
+gvt = Auto_Geico_Test()
 
 #Precondition methods used to get initial conditions for a test case.
 def preconditionA(testCaseObject):
@@ -42,11 +42,36 @@ def preconditionD(testCaseObject):
         print("unable to locate verify address")
     return
 
-def preconditionE(testCaseObject):
-    preconditionD(testCaseObject)
-    testCaseObject.vehicle_not_listed_class_0()
-    testCaseObject.next_button_x()
-    return
+def preconditionE():
+    preconditionD(gvt)
+    gvt.select_vehicles_unlisted()
+    gvt.select_specific_body_style_unlisted(1)  # doesnt always run
+    gvt.select_specific_new_costs(2)  # doesnt always run
+    gvt.select_antilock_brakes(0)  # doesnt always run
+    gvt.select_specific_antitheft_device_unlisted(0)  # doesnt always run
+    gvt.select_ownership_unlisted(1)
+    gvt.go_next()
+    gvt.select_primary_use_unlisted(2)
+    gvt.go_next()
+    gvt.select_annual_mileage_unlisted(2)
+    gvt.go_next()
+    gvt.go_next()
+
+#TC_E01 - DRIVER INFORMATION - SELECT GENDER
+try:
+    Test_E01 = Auto_Geico_Test()
+    # preconditionX(Test_E01)
+
+    Test_E01.gender_select_0()
+    Test_E01.close_browser()
+    print("test E01 ran successfully")
+
+except Exception as err:
+    print('Test E01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test E01:")
+    print(err.__module__)
+    print(str(err))
 
 #GEICO HELP TEST CASES
 #TC_A01 - I NEED INSURANCE RIGHT AWAY
