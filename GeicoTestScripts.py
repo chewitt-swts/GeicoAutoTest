@@ -558,7 +558,7 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
-#TC_E05o11 - DRIVER INFORMATION - EMPLOYMENT STATUS - "RETIRED STAE/LOCAL/MUNICIPAL GOVERNMENT"
+#TC_E05o11 - DRIVER INFORMATION - EMPLOYMENT STATUS - "RETIRED STATE/LOCAL/MUNICIPAL GOVERNMENT"
 try:
     Test_E05o11 = Auto_Geico_Test()
     # preconditionX(Test_E04)
@@ -745,21 +745,6 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
-#TC_AA01 - SAVED DRIVERS SCREEN
-try:
-    Test_AA01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
-
-    Test_AA01.next_button_x()
-    print("test AA01 ran successfully")
-
-except Exception as err:
-    print('Test AA01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
-    print(err.args)
-    print("An error occured while running automation test for Geico Test AA01:")
-    print(err.__module__)
-    print(str(err))
-
 #TC_AA01 - INCIDENT LANDING PAGE 1
 try:
     Test_AA01 = Auto_Geico_Test()
@@ -781,12 +766,238 @@ try:
     # preconditionX(Test_E04)
 
     Test_AA02.add_incident()
-    Test_AA02.next_button_x()
     print("test AA02 ran successfully")
 
 except Exception as err:
     print('Test AA02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
     print("An error occured while running automation test for Geico Test AA02:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AB01 - INCIDENT TYPE 1
+try:
+    Test_AB01 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AB01.incident_type()
+    Test_AB01.next_button_x()
+    print("test AB01 ran successfully")
+
+except Exception as err:
+    print('Test AB01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AB01:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AB02 - INCIDENT TYPE 2
+try:
+    Test_AB02 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AB02.incident_type()
+    Test_AB02.next_button_x()
+    print("test AB02 ran successfully")
+
+except Exception as err:
+    print('Test AB01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AB01:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AB03 - INCIDENT TYPE 3
+try:
+    Test_AB03 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AB03.incident_type()
+    Test_AB03.next_button_x()
+    print("test AB03 ran successfully")
+
+except Exception as err:
+    print('Test AB03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AB03:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AB04 - INCIDENT TYPE 4
+try:
+    Test_AB04 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AB04.incident_type()
+    Test_AB04.next_button_x()
+    print("test AB04 ran successfully")
+
+except Exception as err:
+    print('Test AB04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AB04:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AB05 - INCIDENT TYPE 5
+try:
+    Test_AB05 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AB05.incident_type()
+    Test_AB05.next_button_x()
+    print("test AB05 ran successfully")
+
+except Exception as err:
+    print('Test AB05' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AB05:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AC01 - ACCIDENT RESPONSIBILITY 1
+try:
+    Test_AC01 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AC01.accident_flow_0()
+    Test_AC01.accident_flow_2()
+    Test_AC01.next_button_x()
+    print("test AC01 ran successfully")
+
+except Exception as err:
+    print('Test AC01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AC01:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AC02 - ACCIDENT RESPONSIBILITY 2
+try:
+    Test_AC02 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AC02.accident_flow_0()
+    Test_AC02.accident_flow_3()
+    Test_AC02.accident_flow_6()
+    Test_AC02.next_button_x()
+    print("test AC02 ran successfully")
+
+except Exception as err:
+    print('Test AC02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AC02:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AD01 - CONVICTION DETAILS 1
+try:
+    Test_AD01 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AD01.conviction_flow_0()
+    Test_AD01.next_button_x()
+    print("test AD01 ran successfully")
+
+except Exception as err:
+    print('Test AD01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AD01:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AD02 - CONVICTION DETAILS 2
+try:
+    Test_AD02 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AD02.conviction_flow_0()
+    Test_AD02.next_button_x()
+    print("test AD02 ran successfully")
+
+except Exception as err:
+    print('Test AD02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AD02:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_ADO3 - CONVICTION/INCIDENT LENGTH OF TIME 1
+try:
+    Test_AD03 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AD03.conviction_flow_1()
+    Test_AD03.next_button_x()
+    print("test AD03 ran successfully")
+
+except Exception as err:
+    print('Test AD03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AD03:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AD04 - CONVICTION/INCIDENT LENGTH OF TIME 2
+try:
+    Test_AD04 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AD04.conviction_flow_2()
+    Test_AD04.next_button_x()
+    print("test AD04 ran successfully")
+
+except Exception as err:
+    print('Test AD04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AD04:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AE01 - SUSPENSION DETAILS 1
+try:
+    Test_AE01 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AE01.suspension_flow_0()
+    Test_AE01.next_button_x()
+    print("test AE01 ran successfully")
+
+except Exception as err:
+    print('Test AE01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AE01:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AE02 - SUSPENSION DETAILS 1
+try:
+    Test_AE02 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AE02.suspension_flow_0()
+    Test_AE02.next_button_x()
+    print("test AE02 ran successfully")
+
+except Exception as err:
+    print('Test AE02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AE02:")
+    print(err.__module__)
+    print(str(err))
+
+#TC_AE03 - SUSPENSION/HOW LONG AGO 1
+try:
+    Test_AE03 = Auto_Geico_Test()
+    # preconditionX(Test_E04)
+
+    Test_AE03.suspension_flow_1()
+    Test_AE03.next_button_x()
+    print("test AE03 ran successfully")
+
+except Exception as err:
+    print('Test AE03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print(err.args)
+    print("An error occured while running automation test for Geico Test AE03:")
     print(err.__module__)
     print(str(err))
