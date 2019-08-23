@@ -1023,6 +1023,11 @@ class Auto_Geico_Test:
         GovernmentGradeSelect1.select_by_index(random.randint(1, len(GovernmentGradeSelect1.options)))
         return
 
+    def type_of_student_0(self):
+        #dropdown element for the type of student; must have selected "I am a Full Time Student"
+        TypeOfStudent = Select(self.driver.find_element_by_xpath("//select[@id='typeOfStudent']"))
+        TypeOfStudent.select_by_index(3)
+
 #A dialogue box/search box which allows you to enter your what your occupation was before you retired; you must have previously selected Retired Private Company/Self Employed on the Employment Status page.
     def retirement_occupation_0(self):
         #Replace the string in send_keys('') with the occupation you would like to search.
@@ -1290,3 +1295,8 @@ class Auto_Geico_Test:
         PhoneNumber = self.wait.until(ec.element_to_be_clickable((By.ID, 'telephoneNumber')))
         action(self.driver).move_to_element(EmailAddress).click().send_keys('5558675309').perform()
         return
+
+    def back_button_0(self):
+        time.sleep(2)
+        BackButton0 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/div')
+        BackButton0.click()

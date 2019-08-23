@@ -216,12 +216,8 @@ try:
     preconditionC(Test_D01)
 
     Test_D01.street_input_0()
-    #Test_D01.apt_input_0()
     Test_D01.zip_input_1()
     Test_D01.next_button_3()
-    Test_D01.verify_address_0()
-    Test_D01.next_button_4()
-    #Test_D01.have_you_moved()
     print("test D01 ran successfully")
     Test_D01.close_browser()
 except Exception as err:
@@ -234,11 +230,11 @@ except Exception as err:
 #TC_E01 - DRIVER INFORMATION - SELECT GENDER
 try:
     Test_E01 = Auto_Geico_Test()
-    # preconditionX(Test_E01)
 
     Test_E01.gender_select_0()
-    Test_E01.close_browser()
+    Test_E01.next_button_x()
     print("test E01 ran successfully")
+    Test_E01.close_browser()
 
 except Exception as err:
     print('Test E01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -250,7 +246,6 @@ except Exception as err:
 #TC_E02 - DRIVER INFORMATION - MARITAL STATUS AND SOCIAL SECURITY NUMBER
 try:
     Test_E02 = Auto_Geico_Test()
-    # preconditionX(Test_E01)
 
     Test_E02.marital_status_0()
     Test_E02.social_security_number_0()
@@ -272,7 +267,6 @@ except Exception as err:
 #TC_E03 - DRIVER INFORMATION - HOME INFORMATION
 try:
     Test_E03 = Auto_Geico_Test()
-    # preconditionX(Test_E03)
 
     Test_E03.home_ownership_0()
     Test_E03.next_button_x()
@@ -289,13 +283,11 @@ except Exception as err:
 #TC_E04.1 - DRIVER INFORMATION - AUTO INSURANCE HISTORY - "YES"
 try:
     Test_E04o1 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E04o1.current_insured_status_1()
     Test_E04o1.next_button_x()
     Test_E04o1.current_insurance_disclosure_0()
     Test_E04o1.current_insurance_disclosure_1()
-    Test_E04o1.previous_insurance_disclosure_3()
     Test_E04o1.next_button_x()
     Test_E04o1.driving_history_1()
     Test_E04o1.next_button_x()
@@ -312,7 +304,6 @@ except Exception as err:
 #TC_E04.2 - DRIVER INFORMATION - AUTO INSURANCE HISTORY - "NO, I HAVEN'T NEEDED INSURANCE"
 try:
     Test_E04o2 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E04o2.current_insured_status_2()
     Test_E04o2.next_button_x()
@@ -331,7 +322,6 @@ except Exception as err:
 #TC_E04.3 - DRIVER INFORMATION - AUTO INSURANCE HISTORY - "NO, MY INSUARANCE RAN OUT"
 try:
     Test_E04o3 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E04o3.current_insured_status_3()
     Test_E04o3.next_button_x()
@@ -354,7 +344,6 @@ except Exception as err:
 #TC_E04.4 - DRIVER INFORMATION - AUTO INSURANCE HISTORY - "NO, I WAS DEPLOYED"
 try:
     Test_E04o4 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E04o4.current_insured_status_4()
     Test_E04o4.next_button_x()
@@ -372,7 +361,6 @@ except Exception as err:
 #TC_XX01 - DRIVER INFORMATION - EDUCATION
 try:
     Test_XX01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_XX01.education_level_0()
     Test_XX01.next_button_x()
@@ -388,7 +376,6 @@ except Exception as err:
 #TC_E05o1 - DRIVER INFORMATION - EMPLOYMENT STATUS - "A PRIVATE COMPANY/ORGANIZATION OR SELF EMPLOYED"
 try:
     Test_E05o1 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o1.employment_status_0()
     Test_E05o1.next_button_x()
@@ -407,7 +394,6 @@ except Exception as err:
 #TC_E05o2 - DRIVER INFORMATION - EMPLOYMENT STATUS - "ACTIVE MILITARY DUTY"
 try:
     Test_E05o2 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o2.employment_status_0()
     Test_E05o2.employment_status_1()
@@ -425,7 +411,6 @@ except Exception as err:
 #TC_E05o3 - DRIVER INFORMATION - EMPLOYMENT STATUS - "FEDERAL GOVERNMENT AND POSTAL SERVICE"
 try:
     Test_E05o3 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o3.employment_status_0()
     Test_E05o3.employment_status_3()
@@ -442,10 +427,11 @@ except Exception as err:
 #TC_E05o4 - DRIVER INFORMATION - EMPLOYMENT STATUS - "A STAE/LOCAL/MUNICIPAL GOVERNMENT"
 try:
     Test_E05o4 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o4.employment_status_0()
-    Test_E05o4.employment_status_3()
+    Test_E05o4.next_button_x()
+    Test_E05o4.current_occupation_0()
+    Test_E05o4.current_occupation_1()
     Test_E05o4.next_button_x()
     print("test E05o4 ran successfully")
 
@@ -459,9 +445,9 @@ except Exception as err:
 #TC_E05o5 - DRIVER INFORMATION - EMPLOYMENT STATUS - "I AM A FULL TIME STUDENT"
 try:
     Test_E05o5 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o5.employment_status_0()
+    Test_E05o5.type_of_student_0()
     Test_E05o5.next_button_x()
     print("test E05o4 ran successfully")
 
@@ -475,7 +461,6 @@ except Exception as err:
 #TC_E05o6 - DRIVER INFORMATION - EMPLOYMENT STATUS - "I AM CURRENTLY A HOMEMAKER"
 try:
     Test_E05o6 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o6.employment_status_0()
     Test_E05o6.next_button_x()
@@ -491,7 +476,6 @@ except Exception as err:
 #TC_E05o7 - DRIVER INFORMATION - EMPLOYMENT STATUS - "I AM NOT CURRENTLY EMPLOYED"
 try:
     Test_E05o7 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o7.employment_status_0()
     Test_E05o7.next_button_x()
@@ -507,12 +491,11 @@ except Exception as err:
 #TC_E05o8 - DRIVER INFORMATION - EMPLOYMENT STATUS - "RETIRED PRIVATE COMPANY/ORGANIZATION OR SELF EMPLOYED"
 try:
     Test_E05o7 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o7.employment_status_0()
     Test_E05o7.next_button_x()
-    Test_E05o7.current_occupation_0()
-    Test_E05o7.current_occupation_1()
+    Test_E05o7.retirement_occupation_0()
+    Test_E05o7.retirement_occupation_1()
     Test_E05o7.next_button_x()
     print("test E05o7 ran successfully")
 
@@ -526,7 +509,6 @@ except Exception as err:
 #TC_E05o9 - DRIVER INFORMATION - EMPLOYMENT STATUS - "RETIRED MILITARY"
 try:
     Test_E05o9 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o9.employment_status_0()
     Test_E05o9.employment_status_1()
@@ -544,7 +526,6 @@ except Exception as err:
 #TC_E05o10 - DRIVER INFORMATION - EMPLOYMENT STATUS - "RETIRED FEDERAL GOVERNMENT AND POSTAL SERVICE"
 try:
     Test_E05o10 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o10.employment_status_0()
     Test_E05o10.employment_status_3()
@@ -561,10 +542,10 @@ except Exception as err:
 #TC_E05o11 - DRIVER INFORMATION - EMPLOYMENT STATUS - "RETIRED STATE/LOCAL/MUNICIPAL GOVERNMENT"
 try:
     Test_E05o11 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_E05o11.employment_status_0()
-    Test_E05o11.employment_status_3()
+    Test_E05o11.retirement_occupation_0()
+    Test_E05o11.retirement_occupation_1()
     Test_E05o11.next_button_x()
     print("test E05o11 ran successfully")
 
@@ -578,10 +559,10 @@ except Exception as err:
 #TC_W01 - MILITARY AFFILIATION 1
 try:
     Test_W01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
+    Test_W01.military_affiliation_0()
     Test_W01.military_affiliation_1()
-    Test_W01.military_affiliation_1()
+    Test_W01.military_affiliation_2()
     Test_W01.next_button_x()
     print("test W01 ran successfully")
 
@@ -595,10 +576,10 @@ except Exception as err:
 #TC_W02 - MILITARY AFFILIATION 2
 try:
     Test_W02 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_W02.military_affiliation_0()
     Test_W02.military_affiliation_1()
+    Test_W02.military_affiliation_2()
     Test_W02.next_button_x()
     print("test W02 ran successfully")
 
@@ -612,10 +593,10 @@ except Exception as err:
 #TC_W03 - MILITARY AFFILIATION 3
 try:
     Test_W03 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_W03.military_affiliation_0()
     Test_W03.military_affiliation_1()
+    Test_W03.military_affiliation_2()
     Test_W03.next_button_x()
     print("test W03 ran successfully")
 
@@ -629,10 +610,10 @@ except Exception as err:
 #TC_W04 - MILITARY AFFILIATION 4
 try:
     Test_W04 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_W04.military_affiliation_0()
     Test_W04.military_affiliation_1()
+    Test_W04.military_affiliation_2()
     Test_W04.next_button_x()
     print("test W04 ran successfully")
 
@@ -646,10 +627,10 @@ except Exception as err:
 #TC_W05 - MILITARY AFFILIATION 5
 try:
     Test_W05 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_W05.military_affiliation_0()
     Test_W05.military_affiliation_1()
+    Test_W05.military_affiliation_2()
     Test_W05.next_button_x()
     print("test W05 ran successfully")
 
@@ -663,7 +644,6 @@ except Exception as err:
 #TC_X01 - GOVERNMENT AFFILIATION 1
 try:
     Test_X01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_X01.government_affiliation_0()
     Test_X01.government_affiliation_1()
@@ -680,7 +660,6 @@ except Exception as err:
 #TC_X02 - GOVERNMENT AFFILIATION 2
 try:
     Test_X02 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_X02.government_affiliation_0()
     Test_X02.government_affiliation_1()
@@ -697,7 +676,6 @@ except Exception as err:
 #TC_X03 - GOVERNMENT AFFILIATION 3
 try:
     Test_X03 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_X03.government_affiliation_0()
     Test_X03.government_affiliation_1()
@@ -714,10 +692,7 @@ except Exception as err:
 #TC_Z01 - ADD DRIVER
 try:
     Test_Z01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
-    Test_Z01.government_affiliation_0()
-    Test_Z01.government_affiliation_1()
     Test_Z01.next_button_x()
     print("test Z01 ran successfully")
 
@@ -731,10 +706,7 @@ except Exception as err:
 #TC_Z02 - SAVED DRIVERS SCREEN
 try:
     Test_Z02 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
-    Test_Z02.government_affiliation_0()
-    Test_Z02.government_affiliation_1()
     Test_Z02.next_button_x()
     print("test Z02 ran successfully")
 
@@ -748,7 +720,6 @@ except Exception as err:
 #TC_AA01 - INCIDENT LANDING PAGE 1
 try:
     Test_AA01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AA01.next_button_x()
     print("test AA01 ran successfully")
@@ -763,7 +734,6 @@ except Exception as err:
 #TC_AA02 - INCIDENT LANDING PAGE 2
 try:
     Test_AA02 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AA02.add_incident()
     print("test AA02 ran successfully")
@@ -778,10 +748,9 @@ except Exception as err:
 #TC_AB01 - INCIDENT TYPE 1
 try:
     Test_AB01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
+    Test_AB01.add_incident()
     Test_AB01.incident_type()
-    Test_AB01.next_button_x()
     print("test AB01 ran successfully")
 
 except Exception as err:
@@ -794,8 +763,8 @@ except Exception as err:
 #TC_AB02 - INCIDENT TYPE 2
 try:
     Test_AB02 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
+    Test_AB02.add_incident()
     Test_AB02.incident_type()
     Test_AB02.next_button_x()
     print("test AB02 ran successfully")
@@ -810,8 +779,8 @@ except Exception as err:
 #TC_AB03 - INCIDENT TYPE 3
 try:
     Test_AB03 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
+    Test_AB03.add_incident()
     Test_AB03.incident_type()
     Test_AB03.next_button_x()
     print("test AB03 ran successfully")
@@ -826,8 +795,8 @@ except Exception as err:
 #TC_AB04 - INCIDENT TYPE 4
 try:
     Test_AB04 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
+    Test_AB04.add_incident()
     Test_AB04.incident_type()
     Test_AB04.next_button_x()
     print("test AB04 ran successfully")
@@ -842,8 +811,8 @@ except Exception as err:
 #TC_AB05 - INCIDENT TYPE 5
 try:
     Test_AB05 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
+    Test_AB05.add_incident()
     Test_AB05.incident_type()
     Test_AB05.next_button_x()
     print("test AB05 ran successfully")
@@ -858,10 +827,9 @@ except Exception as err:
 #TC_AC01 - ACCIDENT RESPONSIBILITY 1
 try:
     Test_AC01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
-    Test_AC01.accident_flow_0()
     Test_AC01.accident_flow_2()
+    Test_AC01.accident_flow_4()
     Test_AC01.next_button_x()
     print("test AC01 ran successfully")
 
@@ -875,9 +843,7 @@ except Exception as err:
 #TC_AC02 - ACCIDENT RESPONSIBILITY 2
 try:
     Test_AC02 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
-    Test_AC02.accident_flow_0()
     Test_AC02.accident_flow_3()
     Test_AC02.accident_flow_6()
     Test_AC02.next_button_x()
@@ -893,7 +859,6 @@ except Exception as err:
 #TC_AD01 - CONVICTION DETAILS 1
 try:
     Test_AD01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AD01.conviction_flow_0()
     Test_AD01.next_button_x()
@@ -909,7 +874,6 @@ except Exception as err:
 #TC_AD02 - CONVICTION DETAILS 2
 try:
     Test_AD02 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AD02.conviction_flow_0()
     Test_AD02.next_button_x()
@@ -925,7 +889,6 @@ except Exception as err:
 #TC_ADO3 - CONVICTION/INCIDENT LENGTH OF TIME 1
 try:
     Test_AD03 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AD03.conviction_flow_1()
     Test_AD03.next_button_x()
@@ -941,7 +904,6 @@ except Exception as err:
 #TC_AD04 - CONVICTION/INCIDENT LENGTH OF TIME 2
 try:
     Test_AD04 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AD04.conviction_flow_2()
     Test_AD04.next_button_x()
@@ -957,7 +919,6 @@ except Exception as err:
 #TC_AE01 - SUSPENSION DETAILS 1
 try:
     Test_AE01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AE01.suspension_flow_0()
     Test_AE01.next_button_x()
@@ -973,9 +934,8 @@ except Exception as err:
 #TC_AE02 - SUSPENSION DETAILS 2
 try:
     Test_AE02 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
-    Test_AE02.suspension_flow_1()
+    Test_AE02.suspension_flow_0()
     Test_AE02.next_button_x()
     print("test AE02 ran successfully")
 
@@ -989,7 +949,6 @@ except Exception as err:
 #TC_AE03 - SUSPENSION/HOW LONG AGO 1
 try:
     Test_AE03 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AE03.suspension_flow_1()
     Test_AE03.next_button_x()
@@ -1005,7 +964,6 @@ except Exception as err:
 #TC_AE04 - SUSPENSION/HOW LONG AGO 2
 try:
     Test_AE04 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AE04.suspension_flow_1()
     Test_AE04.next_button_x()
@@ -1018,10 +976,9 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
-#TC_AE05 - LENGTH OF SUSPENSION
+#TC_AE05 - LENGTH OF SUSPENSION 1
 try:
     Test_AE05 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AE05.suspension_flow_2()
     Test_AE05.next_button_x()
@@ -1034,10 +991,9 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
-#TC_AE06 - LENGTH OF SUSPENSION
+#TC_AE06 - LENGTH OF SUSPENSION 2
 try:
     Test_AE06 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_AE06.suspension_flow_2()
     Test_AE06.next_button_x()
@@ -1053,7 +1009,6 @@ except Exception as err:
 #TC_F01 - DISCOUNTS AND CONTACTS - GROUP CATEGORY SELECTION
 try:
     Test_F01 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_F01.discounts_1()
     Test_F01.discounts_5()
@@ -1070,9 +1025,7 @@ except Exception as err:
 #TC_F02 - DISCOUNTS AND CONTACTS - SPECIFIC GROUP SELECTION
 try:
     Test_F02 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
-    Test_F02.discounts_1()
     Test_F02.discounts_9()
     Test_F02.next_button_x()
     print("test F02 ran successfully")
@@ -1087,7 +1040,6 @@ except Exception as err:
 #TC_F03 - DISCOUNTS AND CONTACTS - CONTACT INFORMATION
 try:
     Test_F03 = Auto_Geico_Test()
-    # preconditionX(Test_E04)
 
     Test_F03.contact_information_0()
     Test_F03.next_button_x()
