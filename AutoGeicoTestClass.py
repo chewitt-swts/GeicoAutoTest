@@ -7,6 +7,8 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
+import random
+import string
 
 class Auto_Geico_Test:
 
@@ -710,6 +712,12 @@ class Auto_Geico_Test:
         except Exception as err:
             self.error_message(err)
 
+    def random_int(self, len):
+        return random.randint(pow(10, len-1), pow(10, len))
+
+    def random_string(self, len):
+        return ''.join([random.choice(string.ascii_letters) for n in range(len)])
+
     def select_specific_new_costs_unlisted(self, index):
 
         try:
@@ -797,7 +805,7 @@ class Auto_Geico_Test:
     def social_security_number_1(self):
         #test case to determine whether element will accept 8 numeric characters (the full length of a SSN)
         SocialSecurityNumber0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'ssn')))
-        action(self.driver).move_to_element(SocialSecurityNumber0).click().send_keys('12345678').perform()
+        action(self.driver).move_to_element(SocialSecurityNumber0).click().send_keys('543736234').perform()
         return
 
     def social_security_number_2(self):
@@ -964,6 +972,7 @@ class Auto_Geico_Test:
         # Dropdown index: index 0 = blank space; index 1 = A Private Company/Self Employed; index 2 = Active Duty Military; index 3 = Federal Gov or Postal Service; index 4 = State/Local/Municipal Gov; index 5 = I am a Full Time Student; index 6 = I am currently a Homemaker; index 7 = Not Currently Employed; index 8 = Retired Private Company/Self Employed; index 9 = Retired Military; index 10 = Retired Federal Gov; index 11= Retired State/Local/Municipal Gov
         EmploymentStatus0 = Select(self.driver.find_element_by_xpath("//select[@id='employmentStatus']"))
         EmploymentStatus0.select_by_index()
+        EmploymentStatus0.select_by_index(0)
         return
 
     #Secondary dropdown menu triggered by selecting Active Duty Military; you must now select which branch of the military you belong to.
@@ -971,7 +980,7 @@ class Auto_Geico_Test:
         #Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
         MilitaryBranchSelect0 =  Select(self.driver.find_element_by_xpath("//select[@id='branchOfMilitary']"))
-        MilitaryBranchSelect0.select_by_index()
+        MilitaryBranchSelect0.select_by_index(1)
         return
 
     #Tertiary dropdown menu triggered by selecting which branch of the military you belong to; you must now select your paygrade within the military.
@@ -979,7 +988,7 @@ class Auto_Geico_Test:
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #dropdown index for Military Grade is too numerous to list out here; use index values 1 - 24
         MilitaryGradeSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='militaryGrade']"))
-        MilitaryGradeSelect0.select_by_index()
+        MilitaryGradeSelect0.select_by_index(2)
         return
 
     #Secondary dropdown menu triggered by selecting Federal Goverment/Postal Service; you must now select your paygrade.
