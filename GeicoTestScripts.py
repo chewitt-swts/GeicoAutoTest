@@ -243,16 +243,17 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
+#TODO clean up a bit, throw out first two, check if it can register negative numbers
 #TC_E02 - DRIVER INFORMATION - MARITAL STATUS AND SOCIAL SECURITY NUMBER
 try:
     Test_E02 = Auto_Geico_Test()
 
     Test_E02.marital_status_0()
-    Test_E02.social_security_number_0()
+    Test_E02.social_security_number_0() #alpha character check
     Test_E02.next_button_x()
-    Test_E02.social_security_number_2()
+    Test_E02.social_security_number_2() #length check
     Test_E02.next_button_x()
-    Test_E02.social_security_number_1()
+    Test_E02.social_security_number_1() #length check
     Test_E02.next_button_x()
     print("test E02 ran successfully")
     Test_E02.close_browser()
@@ -280,6 +281,7 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
+#TODO test driving history page
 #TC_E04.1 - DRIVER INFORMATION - AUTO INSURANCE HISTORY - "YES"
 try:
     Test_E04o1 = Auto_Geico_Test()
@@ -424,7 +426,7 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
-#TC_E05o4 - DRIVER INFORMATION - EMPLOYMENT STATUS - "A STAE/LOCAL/MUNICIPAL GOVERNMENT"
+#TC_E05o4 - DRIVER INFORMATION - EMPLOYMENT STATUS - "A STATE/LOCAL/MUNICIPAL GOVERNMENT"
 try:
     Test_E05o4 = Auto_Geico_Test()
 
@@ -689,6 +691,7 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
+#TODO write code to select add driver option
 #TC_Z01 - ADD DRIVER
 try:
     Test_Z01 = Auto_Geico_Test()
@@ -703,6 +706,7 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
+#TODO write code to select saved drivers button
 #TC_Z02 - SAVED DRIVERS SCREEN
 try:
     Test_Z02 = Auto_Geico_Test()
