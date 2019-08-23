@@ -115,6 +115,7 @@ class Auto_Geico_Test:
         print('CustomerIntent4 (Im just shopping today) has been selected.')
         return
 
+#Skipping the customer intent page
     def customer_intent_5(self):
         time.sleep(3)
         self.driver.find_element_by_xpath("//div[@class='button-bar']")
@@ -128,7 +129,6 @@ class Auto_Geico_Test:
         print('CustomerIntent5 has been selected.')
         return
 
-      # skipping the Customer Intent/help page
     def skip_help_page_0(self):
         try:
             time.sleep(2)
@@ -149,6 +149,7 @@ class Auto_Geico_Test:
 
     #Entering first name into dialogue box
     def first_name_input_0(self):
+        #Replace the string in send_keys('') to whatever you'd like.
         FirstNameInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'firstName')))
         action(self.driver).move_to_element(FirstNameInput0).click().send_keys('Abcdefghij').perform()
         print('First Name has been found and entered. First Name: ' + 'Abcdefghij')
@@ -156,6 +157,7 @@ class Auto_Geico_Test:
 
     #Entering last name into dialogue box
     def last_name_input_0(self):
+        # Replace the string in send_keys('') to whatever you'd like.
         LastNameInput0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'lastName')))
         action(self.driver).move_to_element(LastNameInput0).click().send_keys('Ioewmaowenglweirb').perform()
         print('Last Name has been found and entered. Last Name: ' + 'Ioewmaowenglweirb')
@@ -170,6 +172,7 @@ class Auto_Geico_Test:
         return
 
     def month_dob_0(self):
+        # Replace the string in send_keys('') to a 2-digit numeric value between 01 and 12
         MonthDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-monthdob')))
         MonthDOB0.click()
         MonthDOB0.send_keys('08')
@@ -177,6 +180,7 @@ class Auto_Geico_Test:
         return
 
     def day_dob_0(self):
+        # Replace the string in send_keys('') to a 2-digit numeric value between 01 and 31
         time.sleep(2)
         DayDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-daydob')))
         DayDOB0.click()
@@ -185,6 +189,7 @@ class Auto_Geico_Test:
         return
 
     def year_dob_0(self):
+        # Replace the string in send_keys('') to a 4-digit numeric value between 1900 and 2000
         YearDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-yeardob')))
         YearDOB0.click()
         YearDOB0.send_keys('1990')
@@ -840,7 +845,7 @@ class Auto_Geico_Test:
         return
 
     #Testing "Rent" radio button on Do You Own Or Rent Your Home? page
-    def home_ownership_0(self):
+    def home_ownership_1(self):
         RentLabel0 = self.driver.find_element_by_xpath("//label[@for='ownOrRentHome1']")
         action(self.driver).move_to_element(RentLabel0).click().perform()
         return
@@ -879,10 +884,10 @@ class Auto_Geico_Test:
     #Testing each element on the Previous Insurance disclosure page (title: "Tell us more about your previous insurance").
     # 3 major element groups on this page: a dropdown menu where you can select how many years you had been continuously covered by previous insurer when your insurance ran out; 2 radio buttons for the question "Have you had insurance within the last 30 days?"; and another dropdown menu labelled "Previous Bodily Injury Limits"
     def previous_insurance_disclosure_0(self):
-        #Testing 1st dropdown menu.
+        #Testing 1st dropdown menu. Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index/values: index 0/value is blank; index 1/value "0" = Less than 1; index 2/value "1" = 1; index 3/value "2" = 2; index 4/value "3" = 3; index 5/value "4" = 4; index 6/value "5" = 5; index 7/value "6" = 6; index 8/value "7" = 7; index 9/value "8" = 8; index 10/value "9" = 9; index 11/value "10" = 10; index 12/value "11" = 11 or more
         PreviousInsuranceSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='yearsInsured']"))
-        PreviousInsuranceSelect0.select_by_index(3)
+        PreviousInsuranceSelect0.select_by_index()
         return
 
     def previous_insurance_disclosure_1(self):
@@ -898,19 +903,19 @@ class Auto_Geico_Test:
         return
 
     def previous_insurance_disclosure_3(self):
-        #Testing Previous Bodily Injury Limits dropdown menu.
+        #Testing Previous Bodily Injury Limits dropdown menu. Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index/values: index 0/value is blank; index 1/value "025" = "$25,000/$50,000"; index 2/value "051" = "$50,000/$100,000" ; index 3/value "120" = "$100,000/$200,000"; index 4/value "130" = "$100,000/$300,000"; index 5/value "330" = "$300,000/$300,000"; index 6/value "250" = "$250,000/$500,000 or higher"; index 7/value "997" = "Not Sure"
         PreviousBILimits0 = Select(self.driver.find_element_by_xpath("//select[@id='currentBILimits']"))
-        PreviousBILimits0.select_by_index(3)
+        PreviousBILimits0.select_by_index()
         return
 
     # Testing each element on the Current Insurance disclosure page (title: "Tell us more about your current insurance").
     # 3 major element groups on this page: a dropdown menu where you can select how many years you have been covered by your current insurance company; 2 radio buttons for the question "Have you had continuous insurance for the past 12 months?"; and another dropdown menu labelled "Current Bodily Injury Limits"
     def current_insurance_disclosure_0(self):
-        # Testing 1st dropdown menu.
+        # Testing 1st dropdown menu. Insert the index value you'd like to select into the parentheses in select_by_index()
         # Dropdown index/values: index 0/value is blank; index 1/value "0" = Less than 1; index 2/value "1" = 1; index 3/value "2" = 2; index 4/value "3" = 3; index 5/value "4" = 4; index 6/value "5" = 5; index 7/value "6" = 6; index 8/value "7" = 7; index 9/value "8" = 8; index 10/value "9" = 9; index 11/value "10" = 10; index 12/value "11" = 11 or more
         CurrentInsuranceSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='yearsInsured']"))
-        CurrentInsuranceSelect0.select_by_index(3)
+        CurrentInsuranceSelect0.select_by_index()
         return
 
     def current_insurance_disclosure_1(self):
@@ -926,10 +931,10 @@ class Auto_Geico_Test:
         return
 
     def current_insurance_disclosure_4(self):
-        # Testing Current Bodily Injury Limits dropdown menu.
+        # Testing Current Bodily Injury Limits dropdown menu. Insert the index value you'd like to select into the parentheses in select_by_index()
         # Dropdown index/values: index 0/value is blank; index 1/value "025" = "$25,000/$50,000"; index 2/value "051" = "$50,000/$100,000" ; index 3/value "120" = "$100,000/$200,000"; index 4/value "130" = "$100,000/$300,000"; index 5/value "330" = "$300,000/$300,000"; index 6/value "250" = "$250,000/$500,000 or higher"; index 7/value "997" = "Not Sure"
         CurrentBILimits0 = Select(self.driver.find_element_by_xpath("//select[@id='currentBILimits']"))
-        CurrentBILimits0.select_by_index(3)
+        CurrentBILimits0.select_by_index()
         return
 
     # Testing "Tell us more about your driving history" page. Contains 2 radio buttons: Yes and No. Selecting Yes will advance you to a new screen. Selecting No will add a new dialogue box to the current screen, prompting you to input your age when you became licensed.
@@ -947,112 +952,127 @@ class Auto_Geico_Test:
 
     # Testing Driver Information - What is the highest level of education you have completed?
     def education_level_0(self):
+        #Insert the index value you'd like to select into the parentheses in select_by_index()
         # Dropdown index: index 0 = blank space; index 1 = "Less than High School; index 2 = Vocational; index 3 = High School; index 4 = High school, pursuing Bachelor's degree; index 5 = Associate; index 6 = Associate, pursuing Bachelor's degree; index 7 = Bachelor's; index 8 = Bachelor's, pursuing Graduate Degree; index 9 = Master's; index 10 = Doctors; index 11 = Lawyer; index 12 = PhD
         HighestEducation0 = Select(self.driver.find_element_by_xpath("//select[@id='highestEducation']"))
-        HighestEducation0.select_by_index(3)
+        HighestEducation0.select_by_index()
         return
 
-    # Testing Driver Information - Employment status. Single element on page is a dropdown menu
-
-               # Testing Driver Information - Employment status. Single element on page is a dropdown menu; selecting any Military or Federal Gov options will create new dropdown menus to select from.
+# Testing Driver Information - Employment status. Single element on page is a dropdown menu; selecting any Military or Federal Gov options will create new dropdown menus to select from.
     def employment_status_0(self):
+        #Insert the index value you'd like to select into the parentheses in select_by_index()
         # Dropdown index: index 0 = blank space; index 1 = A Private Company/Self Employed; index 2 = Active Duty Military; index 3 = Federal Gov or Postal Service; index 4 = State/Local/Municipal Gov; index 5 = I am a Full Time Student; index 6 = I am currently a Homemaker; index 7 = Not Currently Employed; index 8 = Retired Private Company/Self Employed; index 9 = Retired Military; index 10 = Retired Federal Gov; index 11= Retired State/Local/Municipal Gov
         EmploymentStatus0 = Select(self.driver.find_element_by_xpath("//select[@id='employmentStatus']"))
-        EmploymentStatus0.select_by_index(3)
+        EmploymentStatus0.select_by_index()
         return
 
     #Secondary dropdown menu triggered by selecting Active Duty Military; you must now select which branch of the military you belong to.
     def employment_status_1(self):
+        #Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
         MilitaryBranchSelect0 =  Select(self.driver.find_element_by_xpath("//select[@id='branchOfMilitary']"))
-        MilitaryBranchSelect0.select_by_index(3)
+        MilitaryBranchSelect0.select_by_index()
         return
 
     #Tertiary dropdown menu triggered by selecting which branch of the military you belong to; you must now select your paygrade within the military.
     def employment_status_2(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #dropdown index for Military Grade is too numerous to list out here; use index values 1 - 24
         MilitaryGradeSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='militaryGrade']"))
-        MilitaryGradeSelect0.select_by_index(3)
+        MilitaryGradeSelect0.select_by_index()
         return
 
     #Secondary dropdown menu triggered by selecting Federal Goverment/Postal Service; you must now select your paygrade.
     def employment_status_3(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index for this element is too numerous to list out here.
         GovernmentGradeSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='governmentGrade']"))
-        GovernmentGradeSelect0.select_by_index(3)
+        GovernmentGradeSelect0.select_by_index()
         return
 
     #Secondary dropdown menu triggered by selecting Retired Military; you must now select which branch of the military you belong to.
     def employment_status_4(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
         MilitaryBranchSelect1 =  Select(self.driver.find_element_by_xpath("//select[@id='branchOfMilitary']"))
-        MilitaryBranchSelect1.select_by_index(3)
+        MilitaryBranchSelect1.select_by_index()
         return
 
     #Tertiary dropdown menu triggered by selecting which branch of the military you belonged to before retirement; you must now select your paygrade within the military.
     def employment_status_5(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #dropdown index for Military Grade is too numerous to list out here; use index values 1 - 24
         MilitaryGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='militaryGrade']"))
-        MilitaryGradeSelect1.select_by_index(3)
+        MilitaryGradeSelect1.select_by_index()
         return
 
     #Secondary dropdown menu triggered by selecting Retired Federal Goverment/Postal Service; you must now select your paygrade.
     def employment_status_6(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index for this element is too numerous to list out here.
         GovernmentGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='governmentGrade']"))
-        GovernmentGradeSelect1.select_by_index(3)
+        GovernmentGradeSelect1.select_by_index()
         return
 
 #A dialogue box/search box which allows you to enter your what your occupation was before you retired; you must have previously selected Retired Private Company/Self Employed on the Employment Status page.
     def retirement_occupation_0(self):
+        #Replace the string in send_keys('') with the occupation you would like to search.
         OccupationSearch0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'employmentDescription')))
         action(self.driver).move_to_element(OccupationSearch0).click().send_keys('engineer').perform()
         return
 #A second dropdown menu appears after you search for your occupation, directing you to select the closest match.
     def retirement_occupation_1(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Index values will be variable depending on how many options your search returns.
         OccupationSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='foundOccupation']"))
-        OccupationSelect0.select_by_index(3)
+        OccupationSelect0.select_by_index()
 
 #A dialogue box/search box which allows you to enter your what your occupation is; you must have previously selected  Private Company/Self Employed on the Employment Status page.
     def current_occupation_0(self):
+        #Replace the string in send_keys('') with t he occupation you would like to search.
         OccupationSearch1 = self.wait.until(ec.element_to_be_clickable((By.ID, 'employmentDescription')))
         action(self.driver).move_to_element(OccupationSearch1).click().send_keys('engineer').perform()
         return
 #A second dropdown menu appears after you search for your occupation, directing you to select the closest match.
     def current_occupation_1(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Index values will be variable depending on how many options your search returns.
         OccupationSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='foundOccupation']"))
-        OccupationSelect1.select_by_index(3)
+        OccupationSelect1.select_by_index()
         return
 
     def military_affiliation_0(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #index for dropdown menu: index 0 = Does Not Apply; index 1 = Military Retiree; index 2 = National Guard; index 3 = Military Reserves
         MilitaryAffiliation0 = Select(self.driver.find_element_by_xpath("//select[@id='militaryAffiliation']"))
-        MilitaryAffiliation0.select_by_index(3)
+        MilitaryAffiliation0.select_by_index()
         return
 
     def military_affiliation_1(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
         MilitaryAffiliationSelect1 =  Select(self.driver.find_element_by_xpath("//select[@id='militaryAffiliation']"))
-        MilitaryAffiliationSelect1.select_by_index(3)
+        MilitaryAffiliationSelect1.select_by_index()
 
     def military_affiliation_2(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #dropdown index for Military Grade is too numerous to list out here; use index values 1 - 24
         MilitaryGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='militaryGrade']"))
-        MilitaryGradeSelect1.select_by_index(3)
+        MilitaryGradeSelect1.select_by_index()
         return
 
     def government_affiliation_0(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #index for dropdown menu: index 0 = Does Not Apply; index 1 = Federal Gov or Postal Service; index 2 = Retired Federal Gov or Postal Service; index 3 = State/Local/Municipal Gov; index 4 = Retired State/Local/Municipal Gov
         GovernmentAffiliation0 = Select(self.driver.find_element_by_xpath("//select[@id='governmentAffiliation']"))
-        GovernmentAffiliation0.select_by_index(3)
+        GovernmentAffiliation0.select_by_index()
         return
 
     def government_affiliation_1(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index for this element is too numerous to list out here.
         GovernmentGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='governmentGrade']"))
-        GovernmentGradeSelect1.select_by_index(3)
+        GovernmentGradeSelect1.select_by_index()
         return
 
     # these functions get you to the page to add vehicles
@@ -1083,9 +1103,10 @@ class Auto_Geico_Test:
 
 #A dropdown menu with 3 options for different types of incidents. Each option takes you through a slightly different flow.
     def incident_type(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index: 0 = blank space; index 1 = Accident; index 2 = Conviction; index 3 = Suspension/Revocation
         IncidentType0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfIncidents']"))
-        IncidentType0.select_by_index(2)
+        IncidentType0.select_by_index()
         return
 
 #testing the accident flow -- must have selected Accident/index 1 from dropdown menu in incident_type. This will trigger a secondary set of radio buttons to appear beneath the Incident_type dropdown.
@@ -1113,6 +1134,7 @@ class Auto_Geico_Test:
         ResponsibleForAccidentNo = self.driver.find_element_by_xpath("//label[@for='involvedDriveraccident1']")
         action(self.driver).move_to_element(ResponsibleForAccidentNo).click().perform()
         return
+
 #Each of the below radio options will take you back to the Incident landing page, without the ability to hit the back button.
     def accident_flow_4(self):
         HowLongAgoLessThan12 = self.driver.find_element_by_xpath("//label[@for='accidentDate0']")
@@ -1136,9 +1158,10 @@ class Auto_Geico_Test:
 
 #Testing Conviction flow. Must have selected Add Incident from the Incident Landing page -- index 2 on incident_type
     def conviction_flow_0(self):
+    # Insert the index value you'd like to select into the parentheses in select_by_index()
     #This page has a dropdown menu has 15 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-14 to select between the options
         ConvictionDescription = Select(self.driver.find_element_by_xpath("//select[@id='violationDescription']"))
-        ConvictionDescription.select_by_index(3)
+        ConvictionDescription.select_by_index()
         return
 
     def conviction_flow_1(self):
@@ -1152,33 +1175,36 @@ class Auto_Geico_Test:
         action(self.driver).move_to_element(HowLongAgo12to24).click().perform()
         return
 
-    def accident_flow_6(self):
+    def conviction_flow_3(self):
         HowLongAgo25to36 = self.driver.find_element_by_xpath("//label[@for='violationDateControl2']")
         action(self.driver).move_to_element(HowLongAgo25to36).click().perform()
         return
 
-    def accident_flow_7(self):
+    def conviction_flow_4(self):
         HowLongAgo3to5 = self.driver.find_element_by_xpath("//label[@for='violationDateControl3']")
         action(self.driver).move_to_element(HowLongAgo3to5).click().perform()
         return
 
 #Testing Suspension flow. Must have selected Add Incident from the Incident Landing page -- index 3 on incident_type
     def suspension_flow_0(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         # This page has a dropdown menu has 5 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-4 to select between the options
         SuspensionDetails = Select(self.driver.find_element_by_xpath("//select[@id='suspensionReason']"))
-        SuspensionDetails.select_by_index(3)
+        SuspensionDetails.select_by_index()
         return
 
     def suspension_flow_1(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         # This page has a dropdown menu has 5 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-4 to select between the options
         SuspensionStartDate = Select(self.driver.find_element_by_xpath("//select[@id='suspensionStartDate']"))
-        SuspensionStartDate.select_by_index(3)
+        SuspensionStartDate.select_by_index()
         return
 
     def suspension_flow_2(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         # This page has a dropdown menu has 5 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-4 to select between the options
-        SuspensionStartDate = Select(self.driver.find_element_by_xpath("//select[@id='lengthOfSuspensionControl']"))
-        SuspensionStartDate.select_by_index(3)
+        SuspensionLength = Select(self.driver.find_element_by_xpath("//select[@id='lengthOfSuspensionControl']"))
+        SuspensionLength.select_by_index()
         return
 
 #Testing Discounts - "Is Person currently a full time student with a B average or better?"
@@ -1239,11 +1265,14 @@ class Auto_Geico_Test:
 
 #This page brings you to Discounts - Please Select Any Group YOu Belong To. The element here is a dropdown menu with options more numerous than I can count.
     def discounts_9(self):
+        # Insert the index value you'd like to select into the parentheses in select_by_index()
         DiscountGroupsSelect = Select(self.driver.find_element_by_xpath("//select[@id='sponsoredMarketingSelect']"))
-        DiscountGroupsSelect.select_by_index(3)
+        DiscountGroupsSelect.select_by_index()
         return
 
+#This page brings you to a form where you fill out your contact information.
     def contact_information_0(self):
+        #Replace the strings in send_keys('') to whatever value you'd like
         EmailAddress = self.wait.until(ec.element_to_be_clickable((By.ID, 'email')))
         action(self.driver).move_to_element(EmailAddress).click().send_keys('test@testing.com').perform()
         PhoneNumber = self.wait.until(ec.element_to_be_clickable((By.ID, 'telephoneNumber')))
