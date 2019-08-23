@@ -51,7 +51,7 @@ class Auto_Geico_Test:
         return
 
     def close_browser(self):
-        closeBrowser = self.driver.quit()
+        self.driver.quit()
 
     # function for generic buttons
     def go_next(self):
