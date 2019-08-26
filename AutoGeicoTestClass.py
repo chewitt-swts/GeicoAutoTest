@@ -29,11 +29,10 @@ class Auto_Geico_Test:
     MaxAntitheftDeviceIndex = 5
     MaxDaysDrivenIndex = 5
     MaxTypeOfBusinessUseIndex = 5
+    MaxOccupationIndex = 5
 
     def __init__(self):
-        self.chrome_options = webdriver.ChromeOptions()
-        self.chrome_options.add_argument('-icognito')
-        self.driver = webdriver.Chrome(r"C:\drivers\chromedriver.exe", options=self.chrome_options)
+        self.driver = webdriver.Firefox(executable_path="C:\drivers\geckodriver.exe")
         self.CurrentModule = "Initialization"
         self.ErrorCount = 0
         self.wait = WebDriverWait(self.driver, 10)
@@ -195,6 +194,31 @@ class Auto_Geico_Test:
         YearDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-yeardob')))
         YearDOB0.click()
         YearDOB0.send_keys('1990')
+        print('Year of Birth has been found and entered. Year: ' + '1990')
+        return
+
+    def month_dob_0_rand(self):
+        # Replace the string in send_keys('') to a 2-digit numeric value between 01 and 12
+        MonthDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-monthdob')))
+        MonthDOB0.click()
+        MonthDOB0.send_keys(random.randint(1, 12))
+        print('Month of Birth has been found and entered. Month: ' + '08')
+        return
+
+    def day_dob_0_rand(self):
+        # Replace the string in send_keys('') to a 2-digit numeric value between 01 and 31
+        time.sleep(2)
+        DayDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-daydob')))
+        DayDOB0.click()
+        DayDOB0.send_keys(random.randint(1, 30))
+        print('Day of Birth has been found and entered. Day: ' + '08')
+        return
+
+    def year_dob_0_rand(self):
+        # Replace the string in send_keys('') to a 4-digit numeric value between 1900 and 2000
+        YearDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-yeardob')))
+        YearDOB0.click()
+        YearDOB0.send_keys(str(random.randint(1920, 2000)))
         print('Year of Birth has been found and entered. Year: ' + '1990')
         return
 
@@ -371,14 +395,14 @@ class Auto_Geico_Test:
             if index == 0:
                 PrimaryUse0 = self.driver.find_element_by_xpath("//label[@for='primaryUse0']")
                 action(self.driver).move_to_element(PrimaryUse0).click().perform()
-                self.primary_use_commute(1, 200)
+                self.primary_use_commute()
             if index == 1:
                 PrimaryUse1 = self.driver.find_element_by_xpath("//label[@for='primaryUse1']")
                 action(self.driver).move_to_element(PrimaryUse1).click().perform()
             if index == 2:
                 PrimaryUse2 = self.driver.find_element_by_xpath("//label[@for='primaryUse2']")
                 action(self.driver).move_to_element(PrimaryUse2).click().perform()
-                self.primary_use_business(1)
+                self.primary_use_business()
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
@@ -389,39 +413,39 @@ class Auto_Geico_Test:
             if index == 0:
                 PrimaryUse0 = self.driver.find_element_by_xpath("//label[@for='primaryUseunlisted0']")
                 action(self.driver).move_to_element(PrimaryUse0).click().perform()
-                self.primary_use_commute_unlisted(1, 200)
+                self.primary_use_commute_unlisted()
             if index == 1:
                 PrimaryUse1 = self.driver.find_element_by_xpath("//label[@for='primaryUseunlisted1']")
                 action(self.driver).move_to_element(PrimaryUse1).click().perform()
             if index == 2:
                 PrimaryUse2 = self.driver.find_element_by_xpath("//label[@for='primaryUseunlisted2']")
                 action(self.driver).move_to_element(PrimaryUse2).click().perform()
-                self.primary_use_business_unlisted(1)
+                self.primary_use_business_unlisted()
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
     # menu options for commuting
-    def primary_use_commute(self, index, miles):
+    def primary_use_commute(self):
         try:
             time.sleep(1)
             DaysDrivenSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='daysDriven']"))
-            DaysDrivenSelect0.select_by_index(index)
+            DaysDrivenSelect0.select_by_index(random.randint(1, len(DaysDrivenSelect0.options)))
             self.MaxDaysDrivenIndex = len(DaysDrivenSelect0.options)
             MilesDrivenInput0 = self.driver.find_element_by_xpath("//input[@id='milesDriven']")
-            action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(miles)).perform()
+            action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(self.random_int(3))).perform()
             print('Primary Use of Vehicle has been selected.')
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
     # menu options for commuting
-    def primary_use_commute_unlisted(self, index, miles):
+    def primary_use_commute_unlisted(self):
         try:
             time.sleep(1)
             DaysDrivenSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='daysDrivenunlisted']"))
-            DaysDrivenSelect0.select_by_index(index)
+            DaysDrivenSelect0.select_by_index(random.randint(1, len(DaysDrivenSelect0.options)))
             self.MaxDaysDrivenIndex = len(DaysDrivenSelect0.options)
             MilesDrivenInput0 = self.driver.find_element_by_xpath("//input[@id='milesDrivenunlisted']")
-            action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(miles)).perform()
+            action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(self.random_int(3))).perform()
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
@@ -443,21 +467,21 @@ class Auto_Geico_Test:
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
-    def primary_use_business(self, index):
+    def primary_use_business(self):
         try:
             time.sleep(1)
             TypeOfBusinessUseSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfBusinessUse']"))
             self.MaxTypeOfBusinessUseIndex = len(TypeOfBusinessUseSelect0.options)
-            TypeOfBusinessUseSelect0.select_by_index(index)
+            TypeOfBusinessUseSelect0.select_by_index(random.randint(1, len(TypeOfBusinessUseSelect0.options) - 1))
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
-    def primary_use_business_unlisted(self, index):
+    def primary_use_business_unlisted(self):
         try:
             time.sleep(1)
             TypeOfBusinessUseSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfBusinessUseunlisted']"))
             self.MaxTypeOfBusinessUseIndex = len(TypeOfBusinessUseSelect0.options)
-            TypeOfBusinessUseSelect0.select_by_index(index)
+            TypeOfBusinessUseSelect0.select_by_index(random.randint(1, len(TypeOfBusinessUseSelect0.options) - 1))
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
@@ -971,7 +995,7 @@ class Auto_Geico_Test:
         #Insert the index value you'd like to select into the parentheses in select_by_index()
         # Dropdown index: index 0 = blank space; index 1 = A Private Company/Self Employed; index 2 = Active Duty Military; index 3 = Federal Gov or Postal Service; index 4 = State/Local/Municipal Gov; index 5 = I am a Full Time Student; index 6 = I am currently a Homemaker; index 7 = Not Currently Employed; index 8 = Retired Private Company/Self Employed; index 9 = Retired Military; index 10 = Retired Federal Gov; index 11= Retired State/Local/Municipal Gov
         EmploymentStatus0 = Select(self.driver.find_element_by_xpath("//select[@id='employmentStatus']"))
-        EmploymentStatus0.select_by_index(random.randint(1, ))
+        EmploymentStatus0.select_by_index(random.randint(1, 11))
         return
 
     #Secondary dropdown menu triggered by selecting Active Duty Military; you must now select which branch of the military you belong to.
@@ -979,7 +1003,7 @@ class Auto_Geico_Test:
         #Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
         MilitaryBranchSelect0 =  Select(self.driver.find_element_by_xpath("//select[@id='branchOfMilitary']"))
-        MilitaryBranchSelect0.select_by_index(1)
+        MilitaryBranchSelect0.select_by_index(random.randint(1, 6))
         return
 
     #Tertiary dropdown menu triggered by selecting which branch of the military you belong to; you must now select your paygrade within the military.
@@ -987,7 +1011,7 @@ class Auto_Geico_Test:
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #dropdown index for Military Grade is too numerous to list out here; use index values 1 - 24
         MilitaryGradeSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='militaryGrade']"))
-        MilitaryGradeSelect0.select_by_index(2)
+        MilitaryGradeSelect0.select_by_index(random.randint(1, 24))
         return
 
     #Secondary dropdown menu triggered by selecting Federal Goverment/Postal Service; you must now select your paygrade.
@@ -995,7 +1019,7 @@ class Auto_Geico_Test:
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index for this element is too numerous to list out here.
         GovernmentGradeSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='governmentGrade']"))
-        GovernmentGradeSelect0.select_by_index()
+        GovernmentGradeSelect0.select_by_index(random.randint(1, len(GovernmentGradeSelect0.options)))
         return
 
     #Secondary dropdown menu triggered by selecting Retired Military; you must now select which branch of the military you belong to.
@@ -1003,7 +1027,7 @@ class Auto_Geico_Test:
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
         MilitaryBranchSelect1 =  Select(self.driver.find_element_by_xpath("//select[@id='branchOfMilitary']"))
-        MilitaryBranchSelect1.select_by_index()
+        MilitaryBranchSelect1.select_by_index(random.randint(1, 6))
         return
 
     #Tertiary dropdown menu triggered by selecting which branch of the military you belonged to before retirement; you must now select your paygrade within the military.
@@ -1011,7 +1035,7 @@ class Auto_Geico_Test:
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #dropdown index for Military Grade is too numerous to list out here; use index values 1 - 24
         MilitaryGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='militaryGrade']"))
-        MilitaryGradeSelect1.select_by_index()
+        MilitaryGradeSelect1.select_by_index(random.randint(1, 24))
         return
 
     #Secondary dropdown menu triggered by selecting Retired Federal Goverment/Postal Service; you must now select your paygrade.
@@ -1019,26 +1043,26 @@ class Auto_Geico_Test:
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index for this element is too numerous to list out here.
         GovernmentGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='governmentGrade']"))
-        GovernmentGradeSelect1.select_by_index()
+        GovernmentGradeSelect1.select_by_index(random.randint(1, len(GovernmentGradeSelect1.options)))
         return
 
     def type_of_student_0(self):
         #dropdown element for the type of student; must have selected "I am a Full Time Student"
         TypeOfStudent = Select(self.driver.find_element_by_xpath("//select[@id='typeOfStudent']"))
-        TypeOfStudent.select_by_index(3)
+        TypeOfStudent.select_by_index(random.randint(1, len(TypeOfStudent.options)))
 
 #A dialogue box/search box which allows you to enter your what your occupation was before you retired; you must have previously selected Retired Private Company/Self Employed on the Employment Status page.
     def retirement_occupation_0(self):
         #Replace the string in send_keys('') with the occupation you would like to search.
         OccupationSearch0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'employmentDescription')))
-        action(self.driver).move_to_element(OccupationSearch0).click().send_keys('engineer').perform()
+        action(self.driver).move_to_element(OccupationSearch0).click().send_keys('engineer').send_keys(Keys.TAB).perform()
         return
 #A second dropdown menu appears after you search for your occupation, directing you to select the closest match.
     def retirement_occupation_1(self):
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Index values will be variable depending on how many options your search returns.
         OccupationSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='foundOccupation']"))
-        OccupationSelect0.select_by_index()
+        OccupationSelect0.select_by_index(random.randint(1, len(OccupationSelect0.options)))
 
 #A dialogue box/search box which allows you to enter your what your occupation is; you must have previously selected  Private Company/Self Employed on the Employment Status page.
     def current_occupation_0(self):
@@ -1051,41 +1075,43 @@ class Auto_Geico_Test:
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Index values will be variable depending on how many options your search returns.
         OccupationSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='foundOccupation']"))
-        OccupationSelect1.select_by_index()
+
+        OccupationSelect1.select_by_index(random.randint(1, len(OccupationSelect1.options)))
         return
 
     def military_affiliation_0(self):
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #index for dropdown menu: index 0 = Does Not Apply; index 1 = Military Retiree; index 2 = National Guard; index 3 = Military Reserves
         MilitaryAffiliation0 = Select(self.driver.find_element_by_xpath("//select[@id='militaryAffiliation']"))
-        MilitaryAffiliation0.select_by_index()
+        MilitaryAffiliation0.select_by_index(random.randint(1, 3))
         return
+
 
     def military_affiliation_1(self):
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
         MilitaryAffiliationSelect1 =  Select(self.driver.find_element_by_xpath("//select[@id='militaryAffiliation']"))
-        MilitaryAffiliationSelect1.select_by_index()
+        MilitaryAffiliationSelect1.select_by_index(random.randint(1, 6))
 
     def military_affiliation_2(self):
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #dropdown index for Military Grade is too numerous to list out here; use index values 1 - 24
         MilitaryGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='militaryGrade']"))
-        MilitaryGradeSelect1.select_by_index()
+        MilitaryGradeSelect1.select_by_index(random.randint(1, 24))
         return
 
     def government_affiliation_0(self):
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #index for dropdown menu: index 0 = Does Not Apply; index 1 = Federal Gov or Postal Service; index 2 = Retired Federal Gov or Postal Service; index 3 = State/Local/Municipal Gov; index 4 = Retired State/Local/Municipal Gov
         GovernmentAffiliation0 = Select(self.driver.find_element_by_xpath("//select[@id='governmentAffiliation']"))
-        GovernmentAffiliation0.select_by_index()
+        GovernmentAffiliation0.select_by_index(random.randint(1, 4))
         return
 
     def government_affiliation_1(self):
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index for this element is too numerous to list out here.
         GovernmentGradeSelect1 = Select(self.driver.find_element_by_xpath("//select[@id='governmentGrade']"))
-        GovernmentGradeSelect1.select_by_index()
+        GovernmentGradeSelect1.select_by_index(random.randint(1, len(GovernmentGradeSelect1.options)))
         return
 
     # these functions get you to the page to add vehicles
@@ -1119,7 +1145,7 @@ class Auto_Geico_Test:
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index: 0 = blank space; index 1 = Accident; index 2 = Conviction; index 3 = Suspension/Revocation
         IncidentType0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfIncidents']"))
-        IncidentType0.select_by_index()
+        IncidentType0.select_by_index(random.randint(1, 3))
         return
 
 #testing the accident flow -- must have selected Accident/index 1 from dropdown menu in incident_type. This will trigger a secondary set of radio buttons to appear beneath the Incident_type dropdown.
@@ -1174,7 +1200,7 @@ class Auto_Geico_Test:
     # Insert the index value you'd like to select into the parentheses in select_by_index()
     #This page has a dropdown menu has 15 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-14 to select between the options
         ConvictionDescription = Select(self.driver.find_element_by_xpath("//select[@id='violationDescription']"))
-        ConvictionDescription.select_by_index()
+        ConvictionDescription.select_by_index(random.randint(1, 14))
         return
 
     def conviction_flow_1(self):
@@ -1203,21 +1229,21 @@ class Auto_Geico_Test:
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         # This page has a dropdown menu has 5 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-4 to select between the options
         SuspensionDetails = Select(self.driver.find_element_by_xpath("//select[@id='suspensionReason']"))
-        SuspensionDetails.select_by_index()
+        SuspensionDetails.select_by_index(random.randint(1, 4))
         return
 
     def suspension_flow_1(self):
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         # This page has a dropdown menu has 5 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-4 to select between the options
         SuspensionStartDate = Select(self.driver.find_element_by_xpath("//select[@id='suspensionStartDate']"))
-        SuspensionStartDate.select_by_index()
+        SuspensionStartDate.select_by_index(random.randint(1, 4))
         return
 
     def suspension_flow_2(self):
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         # This page has a dropdown menu has 5 options to select from, but each will take you to the same page, so there are no context dependencies. Use index 1-4 to select between the options
         SuspensionLength = Select(self.driver.find_element_by_xpath("//select[@id='lengthOfSuspensionControl']"))
-        SuspensionLength.select_by_index()
+        SuspensionLength.select_by_index(random.randint(1, 4))
         return
 
 #Testing Discounts - "Is Person currently a full time student with a B average or better?"
@@ -1280,7 +1306,7 @@ class Auto_Geico_Test:
     def discounts_9(self):
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         DiscountGroupsSelect = Select(self.driver.find_element_by_xpath("//select[@id='sponsoredMarketingSelect']"))
-        DiscountGroupsSelect.select_by_index()
+        DiscountGroupsSelect.select_by_index(random.randint(1, len(DiscountGroupsSelect.options)))
         return
 
 #This page brings you to a form where you fill out your contact information.
