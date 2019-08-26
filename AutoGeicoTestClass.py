@@ -32,9 +32,7 @@ class Auto_Geico_Test:
     MaxOccupationIndex = 5
 
     def __init__(self):
-        self.chrome_options = webdriver.ChromeOptions()
-        self.chrome_options.add_argument('-icognito')
-        self.driver = webdriver.Chrome(r"C:\drivers\chromedriver.exe", options=self.chrome_options)
+        self.driver = webdriver.Firefox(executable_path="C:\drivers\geckodriver.exe")
         self.CurrentModule = "Initialization"
         self.ErrorCount = 0
         self.wait = WebDriverWait(self.driver, 10)
@@ -196,6 +194,31 @@ class Auto_Geico_Test:
         YearDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-yeardob')))
         YearDOB0.click()
         YearDOB0.send_keys('1990')
+        print('Year of Birth has been found and entered. Year: ' + '1990')
+        return
+
+    def month_dob_0_rand(self):
+        # Replace the string in send_keys('') to a 2-digit numeric value between 01 and 12
+        MonthDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-monthdob')))
+        MonthDOB0.click()
+        MonthDOB0.send_keys(random.randint(1, 12))
+        print('Month of Birth has been found and entered. Month: ' + '08')
+        return
+
+    def day_dob_0_rand(self):
+        # Replace the string in send_keys('') to a 2-digit numeric value between 01 and 31
+        time.sleep(2)
+        DayDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-daydob')))
+        DayDOB0.click()
+        DayDOB0.send_keys(random.randint(1, 30))
+        print('Day of Birth has been found and entered. Day: ' + '08')
+        return
+
+    def year_dob_0_rand(self):
+        # Replace the string in send_keys('') to a 4-digit numeric value between 1900 and 2000
+        YearDOB0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'date-yeardob')))
+        YearDOB0.click()
+        YearDOB0.send_keys(str(random.randint(1920, 2000)))
         print('Year of Birth has been found and entered. Year: ' + '1990')
         return
 
@@ -372,14 +395,14 @@ class Auto_Geico_Test:
             if index == 0:
                 PrimaryUse0 = self.driver.find_element_by_xpath("//label[@for='primaryUse0']")
                 action(self.driver).move_to_element(PrimaryUse0).click().perform()
-                self.primary_use_commute(1, 200)
+                self.primary_use_commute()
             if index == 1:
                 PrimaryUse1 = self.driver.find_element_by_xpath("//label[@for='primaryUse1']")
                 action(self.driver).move_to_element(PrimaryUse1).click().perform()
             if index == 2:
                 PrimaryUse2 = self.driver.find_element_by_xpath("//label[@for='primaryUse2']")
                 action(self.driver).move_to_element(PrimaryUse2).click().perform()
-                self.primary_use_business(1)
+                self.primary_use_business()
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
@@ -390,39 +413,39 @@ class Auto_Geico_Test:
             if index == 0:
                 PrimaryUse0 = self.driver.find_element_by_xpath("//label[@for='primaryUseunlisted0']")
                 action(self.driver).move_to_element(PrimaryUse0).click().perform()
-                self.primary_use_commute_unlisted(1, 200)
+                self.primary_use_commute_unlisted()
             if index == 1:
                 PrimaryUse1 = self.driver.find_element_by_xpath("//label[@for='primaryUseunlisted1']")
                 action(self.driver).move_to_element(PrimaryUse1).click().perform()
             if index == 2:
                 PrimaryUse2 = self.driver.find_element_by_xpath("//label[@for='primaryUseunlisted2']")
                 action(self.driver).move_to_element(PrimaryUse2).click().perform()
-                self.primary_use_business_unlisted(1)
+                self.primary_use_business_unlisted()
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
     # menu options for commuting
-    def primary_use_commute(self, index, miles):
+    def primary_use_commute(self):
         try:
             time.sleep(1)
             DaysDrivenSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='daysDriven']"))
-            DaysDrivenSelect0.select_by_index(index)
+            DaysDrivenSelect0.select_by_index(random.randint(1, len(DaysDrivenSelect0.options)))
             self.MaxDaysDrivenIndex = len(DaysDrivenSelect0.options)
             MilesDrivenInput0 = self.driver.find_element_by_xpath("//input[@id='milesDriven']")
-            action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(miles)).perform()
+            action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(self.random_int(3))).perform()
             print('Primary Use of Vehicle has been selected.')
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
     # menu options for commuting
-    def primary_use_commute_unlisted(self, index, miles):
+    def primary_use_commute_unlisted(self):
         try:
             time.sleep(1)
             DaysDrivenSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='daysDrivenunlisted']"))
-            DaysDrivenSelect0.select_by_index(index)
+            DaysDrivenSelect0.select_by_index(random.randint(1, len(DaysDrivenSelect0.options)))
             self.MaxDaysDrivenIndex = len(DaysDrivenSelect0.options)
             MilesDrivenInput0 = self.driver.find_element_by_xpath("//input[@id='milesDrivenunlisted']")
-            action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(miles)).perform()
+            action(self.driver).move_to_element(MilesDrivenInput0).click().send_keys(str(self.random_int(3))).perform()
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
@@ -444,21 +467,21 @@ class Auto_Geico_Test:
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
-    def primary_use_business(self, index):
+    def primary_use_business(self):
         try:
             time.sleep(1)
             TypeOfBusinessUseSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfBusinessUse']"))
             self.MaxTypeOfBusinessUseIndex = len(TypeOfBusinessUseSelect0.options)
-            TypeOfBusinessUseSelect0.select_by_index(index)
+            TypeOfBusinessUseSelect0.select_by_index(random.randint(1, len(TypeOfBusinessUseSelect0.options) - 1))
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 
-    def primary_use_business_unlisted(self, index):
+    def primary_use_business_unlisted(self):
         try:
             time.sleep(1)
             TypeOfBusinessUseSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='typeOfBusinessUseunlisted']"))
             self.MaxTypeOfBusinessUseIndex = len(TypeOfBusinessUseSelect0.options)
-            TypeOfBusinessUseSelect0.select_by_index(index)
+            TypeOfBusinessUseSelect0.select_by_index(random.randint(1, len(TypeOfBusinessUseSelect0.options) - 1))
         except Exception as err:
             print("Exception thrown:\t" + str(err))
 

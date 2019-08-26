@@ -4,6 +4,8 @@ gvt = Auto_Geico_Test()
 
 ErrorCount = 0
 
+#TODO REMOVE THIS
+#walks through the basic process of adding a car, on hardcoded
 def test():
     while True:
         try:
@@ -214,7 +216,9 @@ def Test_I0n():
     except Exception as err:
         gvt.error_message(err)
 
-# vehicle ownership - owned
+#TODO RANDOMIZE THE USAGE FUNCTIONS - COMMUTE AND BUSINESS
+
+# vehicle usage
 # verify that the user can select the propery ownership category
 # index guide
 # 0 = commute, 1 = pleasure, 2 = business
