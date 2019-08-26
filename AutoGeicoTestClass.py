@@ -1026,13 +1026,13 @@ class Auto_Geico_Test:
     def type_of_student_0(self):
         #dropdown element for the type of student; must have selected "I am a Full Time Student"
         TypeOfStudent = Select(self.driver.find_element_by_xpath("//select[@id='typeOfStudent']"))
-        TypeOfStudent.select_by_index(3)
+        TypeOfStudent.select_by_index(random.randint(1, len(TypeOfStudent.options)))
 
 #A dialogue box/search box which allows you to enter your what your occupation was before you retired; you must have previously selected Retired Private Company/Self Employed on the Employment Status page.
     def retirement_occupation_0(self):
         #Replace the string in send_keys('') with the occupation you would like to search.
         OccupationSearch0 = self.wait.until(ec.element_to_be_clickable((By.ID, 'employmentDescription')))
-        action(self.driver).move_to_element(OccupationSearch0).click().send_keys('engineer').perform()
+        action(self.driver).move_to_element(OccupationSearch0).click().send_keys('engineer').send_keys(Keys.TAB).perform()
         return
 #A second dropdown menu appears after you search for your occupation, directing you to select the closest match.
     def retirement_occupation_1(self):
@@ -1063,8 +1063,7 @@ class Auto_Geico_Test:
         MilitaryAffiliation0.select_by_index(random.randint(1, 3))
         return
 
-    def student_type_0(selfself):
-        #
+
     def military_affiliation_1(self):
         # Insert the index value you'd like to select into the parentheses in select_by_index()
         #Dropdown index: index 0 = blank; index 1 = Air Force; index 2 = Army; index 3 = Coast Guard; index 4 = Marine Corps; index 5 = Navy; index 6 = Foreign Officer(non-US military)
