@@ -243,16 +243,17 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
+#TODO clean up a bit, throw out first two, check if it can register negative numbers
 #TC_E02 - DRIVER INFORMATION - MARITAL STATUS AND SOCIAL SECURITY NUMBER
 try:
     Test_E02 = Auto_Geico_Test()
 
     Test_E02.marital_status_0()
-    Test_E02.social_security_number_0()
+    Test_E02.social_security_number_0() #alpha character check
     Test_E02.next_button_x()
-    Test_E02.social_security_number_2()
+    Test_E02.social_security_number_2() #length check
     Test_E02.next_button_x()
-    Test_E02.social_security_number_1()
+    Test_E02.social_security_number_1() #length check
     Test_E02.next_button_x()
     print("test E02 ran successfully")
     Test_E02.close_browser()
@@ -280,6 +281,7 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
+#TODO test driving history page
 #TC_E04.1 - DRIVER INFORMATION - AUTO INSURANCE HISTORY - "YES"
 try:
     Test_E04o1 = Auto_Geico_Test()
@@ -364,7 +366,8 @@ try:
 
     Test_XX01.education_level_0()
     Test_XX01.next_button_x()
-    print("test E04o4 ran successfully")
+    print("test XX01 ran successfully")
+    Test_XX01.close_browser()
 
 except Exception as err:
     print('Test XX01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -383,6 +386,7 @@ try:
     Test_E05o1.current_occupation_1()
     Test_E05o1.next_button_x()
     print("test E05o1 ran successfully")
+    Test_E05o1.close_browser()
 
 except Exception as err:
     print('Test E05o1' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -400,6 +404,7 @@ try:
     Test_E05o2.employment_status_2()
     Test_E05o2.next_button_x()
     print("test E05o2 ran successfully")
+    Test_E05o2.close_browser()
 
 except Exception as err:
     print('Test E05o2' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -416,6 +421,7 @@ try:
     Test_E05o3.employment_status_3()
     Test_E05o3.next_button_x()
     print("test E05o3 ran successfully")
+    Test_E05o3.close_browser()
 
 except Exception as err:
     print('Test E05o3' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -424,7 +430,7 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
-#TC_E05o4 - DRIVER INFORMATION - EMPLOYMENT STATUS - "A STAE/LOCAL/MUNICIPAL GOVERNMENT"
+#TC_E05o4 - DRIVER INFORMATION - EMPLOYMENT STATUS - "A STATE/LOCAL/MUNICIPAL GOVERNMENT"
 try:
     Test_E05o4 = Auto_Geico_Test()
 
@@ -434,6 +440,7 @@ try:
     Test_E05o4.current_occupation_1()
     Test_E05o4.next_button_x()
     print("test E05o4 ran successfully")
+    Test_E05o4.close_browser()
 
 except Exception as err:
     print('Test E05o4' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -449,7 +456,8 @@ try:
     Test_E05o5.employment_status_0()
     Test_E05o5.type_of_student_0()
     Test_E05o5.next_button_x()
-    print("test E05o4 ran successfully")
+    print("test E05o5 ran successfully")
+    Test_E05o5.close_browser()
 
 except Exception as err:
     print('Test E05o5' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -465,6 +473,7 @@ try:
     Test_E05o6.employment_status_0()
     Test_E05o6.next_button_x()
     print("test E05o6 ran successfully")
+    Test_E05o6.close_browser()
 
 except Exception as err:
     print('Test E05o6' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -480,6 +489,7 @@ try:
     Test_E05o7.employment_status_0()
     Test_E05o7.next_button_x()
     print("test E05o7 ran successfully")
+    Test_E05o7.close_browser()
 
 except Exception as err:
     print('Test E05o7' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -497,12 +507,13 @@ try:
     Test_E05o7.retirement_occupation_0()
     Test_E05o7.retirement_occupation_1()
     Test_E05o7.next_button_x()
-    print("test E05o7 ran successfully")
+    print("test E05o8 ran successfully")
+    Test_E05o7.close_browser()
 
 except Exception as err:
-    print('Test E05o7' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o8' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05O7:")
+    print("An error occured while running automation test for Geico Test E05O8:")
     print(err.__module__)
     print(str(err))
 
@@ -515,6 +526,7 @@ try:
     Test_E05o9.employment_status_2()
     Test_E05o9.next_button_x()
     print("test E05o9 ran successfully")
+    Test_E05o9.close_browser()
 
 except Exception as err:
     print('Test E05o9' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -531,6 +543,7 @@ try:
     Test_E05o10.employment_status_3()
     Test_E05o10.next_button_x()
     print("test E05o10 ran successfully")
+    Test_E05o10.close_browser()
 
 except Exception as err:
     print('Test E05o10' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -548,11 +561,12 @@ try:
     Test_E05o11.retirement_occupation_1()
     Test_E05o11.next_button_x()
     print("test E05o11 ran successfully")
+    Test_E05o11.close_browser()
 
 except Exception as err:
     print('Test E05o11' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05o10:")
+    print("An error occured while running automation test for Geico Test E05o11:")
     print(err.__module__)
     print(str(err))
 
@@ -565,6 +579,7 @@ try:
     Test_W01.military_affiliation_2()
     Test_W01.next_button_x()
     print("test W01 ran successfully")
+    Test_W01.close_browser()
 
 except Exception as err:
     print('Test W01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -582,6 +597,7 @@ try:
     Test_W02.military_affiliation_2()
     Test_W02.next_button_x()
     print("test W02 ran successfully")
+    Test_W02.close_browser()
 
 except Exception as err:
     print('Test W02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -599,6 +615,7 @@ try:
     Test_W03.military_affiliation_2()
     Test_W03.next_button_x()
     print("test W03 ran successfully")
+    Test_W03.close_browser()
 
 except Exception as err:
     print('Test W03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -616,6 +633,7 @@ try:
     Test_W04.military_affiliation_2()
     Test_W04.next_button_x()
     print("test W04 ran successfully")
+    Test_W04.close_browser()
 
 except Exception as err:
     print('Test W04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -633,6 +651,7 @@ try:
     Test_W05.military_affiliation_2()
     Test_W05.next_button_x()
     print("test W05 ran successfully")
+    Test_W05.close_browser()
 
 except Exception as err:
     print('Test W05' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -649,6 +668,7 @@ try:
     Test_X01.government_affiliation_1()
     Test_X01.next_button_x()
     print("test X01 ran successfully")
+    Test_X01.close_browser()
 
 except Exception as err:
     print('Test X01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -665,6 +685,7 @@ try:
     Test_X02.government_affiliation_1()
     Test_X02.next_button_x()
     print("test X02 ran successfully")
+    Test_X02.close_browser()
 
 except Exception as err:
     print('Test X02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -681,6 +702,7 @@ try:
     Test_X03.government_affiliation_1()
     Test_X03.next_button_x()
     print("test X03 ran successfully")
+    Test_X03.close_browser()
 
 except Exception as err:
     print('Test X03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -689,12 +711,14 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
+#TODO write code to select add driver option
 #TC_Z01 - ADD DRIVER
 try:
     Test_Z01 = Auto_Geico_Test()
 
     Test_Z01.next_button_x()
     print("test Z01 ran successfully")
+    Test_Z01.close_browser()
 
 except Exception as err:
     print('Test Z01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -703,12 +727,14 @@ except Exception as err:
     print(err.__module__)
     print(str(err))
 
+#TODO write code to select saved drivers button
 #TC_Z02 - SAVED DRIVERS SCREEN
 try:
     Test_Z02 = Auto_Geico_Test()
 
     Test_Z02.next_button_x()
     print("test Z02 ran successfully")
+    Test_Z02.close_browser()
 
 except Exception as err:
     print('Test Z02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -723,6 +749,7 @@ try:
 
     Test_AA01.next_button_x()
     print("test AA01 ran successfully")
+    Test_AA01.close_browser()
 
 except Exception as err:
     print('Test AA01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -752,6 +779,7 @@ try:
     Test_AB01.add_incident()
     Test_AB01.incident_type()
     print("test AB01 ran successfully")
+    Test_AB01.close_browser()
 
 except Exception as err:
     print('Test AB01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -768,6 +796,7 @@ try:
     Test_AB02.incident_type()
     Test_AB02.next_button_x()
     print("test AB02 ran successfully")
+    Test_AB02.close_browser()
 
 except Exception as err:
     print('Test AB01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -784,6 +813,7 @@ try:
     Test_AB03.incident_type()
     Test_AB03.next_button_x()
     print("test AB03 ran successfully")
+    Test_AB03.close_browser()
 
 except Exception as err:
     print('Test AB03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -800,6 +830,7 @@ try:
     Test_AB04.incident_type()
     Test_AB04.next_button_x()
     print("test AB04 ran successfully")
+    Test_AB04.close_browser()
 
 except Exception as err:
     print('Test AB04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -816,6 +847,7 @@ try:
     Test_AB05.incident_type()
     Test_AB05.next_button_x()
     print("test AB05 ran successfully")
+    Test_AB05.close_browser()
 
 except Exception as err:
     print('Test AB05' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -832,6 +864,7 @@ try:
     Test_AC01.accident_flow_4()
     Test_AC01.next_button_x()
     print("test AC01 ran successfully")
+    Test_AC01.close_browser()
 
 except Exception as err:
     print('Test AC01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -848,6 +881,7 @@ try:
     Test_AC02.accident_flow_6()
     Test_AC02.next_button_x()
     print("test AC02 ran successfully")
+    Test_AC02.close_browser()
 
 except Exception as err:
     print('Test AC02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -863,6 +897,7 @@ try:
     Test_AD01.conviction_flow_0()
     Test_AD01.next_button_x()
     print("test AD01 ran successfully")
+    Test_AD01.close_browser()
 
 except Exception as err:
     print('Test AD01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -878,6 +913,7 @@ try:
     Test_AD02.conviction_flow_0()
     Test_AD02.next_button_x()
     print("test AD02 ran successfully")
+    Test_AD02.close_browser()
 
 except Exception as err:
     print('Test AD02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -893,6 +929,7 @@ try:
     Test_AD03.conviction_flow_1()
     Test_AD03.next_button_x()
     print("test AD03 ran successfully")
+    Test_AD03.close_browser()
 
 except Exception as err:
     print('Test AD03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -908,6 +945,7 @@ try:
     Test_AD04.conviction_flow_2()
     Test_AD04.next_button_x()
     print("test AD04 ran successfully")
+    Test_AD04.close_browser()
 
 except Exception as err:
     print('Test AD04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -923,6 +961,7 @@ try:
     Test_AE01.suspension_flow_0()
     Test_AE01.next_button_x()
     print("test AE01 ran successfully")
+    Test_AE01.close_browser()
 
 except Exception as err:
     print('Test AE01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -938,6 +977,7 @@ try:
     Test_AE02.suspension_flow_0()
     Test_AE02.next_button_x()
     print("test AE02 ran successfully")
+    Test_AE02.close_browser()
 
 except Exception as err:
     print('Test AE02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -953,6 +993,7 @@ try:
     Test_AE03.suspension_flow_1()
     Test_AE03.next_button_x()
     print("test AE03 ran successfully")
+    Test_AE03.close_browser()
 
 except Exception as err:
     print('Test AE03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -968,6 +1009,7 @@ try:
     Test_AE04.suspension_flow_1()
     Test_AE04.next_button_x()
     print("test AE04 ran successfully")
+    Test_AE04.close_browser()
 
 except Exception as err:
     print('Test AE04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -983,6 +1025,7 @@ try:
     Test_AE05.suspension_flow_2()
     Test_AE05.next_button_x()
     print("test AE05 ran successfully")
+    Test_AE05.close_browser()
 
 except Exception as err:
     print('Test AE05' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -998,6 +1041,7 @@ try:
     Test_AE06.suspension_flow_2()
     Test_AE06.next_button_x()
     print("test AE06 ran successfully")
+    Test_AE06.close_browser()
 
 except Exception as err:
     print('Test AE06' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -1014,6 +1058,7 @@ try:
     Test_F01.discounts_5()
     Test_F01.next_button_x()
     print("test F01 ran successfully")
+    Test_F01.close_browser()
 
 except Exception as err:
     print('Test F01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -1029,6 +1074,7 @@ try:
     Test_F02.discounts_9()
     Test_F02.next_button_x()
     print("test F02 ran successfully")
+    Test_F02.close_browser()
 
 except Exception as err:
     print('Test F02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
@@ -1044,6 +1090,7 @@ try:
     Test_F03.contact_information_0()
     Test_F03.next_button_x()
     print("test FO3 ran successfully")
+    Test_F03.close_browser()
 
 except Exception as err:
     print('Test F03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
