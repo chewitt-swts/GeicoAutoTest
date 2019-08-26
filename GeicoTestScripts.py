@@ -67,9 +67,9 @@ try:
     print("test E01 ran successfully")
 
 except Exception as err:
-    print('Test E01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E01:")
+    print("An ERROR occured while running automation test for Geico Test E01:")
     print(err.__module__)
     print(str(err))
 """
@@ -81,12 +81,12 @@ try:
     Test_A01.zip_input_0()
     Test_A01.customer_intent_0()
     Test_A01.next_button_0()
-    print("test case A01 ran successfully")
+    print("*** test case A01 ran successfully ***")
     Test_A01.close_browser()
 except Exception as err:
-    print('Test A01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test A01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test A01:")
+    print("An ERROR occured while running automation test for Geico Test A01:")
     print(err.__module__)
 
 
@@ -97,30 +97,30 @@ try:
     Test_A02.zip_input_0()
     Test_A02.customer_intent_1()
     Test_A02.next_button_0()
-    print("test case A02 ran successfully")
+    print("*** test case A02 ran successfully ***")
     Test_A02.close_browser()
 
 except Exception as err:
-    print('Test A02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test A02' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test A02:")
+    print("An ERROR occured while running automation test for Geico Test A02:")
     print(err.__module__)
 
 
-#TC A03 - i'M LOOKING FOR A BETTER PRICE
+#TC A03 - I'M LOOKING FOR A BETTER PRICE
 try:
     Test_A03 = Auto_Geico_Test() #creating an object to use the class that has the functionality that is needed for test cases
 
     Test_A03.zip_input_0()
     Test_A03.customer_intent_2()
     Test_A03.next_button_0()
-    print("test case A03 ran successfully")
+    print("*** test case A03 ran successfully ***")
     Test_A03.close_browser()
 
 except Exception as err:
-    print('Test A03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test A03' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test A03:")
+    print("An ERROR occured while running automation test for Geico Test A03:")
     print(err.__module__)
 
 #TC_A04 - I'M COMPARING RATES FOR DIFFERENT CARS
@@ -130,13 +130,13 @@ try:
     Test_A04.zip_input_0()
     Test_A04.customer_intent_3()
     Test_A04.next_button_0()
-    print("test case A04 ran successfully")
+    print("*** test case A04 ran successfully ***")
     Test_A04.close_browser()
 
 except Exception as err:
-    print('Test A04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test A04' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test A04:")
+    print("An ERROR occured while running automation test for Geico Test A04:")
     print(err.__module__)
 
 
@@ -147,13 +147,13 @@ try:
     Test_A05.zip_input_0()
     Test_A05.customer_intent_4()
     Test_A05.next_button_0()
-    print("test case A05 ran successfully")
+    print("*** test case A05 ran successfully ***")
     Test_A05.close_browser()
 
 except Exception as err:
-    print('Test A05' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test A05' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test A05:")
+    print("An ERROR occured while running automation test for Geico Test A05:")
     print(err.__module__)
 
 
@@ -164,13 +164,13 @@ try:
     Test_A06.zip_input_0()
     Test_A06.customer_intent_5()
     Test_A06.next_button_0()
-    print("test case A06 ran successfully")
+    print("*** test case A06 ran successfully ***")
     Test_A06.close_browser()
 
 except Exception as err:
-    print('Test A06' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test A06' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test A06:")
+    print("An ERROR occured while running automation test for Geico Test A06:")
     print(err.__module__)
 
 #
@@ -182,13 +182,13 @@ try:
     Test_B01.first_name_input_0()
     Test_B01.last_name_input_0()
     Test_B01.next_button_1()
-    print("test case B01 ran successfully")
+    print("*** test case B01 ran successfully ***")
     Test_B01.close_browser()
 
 except Exception as err:
-    print('Test B01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test B01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test B01:")
+    print("An ERROR occured while running automation test for Geico Test B01:")
     print(err.__module__)
 
 #TC_C01 - WHEN WERE YOU BORN
@@ -200,13 +200,13 @@ try:
     Test_C01.day_dob_0()
     Test_C01.year_dob_0()
     Test_C01.next_button_2()
-    print("test case C01 ran successfully")
+    print("*** test case C01 ran successfully ***")
     Test_C01.close_browser()
 
 except Exception as err:
-    print('Test C01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test C01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test C01:")
+    print("An ERROR occured while running automation test for Geico Test C01:")
     print(err.__module__)
 
 #TC_D01 - WHAT'S YOUR ADDRESS,APARTMENT, ZIP CODE
@@ -218,12 +218,12 @@ try:
     Test_D01.street_input_0()
     Test_D01.zip_input_1()
     Test_D01.next_button_3()
-    print("test D01 ran successfully")
+    print("*** test D01 ran successfully ***")
     Test_D01.close_browser()
 except Exception as err:
-    print('Test D01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test D01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test D01:")
+    print("An ERROR occured while running automation test for Geico Test D01:")
     print(err.__module__)
 
 #TODO need to add preconditions to E01 - E5.11 lots of work to do here
@@ -233,13 +233,13 @@ try:
 
     Test_E01.gender_select_0()
     Test_E01.next_button_x()
-    print("test E01 ran successfully")
+    print("*** test E01 ran successfully ***")
     Test_E01.close_browser()
 
 except Exception as err:
-    print('Test E01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E01:")
+    print("An ERROR occured while running automation test for Geico Test E01:")
     print(err.__module__)
     print(str(err))
 
@@ -255,13 +255,13 @@ try:
     Test_E02.next_button_x()
     Test_E02.social_security_number_1() #length check
     Test_E02.next_button_x()
-    print("test E02 ran successfully")
+    print("*** test E02 ran successfully ***")
     Test_E02.close_browser()
 
 except Exception as err:
-    print('Test E02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E02' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E02:")
+    print("An ERROR occured while running automation test for Geico Test E02:")
     print(err.__module__)
     print(str(err))
 
@@ -271,13 +271,13 @@ try:
 
     Test_E03.home_ownership_0()
     Test_E03.next_button_x()
-    print("test E03 ran successfully")
+    print("*** test E03 ran successfully ***")
     Test_E03.close_browser()
 
 except Exception as err:
-    print('Test E03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E03' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E03:")
+    print("An ERROR occured while running automation test for Geico Test E03:")
     print(err.__module__)
     print(str(err))
 
@@ -293,13 +293,13 @@ try:
     Test_E04o1.next_button_x()
     Test_E04o1.driving_history_1()
     Test_E04o1.next_button_x()
-    print("test E04o1 ran successfully")
+    print("*** test E04o1 ran successfully ***")
     Test_E04o1.close_browser()
 
 except Exception as err:
-    print('Test E04o1' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E04o1' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E04o1:")
+    print("An ERROR occured while running automation test for Geico Test E04o1:")
     print(err.__module__)
     print(str(err))
 
@@ -311,13 +311,13 @@ try:
     Test_E04o2.next_button_x()
     Test_E04o2.driving_history_1()
     Test_E04o2.next_button_x()
-    print("test E04o2 ran successfully")
+    print("*** test E04o2 ran successfully ***")
     Test_E04o2.close_browser()
 
 except Exception as err:
-    print('Test E04o2' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E04o2' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E04o2:")
+    print("An ERROR occured while running automation test for Geico Test E04o2:")
     print(err.__module__)
     print(str(err))
 
@@ -333,13 +333,13 @@ try:
     Test_E04o3.next_button_x()
     Test_E04o3.driving_history_1()
     Test_E04o3.next_button_x()
-    print("test E04o3 ran successfully")
+    print("*** test E04o3 ran successfully ***")
     Test_E04o3.close_browser()
 
 except Exception as err:
-    print('Test E04o3' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E04o3' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E04o3:")
+    print("An ERROR occured while running automation test for Geico Test E04o3:")
     print(err.__module__)
     print(str(err))
 
@@ -349,13 +349,13 @@ try:
 
     Test_E04o4.current_insured_status_4()
     Test_E04o4.next_button_x()
-    print("test E04o4 ran successfully")
+    print("*** test E04o4 ran successfully ***")
     Test_E04o4.close_browser()
 
 except Exception as err:
-    print('Test E04o4' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E04o4' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E04o4:")
+    print("An ERROR occured while running automation test for Geico Test E04o4:")
     print(err.__module__)
     print(str(err))
 
@@ -366,13 +366,13 @@ try:
 
     Test_XX01.education_level_0()
     Test_XX01.next_button_x()
-    print("test XX01 ran successfully")
+    print("*** test XX01 ran successfully ***")
     Test_XX01.close_browser()
 
 except Exception as err:
-    print('Test XX01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test XX01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test XX01:")
+    print("An ERROR occured while running automation test for Geico Test XX01:")
     print(err.__module__)
     print(str(err))
 
@@ -385,13 +385,13 @@ try:
     Test_E05o1.current_occupation_0()
     Test_E05o1.current_occupation_1()
     Test_E05o1.next_button_x()
-    print("test E05o1 ran successfully")
+    print("*** test E05o1 ran successfully ***")
     Test_E05o1.close_browser()
 
 except Exception as err:
-    print('Test E05o1' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o1' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05o1:")
+    print("An ERROR occured while running automation test for Geico Test E05o1:")
     print(err.__module__)
     print(str(err))
 
@@ -403,13 +403,13 @@ try:
     Test_E05o2.employment_status_1()
     Test_E05o2.employment_status_2()
     Test_E05o2.next_button_x()
-    print("test E05o2 ran successfully")
+    print("*** test E05o2 ran successfully ***")
     Test_E05o2.close_browser()
 
 except Exception as err:
-    print('Test E05o2' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o2' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05o2:")
+    print("An ERROR occured while running automation test for Geico Test E05o2:")
     print(err.__module__)
     print(str(err))
 
@@ -420,13 +420,13 @@ try:
     Test_E05o3.employment_status_0()
     Test_E05o3.employment_status_3()
     Test_E05o3.next_button_x()
-    print("test E05o3 ran successfully")
+    print("*** test E05o3 ran successfully ***")
     Test_E05o3.close_browser()
 
 except Exception as err:
-    print('Test E05o3' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o3' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05o3:")
+    print("An ERROR occured while running automation test for Geico Test E05o3:")
     print(err.__module__)
     print(str(err))
 
@@ -439,13 +439,13 @@ try:
     Test_E05o4.current_occupation_0()
     Test_E05o4.current_occupation_1()
     Test_E05o4.next_button_x()
-    print("test E05o4 ran successfully")
+    print("*** test E05o4 ran successfully ***")
     Test_E05o4.close_browser()
 
 except Exception as err:
-    print('Test E05o4' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o4' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05o4:")
+    print("An ERROR occured while running automation test for Geico Test E05o4:")
     print(err.__module__)
     print(str(err))
 
@@ -456,13 +456,13 @@ try:
     Test_E05o5.employment_status_0()
     Test_E05o5.type_of_student_0()
     Test_E05o5.next_button_x()
-    print("test E05o5 ran successfully")
+    print("*** test E05o5 ran successfully ***")
     Test_E05o5.close_browser()
 
 except Exception as err:
-    print('Test E05o5' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o5' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05o5:")
+    print("An ERROR occured while running automation test for Geico Test E05o5:")
     print(err.__module__)
     print(str(err))
 
@@ -472,13 +472,13 @@ try:
 
     Test_E05o6.employment_status_0()
     Test_E05o6.next_button_x()
-    print("test E05o6 ran successfully")
+    print("*** test E05o6 ran successfully ***")
     Test_E05o6.close_browser()
 
 except Exception as err:
-    print('Test E05o6' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o6' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05o6:")
+    print("An ERROR occured while running automation test for Geico Test E05o6:")
     print(err.__module__)
     print(str(err))
 
@@ -488,13 +488,13 @@ try:
 
     Test_E05o7.employment_status_0()
     Test_E05o7.next_button_x()
-    print("test E05o7 ran successfully")
+    print("*** test E05o7 ran successfully ***")
     Test_E05o7.close_browser()
 
 except Exception as err:
-    print('Test E05o7' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o7' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05O7:")
+    print("An ERROR occured while running automation test for Geico Test E05O7:")
     print(err.__module__)
     print(str(err))
 
@@ -507,13 +507,13 @@ try:
     Test_E05o7.retirement_occupation_0()
     Test_E05o7.retirement_occupation_1()
     Test_E05o7.next_button_x()
-    print("test E05o8 ran successfully")
+    print("*** test E05o8 ran successfully ***")
     Test_E05o7.close_browser()
 
 except Exception as err:
-    print('Test E05o8' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o8' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05O8:")
+    print("An ERROR occured while running automation test for Geico Test E05O8:")
     print(err.__module__)
     print(str(err))
 
@@ -525,13 +525,13 @@ try:
     Test_E05o9.employment_status_1()
     Test_E05o9.employment_status_2()
     Test_E05o9.next_button_x()
-    print("test E05o9 ran successfully")
+    print("*** test E05o9 ran successfully ***")
     Test_E05o9.close_browser()
 
 except Exception as err:
-    print('Test E05o9' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o9' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05o9:")
+    print("An ERROR occured while running automation test for Geico Test E05o9:")
     print(err.__module__)
     print(str(err))
 
@@ -542,13 +542,13 @@ try:
     Test_E05o10.employment_status_0()
     Test_E05o10.employment_status_3()
     Test_E05o10.next_button_x()
-    print("test E05o10 ran successfully")
+    print("*** test E05o10 ran successfully ***")
     Test_E05o10.close_browser()
 
 except Exception as err:
-    print('Test E05o10' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o10' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05o10:")
+    print("An ERROR occured while running automation test for Geico Test E05o10:")
     print(err.__module__)
     print(str(err))
 
@@ -560,13 +560,13 @@ try:
     Test_E05o11.retirement_occupation_0()
     Test_E05o11.retirement_occupation_1()
     Test_E05o11.next_button_x()
-    print("test E05o11 ran successfully")
+    print("*** test E05o11 ran successfully ***")
     Test_E05o11.close_browser()
 
 except Exception as err:
-    print('Test E05o11' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test E05o11' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test E05o11:")
+    print("An ERROR occured while running automation test for Geico Test E05o11:")
     print(err.__module__)
     print(str(err))
 
@@ -578,13 +578,13 @@ try:
     Test_W01.military_affiliation_1()
     Test_W01.military_affiliation_2()
     Test_W01.next_button_x()
-    print("test W01 ran successfully")
+    print("*** test W01 ran successfully ***")
     Test_W01.close_browser()
 
 except Exception as err:
-    print('Test W01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test W01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test W01:")
+    print("An ERROR occured while running automation test for Geico Test W01:")
     print(err.__module__)
     print(str(err))
 
@@ -596,13 +596,13 @@ try:
     Test_W02.military_affiliation_1()
     Test_W02.military_affiliation_2()
     Test_W02.next_button_x()
-    print("test W02 ran successfully")
+    print("*** test W02 ran successfully ***")
     Test_W02.close_browser()
 
 except Exception as err:
-    print('Test W02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test W02' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test W02:")
+    print("An ERROR occured while running automation test for Geico Test W02:")
     print(err.__module__)
     print(str(err))
 
@@ -614,13 +614,13 @@ try:
     Test_W03.military_affiliation_1()
     Test_W03.military_affiliation_2()
     Test_W03.next_button_x()
-    print("test W03 ran successfully")
+    print("*** test W03 ran successfully ***")
     Test_W03.close_browser()
 
 except Exception as err:
-    print('Test W03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test W03' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test W03:")
+    print("An ERROR occured while running automation test for Geico Test W03:")
     print(err.__module__)
     print(str(err))
 
@@ -632,13 +632,13 @@ try:
     Test_W04.military_affiliation_1()
     Test_W04.military_affiliation_2()
     Test_W04.next_button_x()
-    print("test W04 ran successfully")
+    print("*** test W04 ran successfully ***")
     Test_W04.close_browser()
 
 except Exception as err:
-    print('Test W04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test W04' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test W04:")
+    print("An ERROR occured while running automation test for Geico Test W04:")
     print(err.__module__)
     print(str(err))
 
@@ -650,13 +650,13 @@ try:
     Test_W05.military_affiliation_1()
     Test_W05.military_affiliation_2()
     Test_W05.next_button_x()
-    print("test W05 ran successfully")
+    print("*** test W05 ran successfully ***")
     Test_W05.close_browser()
 
 except Exception as err:
-    print('Test W05' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test W05' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test W05:")
+    print("An ERROR occured while running automation test for Geico Test W05:")
     print(err.__module__)
     print(str(err))
 
@@ -667,13 +667,13 @@ try:
     Test_X01.government_affiliation_0()
     Test_X01.government_affiliation_1()
     Test_X01.next_button_x()
-    print("test X01 ran successfully")
+    print("*** test X01 ran successfully ***")
     Test_X01.close_browser()
 
 except Exception as err:
-    print('Test X01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test X01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test X01:")
+    print("An ERROR occured while running automation test for Geico Test X01:")
     print(err.__module__)
     print(str(err))
 
@@ -684,13 +684,13 @@ try:
     Test_X02.government_affiliation_0()
     Test_X02.government_affiliation_1()
     Test_X02.next_button_x()
-    print("test X02 ran successfully")
+    print("*** test X02 ran successfully ***")
     Test_X02.close_browser()
 
 except Exception as err:
-    print('Test X02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test X02' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test X02:")
+    print("An ERROR occured while running automation test for Geico Test X02:")
     print(err.__module__)
     print(str(err))
 
@@ -701,13 +701,13 @@ try:
     Test_X03.government_affiliation_0()
     Test_X03.government_affiliation_1()
     Test_X03.next_button_x()
-    print("test X03 ran successfully")
+    print("*** test X03 ran successfully ***")
     Test_X03.close_browser()
 
 except Exception as err:
-    print('Test X03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test X03' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test X03:")
+    print("An ERROR occured while running automation test for Geico Test X03:")
     print(err.__module__)
     print(str(err))
 
@@ -717,13 +717,13 @@ try:
     Test_Z01 = Auto_Geico_Test()
 
     Test_Z01.next_button_x()
-    print("test Z01 ran successfully")
+    print("*** test Z01 ran successfully ***")
     Test_Z01.close_browser()
 
 except Exception as err:
-    print('Test Z01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test Z01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test Z01:")
+    print("An ERROR occured while running automation test for Geico Test Z01:")
     print(err.__module__)
     print(str(err))
 
@@ -733,13 +733,13 @@ try:
     Test_Z02 = Auto_Geico_Test()
 
     Test_Z02.next_button_x()
-    print("test Z02 ran successfully")
+    print("*** test Z02 ran successfully ***")
     Test_Z02.close_browser()
 
 except Exception as err:
-    print('Test Z02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test Z02' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test Z02:")
+    print("An ERROR occured while running automation test for Geico Test Z02:")
     print(err.__module__)
     print(str(err))
 
@@ -748,13 +748,13 @@ try:
     Test_AA01 = Auto_Geico_Test()
 
     Test_AA01.next_button_x()
-    print("test AA01 ran successfully")
+    print("*** test AA01 ran successfully ***")
     Test_AA01.close_browser()
 
 except Exception as err:
-    print('Test AA01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AA01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AA01:")
+    print("An ERROR occured while running automation test for Geico Test AA01:")
     print(err.__module__)
     print(str(err))
 
@@ -763,12 +763,12 @@ try:
     Test_AA02 = Auto_Geico_Test()
 
     Test_AA02.add_incident()
-    print("test AA02 ran successfully")
+    print("*** test AA02 ran successfully ***")
 
 except Exception as err:
-    print('Test AA02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AA02' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AA02:")
+    print("An ERROR occured while running automation test for Geico Test AA02:")
     print(err.__module__)
     print(str(err))
 
@@ -778,13 +778,13 @@ try:
 
     Test_AB01.add_incident()
     Test_AB01.incident_type()
-    print("test AB01 ran successfully")
+    print("*** test AB01 ran successfully ***")
     Test_AB01.close_browser()
 
 except Exception as err:
-    print('Test AB01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AB01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AB01:")
+    print("An ERROR occured while running automation test for Geico Test AB01:")
     print(err.__module__)
     print(str(err))
 
@@ -795,13 +795,13 @@ try:
     Test_AB02.add_incident()
     Test_AB02.incident_type()
     Test_AB02.next_button_x()
-    print("test AB02 ran successfully")
+    print("*** test AB02 ran successfully ***")
     Test_AB02.close_browser()
 
 except Exception as err:
-    print('Test AB01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AB01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AB01:")
+    print("An ERROR occured while running automation test for Geico Test AB01:")
     print(err.__module__)
     print(str(err))
 
@@ -812,13 +812,13 @@ try:
     Test_AB03.add_incident()
     Test_AB03.incident_type()
     Test_AB03.next_button_x()
-    print("test AB03 ran successfully")
+    print("*** test AB03 ran successfully ***")
     Test_AB03.close_browser()
 
 except Exception as err:
-    print('Test AB03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AB03' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AB03:")
+    print("An ERROR occured while running automation test for Geico Test AB03:")
     print(err.__module__)
     print(str(err))
 
@@ -829,13 +829,13 @@ try:
     Test_AB04.add_incident()
     Test_AB04.incident_type()
     Test_AB04.next_button_x()
-    print("test AB04 ran successfully")
+    print("*** test AB04 ran successfully ***")
     Test_AB04.close_browser()
 
 except Exception as err:
-    print('Test AB04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AB04' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AB04:")
+    print("An ERROR occured while running automation test for Geico Test AB04:")
     print(err.__module__)
     print(str(err))
 
@@ -846,13 +846,13 @@ try:
     Test_AB05.add_incident()
     Test_AB05.incident_type()
     Test_AB05.next_button_x()
-    print("test AB05 ran successfully")
+    print("*** test AB05 ran successfully ***")
     Test_AB05.close_browser()
 
 except Exception as err:
-    print('Test AB05' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AB05' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AB05:")
+    print("An ERROR occured while running automation test for Geico Test AB05:")
     print(err.__module__)
     print(str(err))
 
@@ -863,13 +863,13 @@ try:
     Test_AC01.accident_flow_2()
     Test_AC01.accident_flow_4()
     Test_AC01.next_button_x()
-    print("test AC01 ran successfully")
+    print("*** test AC01 ran successfully ***")
     Test_AC01.close_browser()
 
 except Exception as err:
-    print('Test AC01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AC01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AC01:")
+    print("An ERROR occured while running automation test for Geico Test AC01:")
     print(err.__module__)
     print(str(err))
 
@@ -880,13 +880,13 @@ try:
     Test_AC02.accident_flow_3()
     Test_AC02.accident_flow_6()
     Test_AC02.next_button_x()
-    print("test AC02 ran successfully")
+    print("*** test AC02 ran successfully ***")
     Test_AC02.close_browser()
 
 except Exception as err:
-    print('Test AC02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AC02' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AC02:")
+    print("An ERROR occured while running automation test for Geico Test AC02:")
     print(err.__module__)
     print(str(err))
 
@@ -896,13 +896,13 @@ try:
 
     Test_AD01.conviction_flow_0()
     Test_AD01.next_button_x()
-    print("test AD01 ran successfully")
+    print("*** test AD01 ran successfully ***")
     Test_AD01.close_browser()
 
 except Exception as err:
-    print('Test AD01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AD01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AD01:")
+    print("An ERROR occured while running automation test for Geico Test AD01:")
     print(err.__module__)
     print(str(err))
 
@@ -912,13 +912,13 @@ try:
 
     Test_AD02.conviction_flow_0()
     Test_AD02.next_button_x()
-    print("test AD02 ran successfully")
+    print("*** test AD02 ran successfully ***")
     Test_AD02.close_browser()
 
 except Exception as err:
-    print('Test AD02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AD02' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AD02:")
+    print("An ERROR occured while running automation test for Geico Test AD02:")
     print(err.__module__)
     print(str(err))
 
@@ -928,13 +928,13 @@ try:
 
     Test_AD03.conviction_flow_1()
     Test_AD03.next_button_x()
-    print("test AD03 ran successfully")
+    print("*** test AD03 ran successfully ***")
     Test_AD03.close_browser()
 
 except Exception as err:
-    print('Test AD03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AD03' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AD03:")
+    print("An ERROR occured while running automation test for Geico Test AD03:")
     print(err.__module__)
     print(str(err))
 
@@ -944,13 +944,13 @@ try:
 
     Test_AD04.conviction_flow_2()
     Test_AD04.next_button_x()
-    print("test AD04 ran successfully")
+    print("*** test AD04 ran successfully ***")
     Test_AD04.close_browser()
 
 except Exception as err:
-    print('Test AD04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AD04' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AD04:")
+    print("An ERROR occured while running automation test for Geico Test AD04:")
     print(err.__module__)
     print(str(err))
 
@@ -960,13 +960,13 @@ try:
 
     Test_AE01.suspension_flow_0()
     Test_AE01.next_button_x()
-    print("test AE01 ran successfully")
+    print("*** test AE01 ran successfully ***")
     Test_AE01.close_browser()
 
 except Exception as err:
-    print('Test AE01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AE01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AE01:")
+    print("An ERROR occured while running automation test for Geico Test AE01:")
     print(err.__module__)
     print(str(err))
 
@@ -976,13 +976,13 @@ try:
 
     Test_AE02.suspension_flow_0()
     Test_AE02.next_button_x()
-    print("test AE02 ran successfully")
+    print("*** test AE02 ran successfully ***")
     Test_AE02.close_browser()
 
 except Exception as err:
-    print('Test AE02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AE02' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AE02:")
+    print("An ERROR occured while running automation test for Geico Test AE02:")
     print(err.__module__)
     print(str(err))
 
@@ -992,13 +992,13 @@ try:
 
     Test_AE03.suspension_flow_1()
     Test_AE03.next_button_x()
-    print("test AE03 ran successfully")
+    print("*** test AE03 ran successfully ***")
     Test_AE03.close_browser()
 
 except Exception as err:
-    print('Test AE03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AE03' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AE03:")
+    print("An ERROR occured while running automation test for Geico Test AE03:")
     print(err.__module__)
     print(str(err))
 
@@ -1008,13 +1008,13 @@ try:
 
     Test_AE04.suspension_flow_1()
     Test_AE04.next_button_x()
-    print("test AE04 ran successfully")
+    print("*** test AE04 ran successfully ***")
     Test_AE04.close_browser()
 
 except Exception as err:
-    print('Test AE04' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AE04' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AE04:")
+    print("An ERROR occured while running automation test for Geico Test AE04:")
     print(err.__module__)
     print(str(err))
 
@@ -1024,13 +1024,13 @@ try:
 
     Test_AE05.suspension_flow_2()
     Test_AE05.next_button_x()
-    print("test AE05 ran successfully")
+    print("*** test AE05 ran successfully ***")
     Test_AE05.close_browser()
 
 except Exception as err:
-    print('Test AE05' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AE05' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AE05:")
+    print("An ERROR occured while running automation test for Geico Test AE05:")
     print(err.__module__)
     print(str(err))
 
@@ -1040,13 +1040,13 @@ try:
 
     Test_AE06.suspension_flow_2()
     Test_AE06.next_button_x()
-    print("test AE06 ran successfully")
+    print("*** test AE06 ran successfully ***")
     Test_AE06.close_browser()
 
 except Exception as err:
-    print('Test AE06' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test AE06' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AE06:")
+    print("An ERROR occured while running automation test for Geico Test AE06:")
     print(err.__module__)
     print(str(err))
 
@@ -1057,13 +1057,13 @@ try:
     Test_F01.discounts_1()
     Test_F01.discounts_5()
     Test_F01.next_button_x()
-    print("test F01 ran successfully")
+    print("*** test F01 ran successfully ***")
     Test_F01.close_browser()
 
 except Exception as err:
-    print('Test F01' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test F01' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test F01:")
+    print("An ERROR occured while running automation test for Geico Test F01:")
     print(err.__module__)
     print(str(err))
 
@@ -1073,13 +1073,13 @@ try:
 
     Test_F02.discounts_9()
     Test_F02.next_button_x()
-    print("test F02 ran successfully")
+    print("*** test F02 ran successfully ***")
     Test_F02.close_browser()
 
 except Exception as err:
-    print('Test F02' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test F02' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test F02:")
+    print("An ERROR occured while running automation test for Geico Test F02:")
     print(err.__module__)
     print(str(err))
 
@@ -1089,12 +1089,12 @@ try:
 
     Test_F03.contact_information_0()
     Test_F03.next_button_x()
-    print("test FO3 ran successfully")
+    print("*** test FO3 ran successfully ***")
     Test_F03.close_browser()
 
 except Exception as err:
-    print('Test F03' + ' test automation observed an error on line {}'.format(sys.exc_info()[-1].tb_lineno))
+    print('Test F03' + ' test automation observed an ERROR on line {}'.format(sys.exc_info()[-1].tb_lineno))
     print(err.args)
-    print("An error occured while running automation test for Geico Test AF03:")
+    print("An ERROR occured while running automation test for Geico Test AF03:")
     print(err.__module__)
     print(str(err))
