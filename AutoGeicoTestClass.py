@@ -808,11 +808,13 @@ class Auto_Geico_Test:
     def gender_select_0(self):
         #index values: value "F" = female; value "M" = Male
 
+        time.sleep(2)
         GenderSelect0 = Select(self.driver.find_element_by_xpath("//select[@id='gender']"))
+        time.sleep(2)
         GenderSelect0.select_by_index(1)
         time.sleep(4)
-        NextButton4 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
-        NextButton4.click()
+        #NextButton4 = self.driver.find_element_by_xpath('//*[@id="question-breakdown"]/div/div[4]/div[2]/div[1]/div/div/button')
+        #NextButton4.click()
         return
 
     def marital_status_0(self):
